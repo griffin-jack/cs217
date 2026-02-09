@@ -1,0 +1,63 @@
+---- System Initialization and Reset (bar_handle: 0) ----
+
+---- STEP 1: WRITE PEConfig ----
+RVA readback OK: 0x00000000000000000000010100000001
+
+---- STEP 2: WRITE WEIGHT SRAM ----
+RVA readback OK: 0x323bbda7165f214b28b25891484458c9
+RVA readback OK: 0x62503f6a65888a854cb3bebd3449a246
+RVA readback OK: 0x0fc948fb401af2b81b78898e7ffe993a
+RVA readback OK: 0x32940cea394212f65400715d40a28a84
+RVA readback OK: 0x70b319ef07d2d33746e477033e0969b1
+RVA readback OK: 0x0436f15c568b0e5563b9ac021940ab01
+RVA readback OK: 0x596a54ca1bd9093459200a24647248bc
+RVA readback OK: 0x222aa32b570752312846ecd659e64a62
+RVA readback OK: 0x0542e7ae546660d26d66737c50f94567
+RVA readback OK: 0x3a18cb736793271839eeeb583a1a3239
+RVA readback OK: 0x1609ff6a49e2146f27ae19d0556774e6
+RVA readback OK: 0x39b7f4de489e0c54032427657bae8b2d
+RVA readback OK: 0x6349496a2a6b0ecd5070df8c4a089e69
+RVA readback OK: 0x189cd44a67803ac700f61d22342a8b8e
+RVA readback OK: 0x33fc71a872072915035943fb5a162746
+RVA readback OK: 0x7c997638562714d4490e7b462ba030d1
+
+---- STEP 3: WRITE INPUT SRAM ----
+RVA readback OK: 0x708f20fb01dc5de62a8d75a63674eec2
+
+---- STEP 4: WRITE Manager1 config ----
+RVA readback OK: 0x00000000000000000000000000000100
+
+---- STEP 5 & 6: START/STOP ----
+
+---- STEP 7: READ OUTPUT ACT ----
+
+---- Final Output Vector Comparison ----
+Act Port Computed value = 19252 and expected value = 19274 (lane 00) err=0.114%
+Act Port Computed value = 22010 and expected value = 22035 (lane 01) err=0.113%
+Act Port Computed value = 25113 and expected value = 25141 (lane 02) err=0.111%
+Act Port Computed value = 22147 and expected value = 22171 (lane 03) err=0.108%
+Act Port Computed value = 23699 and expected value = 23726 (lane 04) err=0.114%
+Act Port Computed value = 15563 and expected value = 15580 (lane 05) err=0.109%
+Act Port Computed value = 18486 and expected value = 18507 (lane 06) err=0.113%
+Act Port Computed value = 15423 and expected value = 15440 (lane 07) err=0.110%
+Act Port Computed value = 21480 and expected value = 21504 (lane 08) err=0.112%
+Act Port Computed value = 15822 and expected value = 15840 (lane 09) err=0.114%
+Act Port Computed value = 21860 and expected value = 21885 (lane 10) err=0.114%
+Act Port Computed value = 20101 and expected value = 20124 (lane 11) err=0.114%
+Act Port Computed value = 20702 and expected value = 20725 (lane 12) err=0.111%
+Act Port Computed value = 19718 and expected value = 19740 (lane 13) err=0.111%
+Act Port Computed value = 15516 and expected value = 15533 (lane 14) err=0.109%
+Act Port Computed value = 17677 and expected value = 17697 (lane 15) err=0.113%
+
+Dest: Difference observed in compute Act and expected value 0.112%
+TEST PASSED
+Data Transfer Cycles: 12864
+Compute Cycles: 14
+
+Total RVA Verification Errors: 0
+       STARTING GEMM (MATRIX MULT) TEST     
+GEMM: Loading Weight Matrix A (16 rows)...
+GEMM: Streaming 4 Input Vectors (Matrix B cols)...
+GEMM: Verifying Matrix C (Result)...
+GEMM Test Finished. Avg Error: 0.1132%. Failures: 0
+GEMM TEST PASSED

@@ -1,0 +1,242 @@
+Starting System C Simulation Test Suite
+
+
+Running test with kIntWordWidth = 8, kVectorSize = 8, kNumVectorLanes = 8rm -rf *.o sim_* dump.vcd
+rm -rf build.log
+g++ -o sim_test -DHLS_ALGORITHMICC -Wall -Wno-unknown-pragmas -Wno-virtual-move-assign -Wno-unused-local-typedefs -std=c++11  -I. -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/xilinx/vitis/2020.1/Vitis/2020.1/cardano/tps/boost_1_64_0 -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/home/users/code/cs217-lab-1/src/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib/cmod/include  -L. -L/cad/mentor/2024.2_1/Mgc_home/shared/lib -L/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/boostpp/pp/lib -DHLS_CATAPULT -DCONNECTIONS_ACCURATE_SIM -DSC_INCLUDE_DYNAMIC_PROCESSES testbench.cpp   -lstdc++ -lsystemc -lm -lpthread > build.log 2>&1
+./sim_test
+================================
+SETTING RANDOM SEED = 19650218
+================================
+Connections Clock: tb.clk Period: 1 ns
+@2 ns Asserting reset
+@4 ns De-Asserting reset
+ActPort Computed value = 13898 and expected value = 13913
+ActPort Computed value = 9435 and expected value = 9445
+ActPort Computed value = 5497 and expected value = 5503
+ActPort Computed value = 13423 and expected value = 13438
+ActPort Computed value = 12481 and expected value = 12495
+ActPort Computed value = 6972 and expected value = 6980
+ActPort Computed value = 12891 and expected value = 12906
+ActPort Computed value = 9234 and expected value = 9244
+Dest: Difference observed in compute Act and expected value 0.110676%
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+TESTBENCH PASS
+
+
+Running test with kIntWordWidth = 8, kVectorSize = 8, kNumVectorLanes = 16rm -rf *.o sim_* dump.vcd
+rm -rf build.log
+g++ -o sim_test -DHLS_ALGORITHMICC -Wall -Wno-unknown-pragmas -Wno-virtual-move-assign -Wno-unused-local-typedefs -std=c++11  -I. -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/xilinx/vitis/2020.1/Vitis/2020.1/cardano/tps/boost_1_64_0 -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/home/users/code/cs217-lab-1/src/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib/cmod/include  -L. -L/cad/mentor/2024.2_1/Mgc_home/shared/lib -L/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/boostpp/pp/lib -DHLS_CATAPULT -DCONNECTIONS_ACCURATE_SIM -DSC_INCLUDE_DYNAMIC_PROCESSES testbench.cpp   -lstdc++ -lsystemc -lm -lpthread > build.log 2>&1
+./sim_test
+================================
+SETTING RANDOM SEED = 19650218
+================================
+Connections Clock: tb.clk Period: 1 ns
+@2 ns Asserting reset
+@4 ns De-Asserting reset
+ActPort Computed value = 9456 and expected value = 9466
+ActPort Computed value = 5961 and expected value = 5967
+ActPort Computed value = 6452 and expected value = 6459
+ActPort Computed value = 9100 and expected value = 9110
+ActPort Computed value = 9726 and expected value = 9737
+ActPort Computed value = 6824 and expected value = 6832
+ActPort Computed value = 9975 and expected value = 9986
+ActPort Computed value = 5744 and expected value = 5750
+ActPort Computed value = 8559 and expected value = 8569
+ActPort Computed value = 6780 and expected value = 6788
+ActPort Computed value = 5998 and expected value = 6005
+ActPort Computed value = 8563 and expected value = 8572
+ActPort Computed value = 7222 and expected value = 7230
+ActPort Computed value = 7933 and expected value = 7941
+ActPort Computed value = 10256 and expected value = 10268
+ActPort Computed value = 3834 and expected value = 3838
+Dest: Difference observed in compute Act and expected value 0.109844%
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+TESTBENCH PASS
+
+
+Running test with kIntWordWidth = 8, kVectorSize = 16, kNumVectorLanes = 8rm -rf *.o sim_* dump.vcd
+rm -rf build.log
+g++ -o sim_test -DHLS_ALGORITHMICC -Wall -Wno-unknown-pragmas -Wno-virtual-move-assign -Wno-unused-local-typedefs -std=c++11  -I. -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/xilinx/vitis/2020.1/Vitis/2020.1/cardano/tps/boost_1_64_0 -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/home/users/code/cs217-lab-1/src/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib/cmod/include  -L. -L/cad/mentor/2024.2_1/Mgc_home/shared/lib -L/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/boostpp/pp/lib -DHLS_CATAPULT -DCONNECTIONS_ACCURATE_SIM -DSC_INCLUDE_DYNAMIC_PROCESSES testbench.cpp   -lstdc++ -lsystemc -lm -lpthread > build.log 2>&1
+./sim_test
+================================
+SETTING RANDOM SEED = 19650218
+================================
+Connections Clock: tb.clk Period: 1 ns
+@2 ns Asserting reset
+@4 ns De-Asserting reset
+ActPort Computed value = 20448 and expected value = 20471
+ActPort Computed value = 13163 and expected value = 13177
+ActPort Computed value = 14360 and expected value = 14376
+ActPort Computed value = 12440 and expected value = 12454
+ActPort Computed value = 20906 and expected value = 20929
+ActPort Computed value = 12715 and expected value = 12729
+ActPort Computed value = 18907 and expected value = 18928
+ActPort Computed value = 17193 and expected value = 17212
+Dest: Difference observed in compute Act and expected value 0.110441%
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+TESTBENCH PASS
+
+
+Running test with kIntWordWidth = 8, kVectorSize = 16, kNumVectorLanes = 16rm -rf *.o sim_* dump.vcd
+rm -rf build.log
+g++ -o sim_test -DHLS_ALGORITHMICC -Wall -Wno-unknown-pragmas -Wno-virtual-move-assign -Wno-unused-local-typedefs -std=c++11  -I. -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/xilinx/vitis/2020.1/Vitis/2020.1/cardano/tps/boost_1_64_0 -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/home/users/code/cs217-lab-1/src/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib/cmod/include  -L. -L/cad/mentor/2024.2_1/Mgc_home/shared/lib -L/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/boostpp/pp/lib -DHLS_CATAPULT -DCONNECTIONS_ACCURATE_SIM -DSC_INCLUDE_DYNAMIC_PROCESSES testbench.cpp   -lstdc++ -lsystemc -lm -lpthread > build.log 2>&1
+./sim_test
+================================
+SETTING RANDOM SEED = 19650218
+================================
+Connections Clock: tb.clk Period: 1 ns
+@2 ns Asserting reset
+@4 ns De-Asserting reset
+ActPort Computed value = 21352 and expected value = 21375
+ActPort Computed value = 15836 and expected value = 15853
+ActPort Computed value = 16788 and expected value = 16806
+ActPort Computed value = 12216 and expected value = 12229
+ActPort Computed value = 21588 and expected value = 21612
+ActPort Computed value = 12387 and expected value = 12401
+ActPort Computed value = 15928 and expected value = 15946
+ActPort Computed value = 18400 and expected value = 18420
+ActPort Computed value = 14735 and expected value = 14751
+ActPort Computed value = 17456 and expected value = 17475
+ActPort Computed value = 13653 and expected value = 13668
+ActPort Computed value = 15788 and expected value = 15806
+ActPort Computed value = 20537 and expected value = 20559
+ActPort Computed value = 14680 and expected value = 14696
+ActPort Computed value = 16290 and expected value = 16308
+ActPort Computed value = 17062 and expected value = 17080
+Dest: Difference observed in compute Act and expected value 0.109132%
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+TESTBENCH PASS
+
+
+Running test with kIntWordWidth = 16, kVectorSize = 8, kNumVectorLanes = 8rm -rf *.o sim_* dump.vcd
+rm -rf build.log
+g++ -o sim_test -DHLS_ALGORITHMICC -Wall -Wno-unknown-pragmas -Wno-virtual-move-assign -Wno-unused-local-typedefs -std=c++11  -I. -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/xilinx/vitis/2020.1/Vitis/2020.1/cardano/tps/boost_1_64_0 -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/home/users/code/cs217-lab-1/src/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib/cmod/include  -L. -L/cad/mentor/2024.2_1/Mgc_home/shared/lib -L/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/boostpp/pp/lib -DHLS_CATAPULT -DCONNECTIONS_ACCURATE_SIM -DSC_INCLUDE_DYNAMIC_PROCESSES testbench.cpp   -lstdc++ -lsystemc -lm -lpthread > build.log 2>&1
+./sim_test
+================================
+SETTING RANDOM SEED = 19650218
+================================
+Connections Clock: tb.clk Period: 1 ns
+@2 ns Asserting reset
+@4 ns De-Asserting reset
+ActPort Computed value = 599707621 and expected value = 600367204
+ActPort Computed value = 367839560 and expected value = 368244125
+ActPort Computed value = 193979371 and expected value = 194192717
+ActPort Computed value = 343273091 and expected value = 343650637
+ActPort Computed value = 466563702 and expected value = 467076848
+ActPort Computed value = 123922741 and expected value = 124059037
+ActPort Computed value = 477860964 and expected value = 478386535
+ActPort Computed value = 297205107 and expected value = 297531986
+Dest: Difference observed in compute Act and expected value 0.109863%
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+TESTBENCH PASS
+
+
+Running test with kIntWordWidth = 16, kVectorSize = 8, kNumVectorLanes = 16rm -rf *.o sim_* dump.vcd
+rm -rf build.log
+g++ -o sim_test -DHLS_ALGORITHMICC -Wall -Wno-unknown-pragmas -Wno-virtual-move-assign -Wno-unused-local-typedefs -std=c++11  -I. -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/xilinx/vitis/2020.1/Vitis/2020.1/cardano/tps/boost_1_64_0 -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/home/users/code/cs217-lab-1/src/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib/cmod/include  -L. -L/cad/mentor/2024.2_1/Mgc_home/shared/lib -L/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/boostpp/pp/lib -DHLS_CATAPULT -DCONNECTIONS_ACCURATE_SIM -DSC_INCLUDE_DYNAMIC_PROCESSES testbench.cpp   -lstdc++ -lsystemc -lm -lpthread > build.log 2>&1
+./sim_test
+================================
+SETTING RANDOM SEED = 19650218
+================================
+Connections Clock: tb.clk Period: 1 ns
+@2 ns Asserting reset
+@4 ns De-Asserting reset
+ActPort Computed value = 815676548 and expected value = 816573662
+ActPort Computed value = 737985907 and expected value = 738797574
+ActPort Computed value = 505073687 and expected value = 505629188
+ActPort Computed value = 478434611 and expected value = 478960813
+ActPort Computed value = 754094277 and expected value = 754923661
+ActPort Computed value = 289308359 and expected value = 289626552
+ActPort Computed value = 537051439 and expected value = 537642110
+ActPort Computed value = 610986408 and expected value = 611658396
+ActPort Computed value = 480188176 and expected value = 480716306
+ActPort Computed value = 672958529 and expected value = 673698676
+ActPort Computed value = 516095076 and expected value = 516662698
+ActPort Computed value = 684910868 and expected value = 685664161
+ActPort Computed value = 922653373 and expected value = 923668145
+ActPort Computed value = 557887953 and expected value = 558501542
+ActPort Computed value = 589527195 and expected value = 590175581
+ActPort Computed value = 600237081 and expected value = 600897246
+Dest: Difference observed in compute Act and expected value 0.109863%
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+TESTBENCH PASS
+
+
+Running test with kIntWordWidth = 16, kVectorSize = 16, kNumVectorLanes = 8rm -rf *.o sim_* dump.vcd
+rm -rf build.log
+g++ -o sim_test -DHLS_ALGORITHMICC -Wall -Wno-unknown-pragmas -Wno-virtual-move-assign -Wno-unused-local-typedefs -std=c++11  -I. -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/xilinx/vitis/2020.1/Vitis/2020.1/cardano/tps/boost_1_64_0 -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/home/users/code/cs217-lab-1/src/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib/cmod/include  -L. -L/cad/mentor/2024.2_1/Mgc_home/shared/lib -L/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/boostpp/pp/lib -DHLS_CATAPULT -DCONNECTIONS_ACCURATE_SIM -DSC_INCLUDE_DYNAMIC_PROCESSES testbench.cpp   -lstdc++ -lsystemc -lm -lpthread > build.log 2>&1
+./sim_test
+================================
+SETTING RANDOM SEED = 19650218
+================================
+Connections Clock: tb.clk Period: 1 ns
+@2 ns Asserting reset
+@4 ns De-Asserting reset
+ActPort Computed value = 1103380901 and expected value = 1104594444
+ActPort Computed value = 1057870055 and expected value = 1059033544
+ActPort Computed value = 969996255 and expected value = 971063097
+ActPort Computed value = 628913207 and expected value = 629604912
+ActPort Computed value = 806015082 and expected value = 806901570
+ActPort Computed value = 1189830595 and expected value = 1191139220
+ActPort Computed value = 790371712 and expected value = 791240995
+ActPort Computed value = 1228154349 and expected value = 1229505124
+Dest: Difference observed in compute Act and expected value 0.109863%
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+TESTBENCH PASS
+
+
+Running test with kIntWordWidth = 16, kVectorSize = 16, kNumVectorLanes = 16rm -rf *.o sim_* dump.vcd
+rm -rf build.log
+g++ -o sim_test -DHLS_ALGORITHMICC -Wall -Wno-unknown-pragmas -Wno-virtual-move-assign -Wno-unused-local-typedefs -std=c++11  -I. -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/xilinx/vitis/2020.1/Vitis/2020.1/cardano/tps/boost_1_64_0 -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/home/users/code/cs217-lab-1/src/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib/cmod/include  -L. -L/cad/mentor/2024.2_1/Mgc_home/shared/lib -L/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/boostpp/pp/lib -DHLS_CATAPULT -DCONNECTIONS_ACCURATE_SIM -DSC_INCLUDE_DYNAMIC_PROCESSES testbench.cpp   -lstdc++ -lsystemc -lm -lpthread > build.log 2>&1
+./sim_test
+================================
+SETTING RANDOM SEED = 19650218
+================================
+Connections Clock: tb.clk Period: 1 ns
+@2 ns Asserting reset
+@4 ns De-Asserting reset
+ActPort Computed value = 877415054 and expected value = 878380071
+ActPort Computed value = 673691893 and expected value = 674432847
+ActPort Computed value = 793490572 and expected value = 794363286
+ActPort Computed value = 355824231 and expected value = 356215581
+ActPort Computed value = 740311197 and expected value = 741125422
+ActPort Computed value = 919112130 and expected value = 920123008
+ActPort Computed value = 548320252 and expected value = 548923317
+ActPort Computed value = 1099835649 and expected value = 1101045293
+ActPort Computed value = 873867145 and expected value = 874828260
+ActPort Computed value = 830965416 and expected value = 831879346
+ActPort Computed value = 772229274 and expected value = 773078603
+ActPort Computed value = 574067771 and expected value = 574699155
+ActPort Computed value = 609598242 and expected value = 610268703
+ActPort Computed value = 650363815 and expected value = 651079112
+ActPort Computed value = 517816814 and expected value = 518386330
+ActPort Computed value = 726111688 and expected value = 726910296
+Dest: Difference observed in compute Act and expected value 0.109863%
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+TESTBENCH PASS
+
+
+======================================================================
+                         TEST SUITE SUMMARY                         
+======================================================================
+kIntWordWidth   | kVectorSize  | kNumVectorLanes | Status   | Difference (%) 
+--------------------------------------------------------------------------------
+8               | 8            | 8               | PASSED   | 0.110676       
+8               | 8            | 16              | PASSED   | 0.109844       
+8               | 16           | 8               | PASSED   | 0.110441       
+8               | 16           | 16              | PASSED   | 0.109132       
+16              | 8            | 8               | PASSED   | 0.109863       
+16              | 8            | 16              | PASSED   | 0.109863       
+16              | 16           | 8               | PASSED   | 0.109863       
+16              | 16           | 16              | PASSED   | 0.109863       
+
+Test Passed

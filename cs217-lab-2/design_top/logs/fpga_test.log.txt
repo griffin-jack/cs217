@@ -1,0 +1,104 @@
+---- System Initialization (bar_handle: 0) ----
+
+---- CONFIGURE ActUnit ----
+
+---- START ----
+
+---- PROVIDE INPUTS AND READ OUTPUTS ----
+
+--- Reading output vector 0 ---
+
+---- Final Output Vector Comparison ----
+OutputPort Computed value = 1.000000 and expected value = 0.945647 (lane 00)  err=5.435%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 01)  err=0.000%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 02)  err=0.000%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 03)  err=0.000%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 04)  err=0.000%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 05)  err=0.000%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 06)  err=0.000%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 07)  err=0.000%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 08)  err=0.000%
+OutputPort Computed value = 1.000000 and expected value = 0.999785 (lane 09)  err=0.022%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 10)  err=0.000%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 11)  err=0.000%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 12)  err=0.000%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 13)  err=0.000%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 14)  err=0.000%
+OutputPort Computed value = 1.000000 and expected value = 1.000000 (lane 15)  err=0.000%
+Dest: Average difference observed in compute Act and expected value 0.341%
+Dest: MSE observed in compute Act: 0.018464%
+TEST PASSED
+
+--- Reading output vector 1 ---
+
+---- Final Output Vector Comparison ----
+OutputPort Computed value = 99.676810 and expected value = 99.676810 (lane 00)  err=0.000%
+OutputPort Computed value = 20.825607 and expected value = 20.825607 (lane 01)  err=0.000%
+OutputPort Computed value = 89.715841 and expected value = 89.715841 (lane 02)  err=0.000%
+OutputPort Computed value = 26.854512 and expected value = 26.854512 (lane 03)  err=0.000%
+OutputPort Computed value = 91.882963 and expected value = 91.882963 (lane 04)  err=0.000%
+OutputPort Computed value = 83.906505 and expected value = 83.906505 (lane 05)  err=0.000%
+OutputPort Computed value = 4.931382 and expected value = 4.896049 (lane 06)  err=0.722%
+OutputPort Computed value = 120.506647 and expected value = 120.506647 (lane 07)  err=0.000%
+OutputPort Computed value = 34.886579 and expected value = 34.886579 (lane 08)  err=0.000%
+OutputPort Computed value = 9.788987 and expected value = 9.788439 (lane 09)  err=0.006%
+OutputPort Computed value = 97.714594 and expected value = 97.714594 (lane 10)  err=0.000%
+OutputPort Computed value = 90.815094 and expected value = 90.815094 (lane 11)  err=0.000%
+OutputPort Computed value = 122.551926 and expected value = 122.551926 (lane 12)  err=0.000%
+OutputPort Computed value = 74.132617 and expected value = 74.132617 (lane 13)  err=0.000%
+OutputPort Computed value = 91.391083 and expected value = 91.391083 (lane 14)  err=0.000%
+OutputPort Computed value = 124.340855 and expected value = 124.340855 (lane 15)  err=0.000%
+Dest: Average difference observed in compute Act and expected value 0.045%
+Dest: MSE observed in compute Act: 0.007804%
+TEST PASSED
+
+--- Reading output vector 2 ---
+
+---- Final Output Vector Comparison ----
+OutputPort Computed value = 99.676810 and expected value = 99.676810 (lane 00)  err=0.000%
+OutputPort Computed value = 20.825607 and expected value = 20.825607 (lane 01)  err=0.000%
+OutputPort Computed value = 89.715841 and expected value = 89.715841 (lane 02)  err=0.000%
+OutputPort Computed value = 26.854512 and expected value = 26.854512 (lane 03)  err=0.000%
+OutputPort Computed value = 91.882963 and expected value = 91.882963 (lane 04)  err=0.000%
+OutputPort Computed value = 83.906505 and expected value = 83.906505 (lane 05)  err=0.000%
+OutputPort Computed value = 4.931382 and expected value = 4.896049 (lane 06)  err=0.722%
+OutputPort Computed value = 120.506647 and expected value = 120.506647 (lane 07)  err=0.000%
+OutputPort Computed value = 34.886579 and expected value = 34.886579 (lane 08)  err=0.000%
+OutputPort Computed value = 9.788987 and expected value = 9.788439 (lane 09)  err=0.006%
+OutputPort Computed value = 97.714594 and expected value = 97.714594 (lane 10)  err=0.000%
+OutputPort Computed value = 90.815094 and expected value = 90.815094 (lane 11)  err=0.000%
+OutputPort Computed value = 122.551926 and expected value = 122.551926 (lane 12)  err=0.000%
+OutputPort Computed value = 74.132617 and expected value = 74.132617 (lane 13)  err=0.000%
+OutputPort Computed value = 91.391083 and expected value = 91.391083 (lane 14)  err=0.000%
+OutputPort Computed value = 124.340855 and expected value = 124.340855 (lane 15)  err=0.000%
+Dest: Average difference observed in compute Act and expected value 0.045%
+Dest: MSE observed in compute Act: 0.007804%
+TEST PASSED
+
+--- Reading output vector 3 ---
+
+---- Final Output Vector Comparison ----
+OutputPort Computed value = 99.676810 and expected value = 99.676810 (lane 00)  err=0.000%
+OutputPort Computed value = 20.825607 and expected value = 20.825607 (lane 01)  err=0.000%
+OutputPort Computed value = 89.715841 and expected value = 89.715841 (lane 02)  err=0.000%
+OutputPort Computed value = 26.854512 and expected value = 26.854512 (lane 03)  err=0.000%
+OutputPort Computed value = 91.882963 and expected value = 91.882963 (lane 04)  err=0.000%
+OutputPort Computed value = 83.906505 and expected value = 83.906505 (lane 05)  err=0.000%
+OutputPort Computed value = 4.931382 and expected value = 4.896049 (lane 06)  err=0.722%
+OutputPort Computed value = 120.506647 and expected value = 120.506647 (lane 07)  err=0.000%
+OutputPort Computed value = 34.886579 and expected value = 34.886579 (lane 08)  err=0.000%
+OutputPort Computed value = 9.788987 and expected value = 9.788439 (lane 09)  err=0.006%
+OutputPort Computed value = 97.714594 and expected value = 97.714594 (lane 10)  err=0.000%
+OutputPort Computed value = 90.815094 and expected value = 90.815094 (lane 11)  err=0.000%
+OutputPort Computed value = 122.551926 and expected value = 122.551926 (lane 12)  err=0.000%
+OutputPort Computed value = 74.132617 and expected value = 74.132617 (lane 13)  err=0.000%
+OutputPort Computed value = 91.391083 and expected value = 91.391083 (lane 14)  err=0.000%
+OutputPort Computed value = 124.340855 and expected value = 124.340855 (lane 15)  err=0.000%
+Dest: Average difference observed in compute Act and expected value 0.045%
+Dest: MSE observed in compute Act: 0.007804%
+TEST PASSED
+
+Data transfer cycles: 63481
+Compute cycles: 42721
+
+---- TEST FINISHED ----
