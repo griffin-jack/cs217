@@ -255,14 +255,14 @@ class ActUnit : public match::Module {
         act_regs[a2] = act_regs[a1];
         break;      
       } 
-      /*case 0x8: { // EADD
+      case 0x8: { // EADD
         EAdd(act_regs[a1], act_regs[a2], act_regs[a2]); 
         break;
       }
       case 0x9: { // EMUL
         EMul(act_regs[a1], act_regs[a2], act_regs[a2]); 
         break;
-      }*/        
+      }
       case 0xB: { // TANH
         Tanh(act_regs[a2], act_regs[a2]);
         break;
