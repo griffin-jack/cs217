@@ -32,7 +32,7 @@ namespace spec {
       const int kNumReadPorts = kNumVectorLanes; // spec::kNumVectorLanes = 16
       const int kNumWritePorts = 1;
       const int kNumBanks = kNumVectorLanes;
-      const int kEntriesPerBank = 4096;       // need to configure
+      const int kEntriesPerBank = 8192;       // need to configure
       const unsigned int kAddressWidth = nvhls::index_width<kNumBanks * kEntriesPerBank>::val;
       const unsigned int kBankIndexSize = nvhls::index_width<kNumBanks>::val;
       const unsigned int kLocalIndexSize = nvhls::index_width<kEntriesPerBank>::val;

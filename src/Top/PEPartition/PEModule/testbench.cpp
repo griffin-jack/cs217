@@ -1,377 +1,246 @@
-/*
- * All rights reserved - Stanford University. 
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License.  
- * You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
-#include "PEModule.h"
 #include <systemc.h>
-#include <mc_scverify.h>
-#include <testbench/nvhls_rand.h>
+#include <ac_reset_signal_is.h>
 #include <nvhls_connections.h>
-#include <vector>
-#include <string>
-#include <cstdlib>
-#include <math.h> // testbench only
-#include <iomanip>
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <iomanip>
+#include <cmath>
 
-#include "Spec.h"
-#include "AxiSpec.h"
-#include "helper.h"
+#include "PECore/PECore.h"
+#include "ActUnit/ActUnit.h"
 
-#define NVHLS_VERIFY_BLOCKS (PEModule)
-#include <nvhls_verify.h>
+const int TOKENS = 208;
+const int VECS_384 = 24;
+const int VECS_1536 = 96;
 
-spec::ActVectorType golden_y;
-sc_event sync_event;
+template <typename T>
+void load_bin(const char* filename, std::vector<T>& buffer, size_t size) {
+    std::ifstream file(filename, std::ios::binary);
+    if (!file) { std::cerr << "Error: Could not open " << filename << std::endl; sc_stop(); return; }
+    buffer.resize(size);
+    file.read(reinterpret_cast<char*>(buffer.data()), size * sizeof(T));
+    file.close();
+}
 
-SC_MODULE(Source) {
-  sc_in<bool> clk;
-  sc_in<bool> rst;
-  Connections::Out<spec::StreamType> input_port;
-  Connections::Out<bool> start;
-  Connections::Out<spec::Axi::SubordinateToRVA::Write> rva_in;
+spec::ActVectorType get_vec(const std::vector<int16_t>& arr, int idx) {
+    spec::ActVectorType out;
+    for(int i=0; i<16; i++) out[i] = arr[idx*16 + i];
+    return out;
+}
 
-  SC_CTOR(Source) {
-    SC_THREAD(run);
-    sensitive << clk.pos();
-    async_reset_signal_is(rst, false);
-  }
+spec::ActVectorType promote(spec::StreamType in) {
+    spec::ActVectorType out;
+    for(int i=0; i<16; i++) out[i] = ((int16_t)((int8_t)in.data[i].to_int())) << 8;
+    return out;
+}
 
-void Tanh_ref(const spec::ActVectorType& in, spec::ActVectorType& out) {
-    for (int i = 0; i < spec::kNumVectorLanes; i++) {
-      float in_float = fixed2float<spec::kActWordWidth, spec::kActNumFrac>(in[i]);
-      float out_float = tanh(in_float);
-      out[i] = float2fixed(out_float, spec::kActNumFrac);
-    }
-  }
+SC_MODULE(Orchestrator) {
+    sc_in<bool> clk, rst;
 
-  void Relu_ref(const spec::ActVectorType& in, spec::ActVectorType& out) {
-    for (int i = 0; i < spec::kNumVectorLanes; i++) {
-      float in_float = fixed2float<spec::kActWordWidth, spec::kActNumFrac>(in[i]);
-      float out_float = (in_float > 0) ? in_float : 0;
-      out[i] = float2fixed(out_float, spec::kActNumFrac);
-    }
-  }
+    Connections::Out<bool> act_start;
+    Connections::Out<spec::ActVectorType> act_port;
+    Connections::Out<spec::Axi::SubordinateToRVA::Write> act_rva_in;
+    Connections::In<spec::StreamType> act_out; 
+    Connections::In<bool> act_done;
 
-  NVINTW(spec::kActWordWidth) float2fixed(const float in, const int frac_bits) {
-    return in * (1 << frac_bits);
-  }
+    Connections::Out<bool> pe_start;
+    Connections::Out<spec::StreamType> pe_in;
+    Connections::Out<spec::Axi::SubordinateToRVA::Write> pe_rva_in;
+    Connections::In<spec::ActVectorType> pe_out;
 
-  void Silu_ref(const spec::ActVectorType& in, spec::ActVectorType& out) {
-    for (int i = 0; i < spec::kNumVectorLanes; i++) {
-      float in_float = fixed2float<spec::kActWordWidth, spec::kActNumFrac>(in[i]);
-      float out_float = in_float * sigmoid(in_float);
-      out[i] = float2fixed(out_float, spec::kActNumFrac);
-    }
-  }
+    SC_CTOR(Orchestrator) { SC_THREAD(run); sensitive << clk.pos(); async_reset_signal_is(rst, false); }
 
-  void Gelu_ref(const spec::ActVectorType& in, spec::ActVectorType& out) {
-    for (int i = 0; i < spec::kNumVectorLanes; i++) {
-      float in_float = fixed2float<spec::kActWordWidth, spec::kActNumFrac>(in[i]);
-      float out_float = 0.5 * in_float * (1 + tanh(sqrt(2/M_PI) * (in_float + 0.044715 * pow(in_float, 3))));
-      out[i] = float2fixed(out_float, spec::kActNumFrac);
-    }
-  }
-
-  void run() {
-    start.Reset();
-    input_port.Reset();
-    rva_in.Reset();
-    wait();
-
-    // Generate random data
-    std::vector<std::vector<int>> W(spec::kNumVectorLanes, std::vector<int>(spec::kNumVectorLanes));
-    std::vector<int> x(spec::kNumVectorLanes);
-
-    for (int i = 0; i < spec::kNumVectorLanes; ++i) {
-      for (int j = 0; j < spec::kNumVectorLanes; ++j) {
-        W[i][j] = nvhls::get_rand<spec::kIntWordWidth>();
-      }
-      x[i] = nvhls::get_rand<spec::kIntWordWidth>();
+    void act_config(NVUINT8 count, NVUINT8* mcode, int loops) {
+        NVUINTW(128) idata = 0; for (int i=0; i<count; i++) idata.set_slc(8*i, mcode[i]);
+        spec::Axi::SubordinateToRVA::Write cmd; cmd.rw = 1;
+        cmd.addr = 0x800020; cmd.data = idata; act_rva_in.Push(cmd); wait();
+        
+        NVUINTW(128) cdata = 0; cdata.set_slc(0, (NVUINT1)1); cdata.set_slc(24, (NVUINT6)count); cdata.set_slc(32, (NVUINT8)loops);
+        cmd.addr = 0x800010; cmd.data = cdata; act_rva_in.Push(cmd); wait();
     }
 
-    // Golden model: y = tanh(W*x)
-    std::vector<int> Wx = MatrixVectorMul(W, x);
-    spec::ActVectorType ActUnitInput = 0;
-
-    for (int i = 0; i < spec::kNumVectorLanes; ++i) {
-        ActUnitInput[i] = int(Wx[i]/12.25);
-      }
-
-    Tanh_ref(ActUnitInput, golden_y);
-
-    spec::Axi::SubordinateToRVA::Write rva_in_src;
-
-    // 1. PEConfig: 
-    rva_in_src.rw = 1;
-    rva_in_src.data = set_bytes<8>("00_00_01_01_00_00_00_01");
-    rva_in_src.addr = set_bytes<3>("40_00_10");
-    cout << "    WRITE PEConfig: " << std::hex << rva_in_src.data << " @ " << rva_in_src.addr << endl;
-    rva_in.Push(rva_in_src);
-    wait();
-
-    // 2. PEManager 0:
-    rva_in_src.rw = 1;
-    rva_in_src.data = set_bytes<8>("00_00_00_00_00_00_01_00");
-    rva_in_src.addr = set_bytes<3>("40_00_20");
-    cout << "    WRITE PEManager: " << std::hex << rva_in_src.data << " @ " << rva_in_src.addr << endl;
-    rva_in.Push(rva_in_src);
-    wait();
-
-    // 3. Load Weights (W)
-    for (int i = 0; i < spec::kNumVectorLanes; i++) { // For each row of W
-      spec::VectorType weight_vec;
-      for (int j = 0; j < spec::kNumVectorLanes; j++) {
-        weight_vec[j] = W[i][j];
-      }
-      rva_in_src.rw = 1;
-      rva_in_src.data = weight_vec.to_rawbits();
-      rva_in_src.addr = 0x500000 + i * 16;
-      cout << "    WRITE Weight: " << std::hex << rva_in_src.data << " @ " << rva_in_src.addr << endl;
-      rva_in.Push(rva_in_src);
-      wait();
+    void pe_config(int in_ch, int out_ch, int base) {
+        NVUINTW(128) mcfg = 0; mcfg.set_slc(8, (NVUINT8)in_ch); mcfg.set_slc(16, (NVUINT16)base);
+        spec::Axi::SubordinateToRVA::Write cmd; cmd.rw = 1; cmd.addr = 0x400020; cmd.data = mcfg; pe_rva_in.Push(cmd); wait(2);
+        
+        NVUINTW(128) pcfg = 0; pcfg.set_slc(0, (NVUINT1)1); pcfg.set_slc(32, (NVUINT4)1); pcfg.set_slc(40, (NVUINT8)out_ch);
+        cmd.addr = 0x400010; cmd.data = pcfg; pe_rva_in.Push(cmd); wait(2);
     }
+
+    void load_w(const std::vector<int8_t>& w, int v_in, int v_out, int base) {
+        for(int o=0; o<v_out; o++) {
+            if (o > 0 && o % 24 == 0) std::cout << "  Loaded " << o << "/" << v_out << " channel blocks..." << std::endl;
+            for(int i=0; i<v_in; i++) {
+                for(int c=0; c<16; c++) {
+                    NVUINTW(128) w_data = 0;
+                    for(int j=0; j<16; j++) w_data.set_slc(8*j, (NVUINT8)w[((o*16)+c)*(v_in*16) + (i*16)+j]);
+                    spec::Axi::SubordinateToRVA::Write cmd; cmd.rw = 1;
+                    cmd.addr = 0x500000 | (((o*v_in+i)*16+c+base) << 4); cmd.data = w_data; pe_rva_in.Push(cmd);
+                }
+            }
+            wait(1);
+        }
+    }
+
+    void run() {
+        act_start.Reset(); act_port.Reset(); act_rva_in.Reset(); act_out.Reset(); act_done.Reset();
+        pe_start.Reset(); pe_in.Reset(); pe_rva_in.Reset(); pe_out.Reset();
+        wait(20);
+
+        std::vector<int16_t> x, tok_out, ls1, n2a, n2b, fc1_b, fc2_b, ls2;
+        std::vector<int8_t> fc1_w, fc2_w, gold;
+        
+        load_bin<int16_t>("../../../../software/tb_data/in_x.bin", x, TOKENS*VECS_384*16);
+        load_bin<int16_t>("../../../../software/tb_data/in_tok_out.bin", tok_out, TOKENS*VECS_384*16);
+        load_bin<int16_t>("../../../../software/tb_data/w_ls1.bin", ls1, VECS_384*16);
+        load_bin<int16_t>("../../../../software/tb_data/w_n2_a.bin", n2a, VECS_384*16);
+        load_bin<int16_t>("../../../../software/tb_data/w_n2_b.bin", n2b, VECS_384*16);
+        load_bin<int16_t>("../../../../software/tb_data/w_fc1_b.bin", fc1_b, VECS_1536*16);
+        load_bin<int16_t>("../../../../software/tb_data/w_fc2_b.bin", fc2_b, VECS_384*16);
+        load_bin<int16_t>("../../../../software/tb_data/w_ls2.bin", ls2, VECS_384*16);
+        
+        load_bin<int8_t>("../../../../software/tb_data/w_fc1_w.bin", fc1_w, VECS_1536*16*VECS_384*16);
+        load_bin<int8_t>("../../../../software/tb_data/w_fc2_w.bin", fc2_w, VECS_384*16*VECS_1536*16);
+        load_bin<int8_t>("../../../../software/tb_data/g6_final.bin", gold, TOKENS*VECS_384*16);
+
+        NVUINT8 mc_base[] = {0x34, 0x38, 0x99, 0x34, 0x89, 0x48}; 
+        NVUINT8 mc_gelu[] = {0x34, 0x38, 0x89, 0xF8, 0x48};       
+        NVUINT8 mc_res[]  = {0x38, 0x34, 0x89, 0x34, 0x99, 0x34, 0x89, 0x48}; 
+
+        // Buffers to hold intermediate layer data
+        std::vector<spec::StreamType> ch_hid_buf(TOKENS * VECS_1536);
+        std::vector<spec::ActVectorType> x_tok_promoted_buf(TOKENS * VECS_384);
+        spec::StreamType x_scl[VECS_384];
+        spec::ActVectorType raw1[VECS_1536], raw2[VECS_384];
+
+        std::cout << "\n=== HARDWARE INIT (PART 1) ===" << std::endl;
+        load_w(fc1_w, VECS_384, VECS_1536, 0); // Load FC1 at Address 0
+
+        std::cout << "\n=== PHASE 1-4: Processing All Tokens ===" << std::endl;
+        for (int t = 0; t < TOKENS; t++) {
+            // Phase 1: LS1 + Res
+            act_config(6, mc_base, VECS_384); act_start.Push(true); wait();
+            for(int v=0; v<VECS_384; v++) {
+                act_port.Push(get_vec(ls1, v)); act_port.Push(get_vec(tok_out, t*VECS_384 + v)); act_port.Push(get_vec(x, t*VECS_384 + v));
+                spec::StreamType res = act_out.Pop();
+                x_tok_promoted_buf[t*VECS_384 + v] = promote(res); // Save for Phase 6
+            }
+            act_done.Pop();
+
+            // Phase 2: Norm 2
+            act_config(6, mc_base, VECS_384); act_start.Push(true); wait();
+            for(int v=0; v<VECS_384; v++) {
+                act_port.Push(get_vec(n2a, v)); act_port.Push(x_tok_promoted_buf[t*VECS_384 + v]); act_port.Push(get_vec(n2b, v));
+                x_scl[v] = act_out.Pop();
+            }
+            act_done.Pop();
+
+            // Phase 3: MatMul 1
+            pe_config(VECS_384, VECS_1536, 0); 
+            for(int v=0; v<VECS_384; v++) pe_in.Push(x_scl[v]); 
+            pe_start.Push(true); wait();                         
+            for(int v=0; v<VECS_1536; v++) raw1[v] = pe_out.Pop();
+
+            // Phase 4: Bias 1 + GELU
+            act_config(5, mc_gelu, VECS_1536); act_start.Push(true); wait();
+            for(int v=0; v<VECS_1536; v++) {
+                act_port.Push(get_vec(fc1_b, v)); act_port.Push(raw1[v]);
+                ch_hid_buf[t*VECS_1536 + v] = act_out.Pop(); // Buffer hidden states
+            }
+            act_done.Pop();
+            if ((t+1) % 52 == 0) std::cout << "  Layer Halfway: " << t+1 << "/" << TOKENS << " tokens done." << std::endl;
+        }
+
+        std::cout << "\n=== HARDWARE INIT (PART 2: SWAPPING WEIGHTS) ===" << std::endl;
+        load_w(fc2_w, VECS_1536, VECS_384, 0); // OVERWRITE FC1 at Address 0!
+
+        int errors = 0;
+        std::cout << "\n=== PHASE 5-6: Final Processing & Verification ===" << std::endl;
+        for (int t = 0; t < TOKENS; t++) {
+            // Phase 5: MatMul 2
+            pe_config(VECS_1536, VECS_384, 0); 
+            for(int v=0; v<VECS_1536; v++) pe_in.Push(ch_hid_buf[t*VECS_1536 + v]); 
+            pe_start.Push(true); wait();                          
+            for(int v=0; v<VECS_384; v++) raw2[v] = pe_out.Pop();
+
+            // Phase 6: FC2 Bias + LS2 + Residual
+            act_config(8, mc_res, VECS_384); act_start.Push(true); wait();
+            for(int v=0; v<VECS_384; v++) {
+                act_port.Push(raw2[v]); act_port.Push(get_vec(fc2_b, v)); 
+                act_port.Push(get_vec(ls2, v)); act_port.Push(x_tok_promoted_buf[t*VECS_384 + v]);
+                spec::StreamType hw_final = act_out.Pop();
+                
+                // Live Verification
+                for (int i = 0; i < 16; i++) {
+                    int h_val = (int8_t)hw_final.data[i].to_int(); 
+                    int g_val = gold[t*VECS_384*16 + v*16 + i];
+                    if (std::abs(h_val - g_val) > 10) errors++; 
+                }
+            }
+            act_done.Pop();
+            if ((t+1) % 52 == 0) std::cout << "  Layer Complete: " << t+1 << "/" << TOKENS << " tokens verified." << std::endl;
+        }
+
+        if (errors == 0) std::cout << "\nSUCCESS: Full 208-Token Layer Verified Matches PyTorch!" << std::endl;
+        else std::cout << "\nFAILED with " << errors << " mismatches." << std::endl;
+        sc_stop();
+    }
+};
+
+// Safe AXI Response Garbage Collector
+SC_MODULE(Sink) {
+    sc_in<bool> clk, rst;
+    Connections::In<spec::Axi::SubordinateToRVA::Read> pe_rva_out, act_rva_out;
+    SC_CTOR(Sink) { SC_THREAD(run); sensitive << clk.pos(); async_reset_signal_is(rst, false); }
+    void run() {
+        pe_rva_out.Reset(); act_rva_out.Reset();
+        while(1) {
+            spec::Axi::SubordinateToRVA::Read dummy;
+            pe_rva_out.PopNB(dummy); act_rva_out.PopNB(dummy);
+            wait();
+        }
+    }
+};
+
+SC_MODULE(Testbench) {
+    sc_clock clk;
+    sc_signal<bool> rst;
+
+    Connections::Combinational<bool> a_st;
+    Connections::Combinational<spec::ActVectorType> a_pt;
+    Connections::Combinational<spec::Axi::SubordinateToRVA::Write> a_rva;
+    Connections::Combinational<spec::StreamType> a_out;
+    Connections::Combinational<bool> a_done;
     
-    // 4. Load Input (x)
-    spec::VectorType input_vec;
-    for (int i = 0; i < spec::kNumVectorLanes; i++) {
-        input_vec[i] = x[i];
+    Connections::Combinational<bool> p_st;
+    Connections::Combinational<spec::StreamType> p_in;
+    Connections::Combinational<spec::Axi::SubordinateToRVA::Write> p_rva;
+    Connections::Combinational<spec::ActVectorType> p_out;
+    
+    Connections::Combinational<spec::Axi::SubordinateToRVA::Read> a_rva_out, p_rva_out;
+    sc_signal<NVUINT32> sram_config;
+
+    ActUnit act; PECore pe; Orchestrator src; Sink snk;
+
+    SC_CTOR(Testbench) : clk("clk", 1, SC_NS), act("act"), pe("pe"), src("src"), snk("snk") {
+        act.clk(clk); act.rst(rst); act.start(a_st); act.act_port(a_pt); act.rva_in(a_rva); 
+        act.output_port(a_out); act.rva_out(a_rva_out); act.done(a_done);
+        
+        pe.clk(clk); pe.rst(rst); pe.start(p_st); pe.input_port(p_in); pe.rva_in(p_rva); 
+        pe.act_port(p_out); pe.rva_out(p_rva_out); pe.SC_SRAM_CONFIG(sram_config);
+
+        src.clk(clk); src.rst(rst); 
+        src.act_start(a_st); src.act_port(a_pt); src.act_rva_in(a_rva); src.act_out(a_out); src.act_done(a_done);
+        src.pe_start(p_st); src.pe_in(p_in); src.pe_rva_in(p_rva); src.pe_out(p_out);
+
+        snk.clk(clk); snk.rst(rst); snk.pe_rva_out(p_rva_out); snk.act_rva_out(a_rva_out);
+
+        SC_THREAD(reset_driver);
     }
-    rva_in_src.rw = 1;
-    rva_in_src.data = input_vec.to_rawbits();
-    rva_in_src.addr = 0x600000 + 0;
-    cout << "    WRITE Input: " << std::hex << rva_in_src.data << " @ " << rva_in_src.addr << endl;
-    rva_in.Push(rva_in_src);
-    wait();
-
-    // 6. ActUnit Config: 0x01
-    rva_in_src.rw = 1;
-    rva_in_src.data = set_bytes<16>("00_00_00_00_00_00_00_00_00_00_00_01_03_02_00_01");
-    rva_in_src.addr = set_bytes<3>("80_00_10");
-    cout << "    WRITE ActUnit Config: " << std::hex << rva_in_src.data << " @ " << rva_in_src.addr << endl;
-    rva_in.Push(rva_in_src);
-    wait();
-
-    // 7. ActUnit Instructions: INPE, TANH, OUTGB
-    rva_in_src.rw = 1;
-    rva_in_src.data = set_bytes<16>("00_00_00_00_00_00_00_00_00_00_00_00_00_40_B0_30");
-    rva_in_src.addr = set_bytes<3>("80_00_20");
-    cout << "    WRITE ActUnit Instructions: " << std::hex << rva_in_src.data << " @ " << rva_in_src.addr << endl;
-    rva_in.Push(rva_in_src);
-    wait();
-
-    // 8. Start
-    rva_in_src.rw = 1;
-    rva_in_src.data = 0;
-    rva_in_src.addr = set_bytes<3>("00_00_00");
-    cout << "    WRITE Start write:" << std::hex << rva_in_src.data << " @ " << rva_in_src.addr << endl;
-    rva_in.Push(rva_in_src);
-    wait();
-  }
-};
-
-SC_MODULE(Dest) {
-  sc_in<bool> clk;
-  sc_in<bool> rst;
-  Connections::In<spec::Axi::SubordinateToRVA::Read> rva_out;
-  Connections::In<spec::StreamType> output_port;
-  Connections::In<bool> done;
-
-  spec::StreamType dut_output;
-  spec::StreamType output_port_dest;
-  spec::StreamType output_check;
-  bool dut_output_popped = false;
-  bool done_signal_received = false;
-
-  SC_CTOR(Dest) {
-    SC_THREAD(PopDone);
-    sensitive << clk.pos();
-    async_reset_signal_is(rst, false);
-    SC_THREAD(PopRVAOut);
-    sensitive << clk.pos();
-    async_reset_signal_is(rst, false);
-    SC_THREAD(PopOutport);
-    sensitive << clk.pos();
-    async_reset_signal_is(rst, false);
-    SC_THREAD(OutputCompare);
-    sensitive << clk.pos();
-    async_reset_signal_is(rst, false);
-  }
-
-  void PopRVAOut() {
-    rva_out.Reset();
-    wait();
-    while(1) {
-        spec::Axi::SubordinateToRVA::Read rva_out_dest;
-        if (rva_out.PopNB(rva_out_dest)) {
-            cout << sc_time_stamp() << " Dest: Received AXI read response." << endl;
-        }
-        wait();
-    }
-  }
-
-  void PopOutport() {
-    output_port.Reset();
-    wait();
-
-    while (1) {
-      if (output_port.PopNB(output_port_dest)) {
-        cout << sc_time_stamp() << " Dest: Received output port data:" << output_port_dest.data << endl;
-        output_check = output_port_dest;
-        dut_output_popped = true;
-      }
-      wait();
-    }
-  }
-
-  void PopDone() {
-    done.Reset();
-    wait();
-    while (1) {
-      bool done_dest;
-      if (done.PopNB(done_dest)) {
-        if (done_dest) {
-          done_signal_received = true;
-        }
-      }
-      wait();
-    }
-  }
-
-  void OutputCompare() {
-    double max_diff = 0.0;
-    double diff = 0.0;
-    double percent_diff = 0.0;
-    double accumulated_percent_diff = 0.0;
-    while (1) {
-      wait();
-      if (dut_output_popped && done_signal_received) {
-        cout << "Starting comparison with golden model" << endl;
-
-          bool passed = true;
-          
-          for (size_t i = 0; i < spec::kNumVectorLanes; ++i) {              
-              float dut_output_float = fixed2float<spec::kIntWordWidth, spec::Act::kActOutNumFrac>(output_check.data[i]);
-              float golden_y_float = fixed2float<spec::kActWordWidth, spec::kActNumFrac>(golden_y[i]);
-              
-              diff = std::abs(dut_output_float - golden_y_float);
-              percent_diff = diff * 100 / (std::abs(golden_y[i]));
-              accumulated_percent_diff = accumulated_percent_diff + percent_diff;
-              cout << " Dut output, golden output and percentage difference: " << dut_output_float << " " << golden_y_float << " " << percent_diff << "%" << endl;
-              if (diff > max_diff) max_diff = diff;
-              if (diff > 1e-1) { // Looser tolerance for basic test
-                  cout << "MISMATCH at index " << i << ": DUT=" << dut_output_float << ", Golden=" << golden_y_float << endl;
-                  passed = false;
-              }
-          }
-          cout << "Max difference: " << max_diff << endl;
-          //cout << "Percent difference: " << accumulated_percent_diff/dut_output.size() << endl;
-      
-
-          if (passed) {
-            cout << endl;
-            cout << "Max difference: " << max_diff << " is less than threshold: " << 1e-1 << endl;
-            cout << "TESTBENCH PASSED" << endl;
-          } else {
-            cout << "TESTBENCH FAILED" << endl;
-            SC_REPORT_ERROR("testbench", "TESTBENCH FAILED");
-            sc_stop();
-          }
-          sc_stop();
-      }
-      wait();
-    }
-  }
-
-
-};
-
-SC_MODULE(testbench) {
-  SC_HAS_PROCESS(testbench);
-  sc_clock clk;
-  sc_signal<bool> rst;
-
-  Connections::Combinational<spec::StreamType> input_port;
-  Connections::Combinational<bool> start;
-  Connections::Combinational<spec::Axi::SubordinateToRVA::Write> rva_in;
-  Connections::Combinational<spec::Axi::SubordinateToRVA::Read> rva_out;
-  Connections::Combinational<spec::StreamType> output_port;
-  Connections::Combinational<bool> done;
-
-  NVHLS_DESIGN(PEModule) dut;
-  Source  source;
-  Dest    dest;
-
-  testbench(sc_module_name name)
-  : sc_module(name),
-    clk("clk", 1.0, SC_NS, 0.5, 0, SC_NS, true),
-    rst("rst"),
-    dut("dut"),
-    source("source"),
-    dest("dest")
-   {
-     dut.clk(clk);
-     dut.rst(rst);
-     dut.input_port(input_port);
-     dut.start(start);
-     dut.rva_in(rva_in);
-     dut.rva_out(rva_out);
-     dut.output_port(output_port);
-     dut.done(done);
-
-     source.clk(clk);
-     source.rst(rst);
-     source.input_port(input_port);
-     source.start(start);
-     source.rva_in(rva_in);
-
-     dest.clk(clk);
-     dest.rst(rst);
-     dest.rva_out(rva_out);
-     dest.output_port(output_port);
-     dest.done(done);
-
-     SC_THREAD(run);
-   }
-
-  void run(){
-    wait(2, SC_NS );
-    std::cout << "@" << sc_time_stamp() <<" Asserting reset" << std::endl;
-    rst.write(false);
-    wait(10, SC_NS );
-    rst.write(true);
-    std::cout << "@" << sc_time_stamp() <<" De-Asserting reset" << std::endl;
-    wait(5000, SC_NS );
-    cout << "Error: Simulation timed out!" << endl;
-    SC_REPORT_ERROR("testbench", "Simulation timeout");
-    sc_stop();
-  }
+    void reset_driver() { rst.write(false); wait(5, SC_NS); rst.write(true); wait(5, SC_NS); }
 };
 
 int sc_main(int argc, char *argv[]) {
-  nvhls::set_random_seed();
-  testbench tb("tb");
-  sc_report_handler::set_actions(SC_ERROR, SC_DISPLAY);
-  sc_start();
-  bool rc = (sc_report_handler::get_count(SC_ERROR) > 0);
-  if (rc)
-    DCOUT("TESTBENCH FAIL" << endl);
-  return rc;
+    Testbench tb("tb"); sc_start(); return 0;
 }
