@@ -1,5 +1,0 @@
-warning: unknown warning option '-Wno-virtual-move-assign'; did you mean '-Wno-literal-conversion'? [-Wunknown-warning-option]
-testbench.cpp:1:10: fatal error: 'systemc.h' file not found
-#include <systemc.h>
-         ^~~~~~~~~~~
-1 warning and 1 error generated.

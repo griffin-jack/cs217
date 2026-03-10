@@ -484,7 +484,7 @@ public:
 #pragma hls_unroll yes
       for (int i = 0; i < spec::kNumVectorLanes; i++)
       {
-        accum_vector[i] = dp_out[i];
+        accum_vector[i] += dp_out[i];
         //cout << "PECore: " << name() << " MAC accum_vector[" << i << "] = " << accum_vector[i] << endl;
       }
 

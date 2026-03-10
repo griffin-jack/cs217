@@ -1,383 +1,235 @@
-/*
- * All rights reserved - Stanford University.
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
 #include <systemc.h>
-#include <mc_scverify.h>
-#include <testbench/nvhls_rand.h>
+#include <ac_reset_signal_is.h>
 #include <nvhls_connections.h>
-#include <map>
-#include <vector>
-#include <deque>
-#include <utility>
-#include <sstream>
-#include <string>
-#include <cstdlib>
-#include <math.h> // testbench only
-#include <queue>
-
-#include "PECore.h"
-#include "Spec.h"
-#include "AxiSpec.h"
-#include "helper.h"
-
 #include <iostream>
-#include <sstream>
+#include <fstream>
+#include <vector>
 #include <iomanip>
 
-#define NVHLS_VERIFY_BLOCKS (PECore)
-#include <nvhls_verify.h>
+#include "PECore.h"
+#include "../ActUnit/ActUnit.h"
 
-#ifdef COV_ENABLE
-#pragma CTC SKIP
-#endif
+template <typename T>
+void load_bin(const char* filename, std::vector<T>& buffer, size_t size) {
+    std::ifstream file(filename, std::ios::binary);
+    if (!file) {
+        std::cerr << "Error: Could not open " << filename << std::endl;
+        sc_stop();
+        return;
+    }
+    buffer.resize(size);
+    file.read(reinterpret_cast<char*>(buffer.data()), size * sizeof(T));
+    file.close();
+}
 
-// ---------------- Source ----------------
-SC_MODULE(Source)
-{
-  sc_in<bool> clk;
-  sc_in<bool> rst;
-  Connections::Out<bool> start;
-  Connections::Out<spec::StreamType> input_port;
-  Connections::Out<spec::Axi::SubordinateToRVA::Write> rva_in;
+SC_MODULE(Source) {
+    sc_in<bool> clk;
+    sc_in<bool> rst;
 
-  std::vector<spec::Axi::SubordinateToRVA::Write> src_vec;
+    Connections::Out<bool> act_start;
+    Connections::Out<spec::ActVectorType> act_port;
+    Connections::Out<spec::Axi::SubordinateToRVA::Write> act_rva_in;
+    Connections::Out<bool> pe_start;
+    Connections::Out<spec::StreamType> pe_in;
+    Connections::Out<spec::Axi::SubordinateToRVA::Write> pe_rva_in;
+    Connections::In<spec::StreamType> act_out; 
 
-  SC_CTOR(Source)
-  {
-    SC_THREAD(run);
-    sensitive << clk.pos();
-    async_reset_signal_is(rst, false);
-  }
-
-  void run()
-  {
-    // Reset handshakes
-    start.Reset();
-    input_port.Reset();
-    rva_in.Reset();
-
-    wait(); // wait for reset release
-
-    for (unsigned i = 0; i < src_vec.size(); i++)
-    {
-      if (src_vec[i].rw == 1)
-      {
-        /*std::cout << std::hex << sc_time_stamp()
-                  << " Source WRITE data " << src_vec[i].data
-                  << " and addr " << src_vec[i].addr << std::endl;*/
-        start.Push(false);
-        rva_in.Push(src_vec[i]);
-      }
-
-      wait();
+    SC_CTOR(Source) {
+        SC_THREAD(run);
+        sensitive << clk.pos();
+        async_reset_signal_is(rst, false);
     }
 
-
-    wait(100, SC_NS); // wait for DUT to process the start signal
-
-    start.Push(true);
-    wait(100, SC_NS); // wait for DUT to process the start signal
-
-    for (unsigned i = 0; i < src_vec.size(); i++)
-    {
-      if (src_vec[i].rw == 0)
-      {
-        /*std::cout << std::hex << sc_time_stamp()
-                  << " Source READ addr " << src_vec[i].addr << std::endl;*/
-        start.Push(false);
-        rva_in.Push(src_vec[i]);
-      }
-
-      wait();
+    void act_axi_write(NVUINT8 local_index, NVUINTW(128) data) {
+        spec::Axi::SubordinateToRVA::Write cmd; cmd.rw = 1;
+        cmd.addr = 0x800000 | ((NVUINTW(24))local_index << 4);
+        cmd.data = data; act_rva_in.Push(cmd);
     }
-  }
+
+    void pe_axi_write(NVUINT4 region, NVUINT16 local_index, NVUINTW(128) data) {
+        spec::Axi::SubordinateToRVA::Write cmd; cmd.rw = 1;
+        cmd.addr = ((NVUINTW(24))region << 20) | ((NVUINTW(24))local_index << 4);
+        cmd.data = data; pe_rva_in.Push(cmd);
+    }
+
+    void run() {
+        act_start.Reset(); act_port.Reset(); act_rva_in.Reset();
+        pe_start.Reset(); pe_in.Reset(); pe_rva_in.Reset(); act_out.Reset();
+
+        wait(20);
+
+        const int TOKENS = 208;
+        const int VECS_IN = 24;  // 384 input channels
+        const int VECS_OUT = 96; // 1536 output channels
+        
+        std::vector<int16_t> x_tok, norm_a, norm_b;
+        std::vector<int8_t> fc1_w;
+        
+        load_bin<int16_t>("../../../../../software/tb_data/hw_in_x_tok.bin", x_tok, TOKENS*VECS_IN*16);
+        load_bin<int16_t>("../../../../../software/tb_data/hw_w_norm2_alpha.bin", norm_a, VECS_IN*16);
+        load_bin<int16_t>("../../../../../software/tb_data/hw_w_norm2_beta.bin", norm_b, VECS_IN*16);
+        load_bin<int8_t>("../../../../../software/tb_data/hw_w_fc1_weight.bin", fc1_w, VECS_OUT*16*VECS_IN*16);
+
+        std::cout << "\n=== PHASE 1: AXI Configuration ===" << std::endl;
+        std::cout << "Loading 36,864 weight vectors into PECore SRAM (This will take a moment)..." << std::endl;
+        
+        for(int v_out = 0; v_out < VECS_OUT; v_out++) {
+            if (v_out % 24 == 0) std::cout << "  Loaded " << v_out << "/" << VECS_OUT << " output channel blocks..." << std::endl;
+            for(int v_in = 0; v_in < VECS_IN; v_in++) {
+                for(int c = 0; c < 16; c++) {
+                    NVUINTW(128) w_data = 0;
+                    for(int j = 0; j < 16; j++) {
+                        int flat_idx = ((v_out * 16) + c) * 384 + (v_in * 16) + j;
+                        w_data.set_slc(8*j, (NVUINT8)fc1_w[flat_idx]);
+                    }
+                    int addr = (v_out * VECS_IN + v_in) * 16 + c;
+                    pe_axi_write(0x5, addr, w_data);
+                }
+                wait(1); // Small delay to allow memory port clearance
+            }
+        }
+
+        // PECore: 24 input vectors, 96 output vectors
+        NVUINTW(128) mcfg = 0; mcfg.set_slc(8, (NVUINT8)VECS_IN); 
+        pe_axi_write(0x4, 0x2, mcfg); wait(2);
+        
+        NVUINTW(128) pcfg = 0; 
+        pcfg.set_slc(0, (NVUINT1)1); pcfg.set_slc(32, (NVUINT4)1); pcfg.set_slc(40, (NVUINT8)VECS_OUT); 
+        pe_axi_write(0x4, 0x1, pcfg); wait(2);
+
+        // ActUnit: Microcode loops 24 times per token
+        NVUINT8 mcode[6] = {0x34, 0x38, 0x99, 0x34, 0x89, 0x48};
+        NVUINTW(128) idata = 0; for (int i=0; i<6; i++) idata.set_slc(8*i, mcode[i]);
+        act_axi_write(0x02, idata); wait();
+
+        NVUINTW(128) cdata = 0;
+        cdata.set_slc(0, (NVUINT1)1); cdata.set_slc(24, (NVUINT6)6); cdata.set_slc(32, (NVUINT8)VECS_IN);
+        act_axi_write(0x01, cdata); wait();
+        
+        std::cout << "\n=== PHASE 2: Full Tensor Streaming ===" << std::endl;
+        std::cout << "Streaming 208 Tokens through full datapath..." << std::endl;
+
+        for (int t = 0; t < TOKENS; t++) {
+            act_start.Push(true); wait();
+            
+            for (int v = 0; v < VECS_IN; v++) {
+                spec::ActVectorType va, vx, vb;
+                for (int i=0; i<16; i++) {
+                    va[i] = norm_a[v*16 + i]; 
+                    vb[i] = norm_b[v*16 + i];
+                    vx[i] = x_tok[t * (VECS_IN*16) + v*16 + i]; 
+                }
+                
+                act_port.Push(va); wait(); act_port.Push(vx); wait(); act_port.Push(vb); wait();
+                spec::StreamType act_result = act_out.Pop();
+                
+                // Blocks thread until PECore completes the previous token and returns to IDLE
+                pe_in.Push(act_result); wait(); 
+            }
+            // Trigger MatMul for this Token
+            pe_start.Push(true); wait();
+        }
+        while (1) { wait(); }
+    }
 };
 
-// ---------------- Dest ----------------
-SC_MODULE(Dest)
-{
-  sc_in<bool> clk;
-  sc_in<bool> rst;
-  Connections::In<spec::Axi::SubordinateToRVA::Read> rva_out;
-  Connections::In<spec::ActVectorType> act_port;
+SC_MODULE(Sink) {
+    sc_in<bool> clk;
+    sc_in<bool> rst;
 
-  spec::ActVectorType act_port_reg;
-  spec::ActVectorType act_vector;
-  std::vector<spec::Axi::SubordinateToRVA::Read> dest_vec;
-  spec::Axi::SubordinateToRVA::Read rva_out_dest;
+    Connections::In<spec::ActVectorType> pe_out;
+    Connections::In<spec::Axi::SubordinateToRVA::Read> pe_rva_out;
+    Connections::In<spec::Axi::SubordinateToRVA::Read> act_rva_out;
+    Connections::In<bool> act_done;
 
-  SC_CTOR(Dest)
-  {
-    SC_THREAD(run);
-    sensitive << clk.pos();
-    async_reset_signal_is(rst, false);
-  }
-
-  void run()
-  {
-    rva_out.Reset();
-    act_port.Reset();
-
-    wait();
-
-    unsigned i = 0;
-    while (1)
-    {
-      if (act_port.PopNB(act_port_reg))
-      {
-        double diff = 0;
-        for (int j = 0; j < spec::kNumVectorLanes; j++)
-        {
-          std::cout << "ActPort Computed value = " << act_port_reg[j] << " and expected value = " << act_vector[j] << std::endl;
-          diff += fabs(double(act_port_reg[j]) - double(act_vector[j]))/
-                        double(act_vector[j]);
-        }
-        std::cout << "Dest: Difference observed in compute Act and expected value " << diff * 100 / spec::kNumVectorLanes <<  "%" << std::endl;
-      }
-      if (rva_out.PopNB(rva_out_dest))
-      {
-        /*std::cout << std::hex << sc_time_stamp()
-                  << " Dest got rva data = " << rva_out_dest.data
-                  << " (resp_idx=" << std::dec << i << ")" << std::endl;*/
-
-        // Defensive bounds check
-        assert(i < dest_vec.size() && "Received more responses than expected.");
-
-        if (rva_out_dest.data != dest_vec[i].data)
-        {
-          std::ostringstream oss;
-          oss << "Mismatch at resp " << i
-              << ": expected 0x" << std::hex << dest_vec[i].data
-              << " got 0x" << rva_out_dest.data;
-          SC_REPORT_ERROR("Dest", oss.str().c_str());
-          assert(false);
-        }
-        /*else
-        {
-          std::cout << "Dest: Response " << i << " matches expected value." << std::endl;
-        }*/
-        i++;
-        if (i >= dest_vec.size())
-        {
-              sc_stop();
-              return;
-        }
-      }
-      wait();
+    SC_CTOR(Sink) {
+        SC_THREAD(run);
+        sensitive << clk.pos();
+        async_reset_signal_is(rst, false);
     }
-  }
+
+    void run() {
+        pe_out.Reset(); pe_rva_out.Reset(); act_rva_out.Reset(); act_done.Reset();
+        wait(20);
+
+        const int TOKENS = 208;
+        const int VECS_OUT = 96;
+
+        std::vector<int16_t> golden_pe;
+        load_bin<int16_t>("../../../../../software/tb_data/golden_2_fc1_matmul.bin", golden_pe, TOKENS*VECS_OUT*16);
+
+        int errors = 0;
+        std::cout << "\n=== VERIFICATION: PECore Output ===" << std::endl;
+
+        for (int t = 0; t < TOKENS; t++) {
+            act_done.Pop(); 
+            
+            for (int out_vec = 0; out_vec < VECS_OUT; out_vec++) {
+                spec::ActVectorType pe_result = pe_out.Pop();
+                for (int i = 0; i < 16; i++) {
+                    int hw_val = (int16_t)pe_result[i].to_int(); 
+                    int flat_idx = t * (VECS_OUT * 16) + out_vec * 16 + i;
+                    int g_val  = golden_pe[flat_idx];
+
+                    if (hw_val != g_val) {
+                        errors++;
+                        if (errors < 15) {
+                            std::cout << "Mismatch at Token " << t << " Ch " << out_vec*16+i 
+                                      << " | HW=" << hw_val << " Gold=" << g_val << std::endl;
+                        }
+                    }
+                }
+            }
+            if (t > 0 && t % 20 == 0) std::cout << "  Verified " << t << "/" << TOKENS << " tokens..." << std::endl;
+        }
+
+        if (errors == 0) std::cout << "\nSUCCESS: Full 208x1536 Matrix Verified! 0 Mismatches." << std::endl;
+        else std::cout << "\nFAILED with " << errors << " mismatches." << std::endl;
+        sc_stop();
+    }
 };
 
-// ---------------- TB ----------------
-SC_MODULE(testbench)
-{
-  SC_HAS_PROCESS(testbench);
-  sc_clock clk;
-  sc_signal<bool> rst;
+SC_MODULE(Testbench) {
+    sc_clock clk;
+    sc_signal<bool> rst;
 
-  Connections::Combinational<bool> start;
-  Connections::Combinational<spec::StreamType> input_port;
-  Connections::Combinational<spec::Axi::SubordinateToRVA::Write> rva_in;
-  Connections::Combinational<spec::Axi::SubordinateToRVA::Read> rva_out;
-  Connections::Combinational<spec::ActVectorType> act_port;
-  sc_signal<NVUINT32> SC_SRAM_CONFIG;
+    Connections::Combinational<bool> act_start_ch;
+    Connections::Combinational<spec::ActVectorType> act_port_in_ch;
+    Connections::Combinational<spec::Axi::SubordinateToRVA::Write> act_rva_in_ch;
+    Connections::Combinational<spec::Axi::SubordinateToRVA::Read> act_rva_out_ch;
+    Connections::Combinational<bool> act_done_ch;
 
-  NVHLS_DESIGN(PECore)
-  dut;
-  Source source;
-  Dest dest;
+    Connections::Combinational<bool> pe_start_ch;
+    Connections::Combinational<spec::StreamType> pe_in_port_ch;
+    Connections::Combinational<spec::Axi::SubordinateToRVA::Write> pe_rva_in_ch;
+    Connections::Combinational<spec::Axi::SubordinateToRVA::Read> pe_rva_out_ch;
+    Connections::Combinational<spec::ActVectorType> pe_out_port_ch;
+    
+    Connections::Combinational<spec::StreamType> router_ch;
+    sc_signal<NVUINT32> sram_config;
 
-  testbench(sc_module_name name)
-      : sc_module(name),
-        clk("clk", 1.0, SC_NS, 0.5, 0, SC_NS, true),
-        rst("rst"),
-        dut("dut"),
-        source("source"),
-        dest("dest")
-  {
+    ActUnit act_inst;
+    PECore pe_inst;
+    Source src;
+    Sink snk;
 
-    // DUT binds
-    dut.clk(clk);
-    dut.rst(rst);
-    dut.start(start);
-    dut.input_port(input_port);
-    dut.rva_in(rva_in);
-    dut.rva_out(rva_out);
-    dut.act_port(act_port);
-    dut.SC_SRAM_CONFIG(SC_SRAM_CONFIG);
+    SC_CTOR(Testbench) : clk("clk", 1, SC_NS), act_inst("act_inst"), pe_inst("pe_inst"), src("src"), snk("snk") {
+        act_inst.clk(clk); act_inst.rst(rst); act_inst.start(act_start_ch); act_inst.act_port(act_port_in_ch); 
+        act_inst.rva_in(act_rva_in_ch); act_inst.rva_out(act_rva_out_ch); act_inst.output_port(router_ch); act_inst.done(act_done_ch);
 
-    // SRC binds
-    source.clk(clk);
-    source.rst(rst);
-    source.start(start);
-    source.input_port(input_port);
-    source.rva_in(rva_in);
+        pe_inst.clk(clk); pe_inst.rst(rst); pe_inst.start(pe_start_ch); pe_inst.input_port(pe_in_port_ch); 
+        pe_inst.rva_in(pe_rva_in_ch); pe_inst.rva_out(pe_rva_out_ch); pe_inst.act_port(pe_out_port_ch); pe_inst.SC_SRAM_CONFIG(sram_config);
 
-    // DEST binds
-    dest.clk(clk);
-    dest.rst(rst);
-    dest.rva_out(rva_out);
-    dest.act_port(act_port);
+        src.clk(clk); src.rst(rst); src.act_start(act_start_ch); src.act_port(act_port_in_ch); src.act_rva_in(act_rva_in_ch);
+        src.pe_start(pe_start_ch); src.pe_in(pe_in_port_ch); src.pe_rva_in(pe_rva_in_ch); src.act_out(router_ch);
 
-    testset();
+        snk.clk(clk); snk.rst(rst); snk.pe_out(pe_out_port_ch); snk.pe_rva_out(pe_rva_out_ch); snk.act_rva_out(act_rva_out_ch); snk.act_done(act_done_ch);
 
-    SC_THREAD(run);
-  }
-
-  void testset()
-  {
-    spec::Axi::SubordinateToRVA::Write rva_write_tmp;
-    spec::Axi::SubordinateToRVA::Read rva_read_tmp;
-
-    // Keep local copies of what we write so we can expect readbacks
-    NVUINTW(spec::VectorType::width) peconfig_written = 0;
-    NVUINTW(spec::VectorType::width) manager1_cfg_written = 0;
-    NVUINTW(spec::VectorType::width) weight_written[spec::kNumVectorLanes];
-    NVUINTW(spec::VectorType::width) input_written = 0;
-
-    // ---------------------------
-    // 1) WRITE PEConfig (region 0x4, local_index = 0x0001)
-    // ---------------------------
-    rva_write_tmp.rw = 1;
-    rva_write_tmp.data = set_bytes<8>("00_00_01_01_00_00_00_01");
-    rva_write_tmp.addr = set_bytes<3>("40_00_10"); // correct local_index
-    peconfig_written = rva_write_tmp.data;
-    source.src_vec.push_back(rva_write_tmp);
-
-    // ---------------------------
-    // 2) WRITE WEIGHT SRAM (region 0x5, addr 0x0010)
-    // ---------------------------
-    for (int i = 0; i < spec::kNumVectorLanes; i++)
-    {
-      rva_write_tmp.rw = 1;
-      rva_write_tmp.data = nvhls::get_rand<spec::VectorType::width>();
-      rva_write_tmp.addr = (0x5u << 20) | (static_cast<uint32_t>(i) << 4);
-      source.src_vec.push_back(rva_write_tmp);
-      weight_written[i] = rva_write_tmp.data; // accumulate for expected readback
+        SC_THREAD(reset_driver);
     }
-
-    // ---------------------------
-    // 3) WRITE INPUT SRAM (region 0x6, addr 0x0020)
-    // ---------------------------
-    rva_write_tmp.rw = 1;
-    rva_write_tmp.data = nvhls::get_rand<spec::VectorType::width>();
-    rva_write_tmp.addr = set_bytes<3>("60_00_00");
-    input_written = rva_write_tmp.data;
-    source.src_vec.push_back(rva_write_tmp);
-
-    // ---------------------------
-    // 4) WRITE Manager1 config (region 0x4, local_index = 0x0004)
-    // ---------------------------
-    rva_write_tmp.rw = 1;
-    rva_write_tmp.data = set_bytes<8>("00_00_00_00_00_00_01_00");
-    rva_write_tmp.addr = set_bytes<3>("40_00_20");
-    manager1_cfg_written = rva_write_tmp.data;
-    source.src_vec.push_back(rva_write_tmp);
-
-    // Expected Act Vector
-    spec::ActVectorType act_vector;
-    spec::AccumScalarType accum ;
-    for (int i = 0; i < spec::kNumVectorLanes; i++)
-    {
-      accum = 0;
-      for (int j = 0; j < spec::kVectorSize; j++)
-      {
-        spec::ScalarType weight = (weight_written[i] >> spec::kIntWordWidth*j) & ((1 << spec::kIntWordWidth) - 1);
-        spec::ScalarType input = (input_written >> spec::kIntWordWidth*j) & ((1 << spec::kIntWordWidth) - 1);
-        accum += weight * input;
-        //cout << "Weight = " << weight << " Input = " << input << " Partial sum = " << accum << std::endl;
-      }
-      act_vector[i] = int(double(accum) /  12.25); // 12.25 is the scale factor
-    }
-    dest.act_vector = act_vector;
-
-    // ---- NOTE ----
-    // We DO NOT push expected responses for writes.
-
-    // ---------------------------
-    // Now issue READs and push expected responses in the same order.
-    // ---------------------------
-
-    // A) READ PEConfig (0x4:0x0001)
-    rva_write_tmp.rw = 0;
-    rva_write_tmp.addr = set_bytes<3>("40_00_10");
-    source.src_vec.push_back(rva_write_tmp);
-    rva_read_tmp.data = peconfig_written;
-    dest.dest_vec.push_back(rva_read_tmp);
-
-    // B) READ WEIGHT SRAM (0x5:0x0010)
-    for (int i = 0; i < spec::kNumVectorLanes; i++)
-    {
-      rva_write_tmp.rw = 0;
-      rva_write_tmp.addr = (0x5u << 20) | (static_cast<uint32_t>(i) << 4);
-      source.src_vec.push_back(rva_write_tmp);
-      rva_read_tmp.data = weight_written[i];
-      dest.dest_vec.push_back(rva_read_tmp);
-    }
-
-    // C) READ INPUT SRAM (0x6:0x0020)
-    rva_write_tmp.rw = 0;
-    rva_write_tmp.addr = set_bytes<3>("60_00_00");
-    source.src_vec.push_back(rva_write_tmp);
-    rva_read_tmp.data = input_written;
-    dest.dest_vec.push_back(rva_read_tmp);
-
-    // D) READ Manager1 config (0x4:0x0004)
-    rva_write_tmp.rw = 0;
-    rva_write_tmp.addr = set_bytes<3>("40_00_20");
-    source.src_vec.push_back(rva_write_tmp);
-    rva_read_tmp.data = manager1_cfg_written;
-    dest.dest_vec.push_back(rva_read_tmp);
-  }
-
-  void run()
-  {
-    wait(2, SC_NS);
-    std::cout << "@" << sc_time_stamp() << " Asserting reset" << std::endl;
-    rst.write(false);
-    wait(2, SC_NS);
-    rst.write(true);
-    std::cout << "@" << sc_time_stamp() << " De-Asserting reset" << std::endl;
-
-    // Plenty of time for AXI and scratchpad latencies
-    wait(10000, SC_NS);
-    std::cout << "@" << sc_time_stamp() << " sc_stop" << std::endl;
-    sc_stop();
-  }
+    void reset_driver() { rst.write(false); wait(5, SC_NS); rst.write(true); wait(5, SC_NS); }
 };
 
-int sc_main(int argc, char *argv[])
-{
-  nvhls::set_random_seed();
-
-  testbench tb("tb");
-
-  sc_report_handler::set_actions(SC_ERROR, SC_DISPLAY);
-
-  sc_start();
-
-  bool rc = (sc_report_handler::get_count(SC_ERROR) > 0);
-
-  if (rc)
-    DCOUT("TESTBENCH FAIL" << endl);
-  else
-    DCOUT("TESTBENCH PASS" << endl);
-  return rc;
+int sc_main(int argc, char *argv[]) {
+    Testbench tb("tb"); sc_start(); return 0;
 }

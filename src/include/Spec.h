@@ -41,10 +41,10 @@ namespace spec {
   
   const int kActNumFrac = 12;
 
-  typedef NVUINTW(kIntWordWidth) ScalarType;
+  typedef NVINTW(kIntWordWidth) ScalarType;  
   typedef typename nvhls::nv_scvector<ScalarType, kVectorSize> VectorType;
 
-  typedef NVUINTW(kIntWordWidth/2) HalfType;
+  typedef NVINTW(kIntWordWidth/2) HalfType;
   typedef typename nvhls::nv_scvector<HalfType, kVectorSize> HalfVectorType;
 
   const int kAccumWordWidth = 2*kIntWordWidth + kVectorSize - 1;

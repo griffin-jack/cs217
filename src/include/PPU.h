@@ -40,6 +40,38 @@
 
 #pragma hls_design ccore
 #pragma hls_ccore_type combinational
+inline void EAdd (const spec::ActVectorType in1, const spec::ActVectorType in2, spec::ActVectorType& out) 
+{
+  spec::ActVectorType out_tmp;   
+  #pragma hls_unroll yes
+  for (int i = 0; i < spec::kNumVectorLanes; i++) {  
+    ac_fixed<spec::kActWordWidth, spec::kActWordWidth - spec::kActNumFrac, true> a, b, c;
+    a.set_slc(0, in1[i]);
+    b.set_slc(0, in2[i]);
+    c = a + b;
+    out_tmp[i] = c.template slc<spec::kActWordWidth>(0);
+  }
+  out = out_tmp;
+}  
+
+#pragma hls_design ccore
+#pragma hls_ccore_type combinational
+inline void EMul (const spec::ActVectorType in1, const spec::ActVectorType in2, spec::ActVectorType& out) 
+{
+  spec::ActVectorType out_tmp;   
+  #pragma hls_unroll yes
+  for (int i = 0; i < spec::kNumVectorLanes; i++) {  
+    ac_fixed<spec::kActWordWidth, spec::kActWordWidth - spec::kActNumFrac, true> a, b, c;
+    a.set_slc(0, in1[i]);
+    b.set_slc(0, in2[i]);
+    c = a * b; // Automatically handles Q4.12 * Q4.12 -> Q8.24 -> aligns back to Q4.12
+    out_tmp[i] = c.template slc<spec::kActWordWidth>(0);
+  }
+  out = out_tmp;
+}
+
+#pragma hls_design ccore
+#pragma hls_ccore_type combinational
 inline void Tanh (const spec::ActVectorType in, spec::ActVectorType& out)
 {
   spec::ActVectorType out_tmp;
