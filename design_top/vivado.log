@@ -1,0 +1,130 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Thu Mar 19 02:48:15 2026
+# Process ID: 118082
+# Current directory: /home/ubuntu/cs217/design_top
+# Command line: vivado -mode tcl
+# Log file: /home/ubuntu/cs217/design_top/vivado.log
+# Journal file: /home/ubuntu/cs217/design_top/vivado.jou
+# Running On        :ip-172-31-91-250
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 20.04.6 LTS
+# Processor Detail  :AMD EPYC 7R13 Processor
+# CPU Frequency     :2650.000 MHz
+# CPU Physical cores:12
+# CPU Logical cores :24
+# Host memory       :268108 MB
+# Swap memory       :10737 MB
+# Total Virtual     :278846 MB
+# Available Virtual :276817 MB
+#-----------------------------------------------------------
+open_checkpoint build/checkpoints/design_top.2026_03_19-004829.post_route.dcp
+Command: open_checkpoint build/checkpoints/design_top.2026_03_19-004829.post_route.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 1347.223 ; gain = 0.000 ; free physical = 248215 ; free virtual = 263704
+INFO: [Device 21-403] Loading part xcvu47p-fsvh2892-2-e
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 3154.145 ; gain = 0.000 ; free physical = 246402 ; free virtual = 261891
+INFO: [Netlist 29-17] Analyzing 15839 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Constraints 18-550] Could not create 'DRIVE' constraint because net 'WRAPPER/IO_SHIM/rst_dimm_en' is not directly connected to top level port. 'DRIVE' is ignored for synthesis but preserved for implementation.
+WARNING: [Constraints 18-550] Could not create 'SLEW' constraint because net 'WRAPPER/IO_SHIM/rst_dimm_en' is not directly connected to top level port. 'SLEW' is ignored for synthesis but preserved for implementation.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'WRAPPER/IO_SHIM/spi_cs_n' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored for synthesis but preserved for implementation.
+WARNING: [Constraints 18-550] Could not create 'DRIVE' constraint because net 'WRAPPER/IO_SHIM/spi_miso' is not directly connected to top level port. 'DRIVE' is ignored for synthesis but preserved for implementation.
+WARNING: [Constraints 18-550] Could not create 'SLEW' constraint because net 'WRAPPER/IO_SHIM/spi_miso' is not directly connected to top level port. 'SLEW' is ignored for synthesis but preserved for implementation.
+WARNING: [Constraints 18-550] Could not create 'DRIVE' constraint because net 'WRAPPER/IO_SHIM/spi_miso_ts' is not directly connected to top level port. 'DRIVE' is ignored for synthesis but preserved for implementation.
+WARNING: [Constraints 18-550] Could not create 'SLEW' constraint because net 'WRAPPER/IO_SHIM/spi_miso_ts' is not directly connected to top level port. 'SLEW' is ignored for synthesis but preserved for implementation.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'WRAPPER/IO_SHIM/spi_mosi' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored for synthesis but preserved for implementation.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'WRAPPER/IO_SHIM/spi_sck' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored for synthesis but preserved for implementation.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'WRAPPER/IO_SHIM/uc_pcie_perst_n' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored for synthesis but preserved for implementation.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'WRAPPER/IO_SHIM/vr_alert_n' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored for synthesis but preserved for implementation.
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.69 ; elapsed = 00:00:00.71 . Memory (MB): peak = 3801.691 ; gain = 47.422 ; free physical = 245782 ; free virtual = 261272
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Constraints 18-4422] SNAPPING_MODE is set so implementation will use the DERIVED_RANGES which may be different then the GRID_RANGES.
+INFO: [Constraints 18-4421] A LAGUNA range, without usable sites, was added to DERIVED_RANGES for purposes of keeping the Programmable Unit together within the reconfigurable pblock.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'SL/UC_PCIE4_BRIDGE/inst/pcie4_ip_i/inst/bufg_gt_sysclk' is LOCed to site 'BUFG_GT_X1Y120'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/BUFG_CLK_125' is LOCed to site 'BUFGCE_X0Y122'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/BUFG_CLK_HBM_EXT' is LOCed to site 'BUFGCE_X0Y70'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/BUFG_CLK_HBM_INT' is LOCed to site 'BUFGCE_X0Y65'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/PLL_CLK_CORE/inst/clkout1_buf' is LOCed to site 'BUFGCE_X0Y56'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/PLL_CLK_CORE/inst/clkout2_buf' is LOCed to site 'BUFGCE_X0Y58'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/RL_CLKS/BUFG_CLK_A_EXT' is LOCed to site 'BUFGCE_X0Y135'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/RL_CLKS/BUFG_CLK_A_INT' is LOCed to site 'BUFGCE_X0Y136'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/RL/HOST_PCIE4C/inst/bufg_gt_sysclk' is LOCed to site 'BUFG_GT_X1Y78'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00.28 ; elapsed = 00:00:00.31 . Memory (MB): peak = 4849.230 ; gain = 86.375 ; free physical = 244851 ; free virtual = 260340
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 4858.230 ; gain = 9.000 ; free physical = 244842 ; free virtual = 260331
+Read PlaceDB: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 5063.027 ; gain = 202.414 ; free physical = 244635 ; free virtual = 260125
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 5063.027 ; gain = 0.000 ; free physical = 244635 ; free virtual = 260125
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 5193.652 ; gain = 130.625 ; free physical = 244504 ; free virtual = 259994
+Read Physdb Files: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 5193.652 ; gain = 430.797 ; free physical = 244504 ; free virtual = 259994
+Restored from archive | CPU: 9.410000 secs | Memory: 283.431511 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 5193.652 ; gain = 430.797 ; free physical = 244504 ; free virtual = 259994
+WARNING: [Constraints 18-4434] Global Clock Buffer 'SL/UC_PCIE4_BRIDGE/inst/pcie4_ip_i/inst/bufg_gt_sysclk' is LOCed to site 'BUFG_GT_X1Y120'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/BUFG_CLK_125' is LOCed to site 'BUFGCE_X0Y122'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/BUFG_CLK_HBM_EXT' is LOCed to site 'BUFGCE_X0Y70'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/BUFG_CLK_HBM_INT' is LOCed to site 'BUFGCE_X0Y65'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/PLL_CLK_CORE/inst/clkout1_buf' is LOCed to site 'BUFGCE_X0Y56'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/PLL_CLK_CORE/inst/clkout2_buf' is LOCed to site 'BUFGCE_X0Y58'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/RL_CLKS/BUFG_CLK_A_EXT' is LOCed to site 'BUFGCE_X0Y135'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/IO_SHIM/RL_CLKS/BUFG_CLK_A_INT' is LOCed to site 'BUFGCE_X0Y136'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+WARNING: [Constraints 18-4434] Global Clock Buffer 'WRAPPER/RL/HOST_PCIE4C/inst/bufg_gt_sysclk' is LOCed to site 'BUFG_GT_X1Y78'. Using a LOC constraint to assign the placement of a Global Clock Buffer can result in sub-optimal placement results.
+Resolution: Remove the LOC constraint and use the CLOCK_REGION constraint to assign a Global Clock Buffer to a CLOCK_REGION.
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 5193.652 ; gain = 0.000 ; free physical = 244504 ; free virtual = 259994
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 329 instances were transformed.
+  BUFG => BUFGCE: 1 instance 
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 228 instances
+  IBUF => IBUF (IBUFCTRL, INBUF): 6 instances
+  IBUFDS => IBUFDS (DIFFINBUF, IBUFCTRL): 2 instances
+  IOBUF => IOBUF (IBUFCTRL, INBUF, OBUFT): 2 instances
+  IOBUFDS => IOBUFDS (DIFFINBUF, IBUFCTRL, INV, OBUFT(x2)): 18 instances
+  IOBUFE3 => IOBUFE3 (IBUFCTRL, INBUF, OBUFT_DCIEN): 72 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2024.1 (64-bit) build 5076996
+open_checkpoint: Time (s): cpu = 00:01:19 ; elapsed = 00:01:18 . Memory (MB): peak = 5193.652 ; gain = 3846.430 ; free physical = 244503 ; free virtual = 259993
+checkpoint_design_top.2026_03_19-004829.post_route
+report_utilization -hierarchical -file /home/ubuntu/cs217/design_top/build/reports/design_top.2026_03_19-004829.post_route_utilization.rpt
+report_utilization: Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 5193.652 ; gain = 0.000 ; free physical = 244505 ; free virtual = 259994
+/home/ubuntu/cs217/design_top/build/reports/design_top.2026_03_19-004829.post_route_utilization.rpt
+report_power -file /home/ubuntu/cs217/design_top/build/reports/design_top.2026_03_19-004829.post_route_power_vectorless.rpt
+Command: report_power -file /home/ubuntu/cs217/design_top/build/reports/design_top.2026_03_19-004829.post_route_power_vectorless.rpt
+INFO: [Power 33-23] Power model is not available for STARTUPE3
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
+Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
+1 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+report_power: Time (s): cpu = 00:03:43 ; elapsed = 00:01:14 . Memory (MB): peak = 5979.027 ; gain = 785.375 ; free physical = 243892 ; free virtual = 259382
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 19 02:53:35 2026...

@@ -1,0 +1,74 @@
+#--------------------------------------------------------------------------
+# AMD Vivado v2024.1 (64-bit)
+# SW Build: 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build: 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build: 5076995 on Wed May 22 18:29:18 MDT 2024
+# Current time: Thu Mar 19 02:46:03 UTC 2026
+# Process ID (PID): 117470
+# User: ubuntu
+# OS: Ubuntu
+#
+# This file is an indication that an internal application error occurred.
+# This information is useful for debugging. Please open a case with AMD.
+# Technical Support with this file and a testcase attached.
+#--------------------------------------------------------------------------
+Thu Mar 19 02:46:03 UTC 2026
+java.lang.RuntimeException: Fontconfig head is null, check your fonts or fonts configuration
+	at java.desktop/sun.awt.FontConfiguration.getVersion(FontConfiguration.java:1263)
+	at java.desktop/sun.awt.FontConfiguration.readFontConfigFile(FontConfiguration.java:221)
+	at java.desktop/sun.awt.FontConfiguration.init(FontConfiguration.java:105)
+	at java.desktop/sun.awt.X11FontManager.createFontConfiguration(X11FontManager.java:696)
+	at java.desktop/sun.font.SunFontManager$2.run(SunFontManager.java:352)
+	at java.desktop/sun.font.SunFontManager$2.run(SunFontManager.java:309)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.desktop/sun.font.SunFontManager.<init>(SunFontManager.java:309)
+	at java.desktop/sun.awt.FcFontManager.<init>(FcFontManager.java:35)
+	at java.desktop/sun.awt.X11FontManager.<init>(X11FontManager.java:55)
+	at java.desktop/sun.font.PlatformFontInfo.createFontManager(PlatformFontInfo.java:37)
+	at java.desktop/sun.font.FontManagerFactory.getInstance(FontManagerFactory.java:51)
+	at java.desktop/sun.font.SunFontManager.getInstance(SunFontManager.java:242)
+	at java.desktop/sun.font.FontDesignMetrics.getMetrics(FontDesignMetrics.java:260)
+	at java.desktop/sun.swing.SwingUtilities2.getFontMetrics(SwingUtilities2.java:1242)
+	at java.desktop/javax.swing.JComponent.getFontMetrics(JComponent.java:1700)
+	at java.desktop/sun.swing.SwingUtilities2.getFontMetrics(SwingUtilities2.java:355)
+	at java.desktop/sun.swing.SwingUtilities2.getFontMetrics(SwingUtilities2.java:327)
+	at java.desktop/javax.swing.plaf.basic.BasicLabelUI.paint(BasicLabelUI.java:187)
+	at java.desktop/javax.swing.plaf.ComponentUI.update(ComponentUI.java:161)
+	at java.desktop/javax.swing.JComponent.paintComponent(JComponent.java:852)
+	at ui.utils.swing.h.b.paintComponent(SourceFile:220)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1128)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:961)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1137)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:961)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1137)
+	at java.desktop/javax.swing.JLayeredPane.paint(JLayeredPane.java:586)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:961)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1137)
+	at java.desktop/javax.swing.JComponent.paintToOffscreen(JComponent.java:5318)
+	at java.desktop/javax.swing.BufferStrategyPaintManager.paint(BufferStrategyPaintManager.java:246)
+	at java.desktop/javax.swing.RepaintManager.paint(RepaintManager.java:1336)
+	at java.desktop/javax.swing.JComponent._paintImmediately(JComponent.java:5266)
+	at java.desktop/javax.swing.JComponent.paintImmediately(JComponent.java:5076)
+	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:878)
+	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:861)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:861)
+	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:834)
+	at java.desktop/javax.swing.RepaintManager.prePaintDirtyRegions(RepaintManager.java:784)
+	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1897)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at ui.frmwork.a.d.dispatchEvent(SourceFile:38)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+
