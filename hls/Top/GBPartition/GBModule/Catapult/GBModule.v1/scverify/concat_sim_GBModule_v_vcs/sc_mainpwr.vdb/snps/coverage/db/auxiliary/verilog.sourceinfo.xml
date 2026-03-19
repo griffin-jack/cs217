@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE cov SYSTEM "ucdb_srcinfo.dtd">
+  <srcinfo name="/home/users/code/cs217/hls/Top/GBPartition/GBModule/Catapult/GBModule.v1"  >
+    <ucapi_version  major_ver="13"  minor_ver="1"  patch_str="U-2023.03"  />
+      <fileinfo name=".mhdlinst.dat"  id="0"  />
+      <fileinfo name="scverify/concat_sim_GBModule_v_vcs/sysc/scverifyconcat_sim_GBModule_v_vcssc_mainpwr/sysc_skeleton.v"  id="1"  timestamp="1773886876"  />
+      <fileinfo name="scverify/ccs_wrapper_GBModule.v"  id="2"  timestamp="1773886818"  />
+      <fileinfo name="concat_sim_GBModule.v"  id="3"  timestamp="1773886820"  />
+    </srcinfo>

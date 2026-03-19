@@ -1,0 +1,44 @@
+.NAME
+ ccs_wrapper
+
+.SHORT_DESCRIPTION
+ SystemC-Verilog co-simulation
+
+.DESCRIPTION
+ vcs (TM) Simulator Interface
+
+.IMPLEMENTATIONS
+ 1  vcs  Verilog Import ccs_wrapper(ccs_wrapper)
+
+.CLASSES
+ 1 None
+
+
+.INPUT_PORTS
+ 1   clk   (BIT)   bool   (clk) BC
+ 2   rst   (BIT)   sc_logic   (rst) BC
+ 3   start_vld   (BIT)   sc_logic   (start_vld) BC
+ 4   start_dat   (BIT)   sc_logic   (start_dat) BC
+ 5   done_rdy   (BIT)   sc_logic   (done_rdy) BC
+ 6   rva_in_vld   (BIT)   sc_logic   (rva_in_vld) BC
+ 7   rva_in_dat   (B(168 downto 0))   sc_lv   (rva_in_dat) BC
+ 8   rva_out_rdy   (BIT)   sc_logic   (rva_out_rdy) BC
+ 9   input_port_vld   (BIT)   sc_logic   (input_port_vld) BC
+ 10   input_port_dat   (B(137 downto 0))   sc_lv   (input_port_dat) BC
+ 11   output_port_rdy   (BIT)   sc_logic   (output_port_rdy) BC
+
+.OUTPUT_PORTS
+ 1   start_rdy   (BIT)   sc_logic   (start_rdy) BC
+ 2   done_vld   (BIT)   sc_logic   (done_vld) BC
+ 3   done_dat   (BIT)   sc_logic   (done_dat) BC
+ 4   rva_in_rdy   (BIT)   sc_logic   (rva_in_rdy) BC
+ 5   rva_out_vld   (BIT)   sc_logic   (rva_out_vld) BC
+ 6   rva_out_dat   (B(127 downto 0))   sc_lv   (rva_out_dat) BC
+ 7   input_port_rdy   (BIT)   sc_logic   (input_port_rdy) BC
+ 8   output_port_vld   (BIT)   sc_logic   (output_port_vld) BC
+ 9   output_port_dat   (B(137 downto 0))   sc_lv   (output_port_dat) BC
+
+.HISTORY
+ None
+
+.END

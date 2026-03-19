@@ -1,0 +1,2 @@
+STUBLIB_concat_sim_NMP_v_vcs = libconcat_sim_NMP_v_vcs_sysc_stubs.a
+STUBS = _stublist \

@@ -1,0 +1,45 @@
+.NAME
+ ccs_wrapper
+
+.SHORT_DESCRIPTION
+ SystemC-Verilog co-simulation
+
+.DESCRIPTION
+ vcs (TM) Simulator Interface
+
+.IMPLEMENTATIONS
+ 1  vcs  Verilog Import ccs_wrapper(ccs_wrapper)
+
+.CLASSES
+ 1 None
+
+
+.INPUT_PORTS
+ 1   clk   (BIT)   bool   (clk) BC
+ 2   rst   (BIT)   sc_logic   (rst) BC
+ 3   rva_in_large_vld   (BIT)   sc_logic   (rva_in_large_vld) BC
+ 4   rva_in_large_dat   (B(168 downto 0))   sc_lv   (rva_in_large_dat) BC
+ 5   rva_out_large_rdy   (BIT)   sc_logic   (rva_out_large_rdy) BC
+ 6   nmp_large_req_vld   (BIT)   sc_logic   (nmp_large_req_vld) BC
+ 7   nmp_large_req_dat   (B(154 downto 0))   sc_lv   (nmp_large_req_dat) BC
+ 8   nmp_large_rsp_rdy   (BIT)   sc_logic   (nmp_large_rsp_rdy) BC
+ 9   gbcontrol_large_req_vld   (BIT)   sc_logic   (gbcontrol_large_req_vld) BC
+ 10   gbcontrol_large_req_dat   (B(154 downto 0))   sc_lv   (gbcontrol_large_req_dat) BC
+ 11   gbcontrol_large_rsp_rdy   (BIT)   sc_logic   (gbcontrol_large_rsp_rdy) BC
+ 12   SC_SRAM_CONFIG   (B(31 downto 0))   sc_lv   (SC_SRAM_CONFIG) BC
+
+.OUTPUT_PORTS
+ 1   rva_in_large_rdy   (BIT)   sc_logic   (rva_in_large_rdy) BC
+ 2   rva_out_large_vld   (BIT)   sc_logic   (rva_out_large_vld) BC
+ 3   rva_out_large_dat   (B(127 downto 0))   sc_lv   (rva_out_large_dat) BC
+ 4   nmp_large_req_rdy   (BIT)   sc_logic   (nmp_large_req_rdy) BC
+ 5   nmp_large_rsp_vld   (BIT)   sc_logic   (nmp_large_rsp_vld) BC
+ 6   nmp_large_rsp_dat   (B(127 downto 0))   sc_lv   (nmp_large_rsp_dat) BC
+ 7   gbcontrol_large_req_rdy   (BIT)   sc_logic   (gbcontrol_large_req_rdy) BC
+ 8   gbcontrol_large_rsp_vld   (BIT)   sc_logic   (gbcontrol_large_rsp_vld) BC
+ 9   gbcontrol_large_rsp_dat   (B(127 downto 0))   sc_lv   (gbcontrol_large_rsp_dat) BC
+
+.HISTORY
+ None
+
+.END

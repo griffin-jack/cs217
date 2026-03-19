@@ -1,0 +1,56 @@
+.NAME
+ ccs_wrapper
+
+.SHORT_DESCRIPTION
+ SystemC-Verilog co-simulation
+
+.DESCRIPTION
+ vcs (TM) Simulator Interface
+
+.IMPLEMENTATIONS
+ 1  vcs  Verilog Import ccs_wrapper(ccs_wrapper)
+
+.CLASSES
+ 1 None
+
+
+.INPUT_PORTS
+ 1   clk   (BIT)   bool   (clk) BC
+ 2   rst   (BIT)   sc_logic   (rst) BC
+ 3   gb_done_rdy   (BIT)   sc_logic   (gb_done_rdy) BC
+ 4   if_axi_rd_ar_vld   (BIT)   sc_logic   (if_axi_rd_ar_vld) BC
+ 5   if_axi_rd_ar_dat   (B(49 downto 0))   sc_lv   (if_axi_rd_ar_dat) BC
+ 6   if_axi_rd_r_rdy   (BIT)   sc_logic   (if_axi_rd_r_rdy) BC
+ 7   if_axi_wr_aw_vld   (BIT)   sc_logic   (if_axi_wr_aw_vld) BC
+ 8   if_axi_wr_aw_dat   (B(49 downto 0))   sc_lv   (if_axi_wr_aw_dat) BC
+ 9   if_axi_wr_w_vld   (BIT)   sc_logic   (if_axi_wr_w_vld) BC
+ 10   if_axi_wr_w_dat   (B(144 downto 0))   sc_lv   (if_axi_wr_w_dat) BC
+ 11   if_axi_wr_b_rdy   (BIT)   sc_logic   (if_axi_wr_b_rdy) BC
+ 12   data_in_vld   (BIT)   sc_logic   (data_in_vld) BC
+ 13   data_in_dat   (B(137 downto 0))   sc_lv   (data_in_dat) BC
+ 14   data_out_rdy   (BIT)   sc_logic   (data_out_rdy) BC
+ 15   pe_start_rdy   (BIT)   sc_logic   (pe_start_rdy) BC
+ 16   pe_done_vld   (BIT)   sc_logic   (pe_done_vld) BC
+ 17   pe_done_dat   (BIT)   sc_logic   (pe_done_dat) BC
+
+.OUTPUT_PORTS
+ 1   gb_done_vld   (BIT)   sc_logic   (gb_done_vld) BC
+ 2   gb_done_dat   (BIT)   sc_logic   (gb_done_dat) BC
+ 3   if_axi_rd_ar_rdy   (BIT)   sc_logic   (if_axi_rd_ar_rdy) BC
+ 4   if_axi_rd_r_vld   (BIT)   sc_logic   (if_axi_rd_r_vld) BC
+ 5   if_axi_rd_r_dat   (B(140 downto 0))   sc_lv   (if_axi_rd_r_dat) BC
+ 6   if_axi_wr_aw_rdy   (BIT)   sc_logic   (if_axi_wr_aw_rdy) BC
+ 7   if_axi_wr_w_rdy   (BIT)   sc_logic   (if_axi_wr_w_rdy) BC
+ 8   if_axi_wr_b_vld   (BIT)   sc_logic   (if_axi_wr_b_vld) BC
+ 9   if_axi_wr_b_dat   (B(11 downto 0))   sc_lv   (if_axi_wr_b_dat) BC
+ 10   data_in_rdy   (BIT)   sc_logic   (data_in_rdy) BC
+ 11   data_out_vld   (BIT)   sc_logic   (data_out_vld) BC
+ 12   data_out_dat   (B(137 downto 0))   sc_lv   (data_out_dat) BC
+ 13   pe_start_vld   (BIT)   sc_logic   (pe_start_vld) BC
+ 14   pe_start_dat   (BIT)   sc_logic   (pe_start_dat) BC
+ 15   pe_done_rdy   (BIT)   sc_logic   (pe_done_rdy) BC
+
+.HISTORY
+ None
+
+.END

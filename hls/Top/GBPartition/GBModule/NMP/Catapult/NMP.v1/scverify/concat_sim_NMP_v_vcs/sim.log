@@ -1,0 +1,95 @@
+Command: /home/users/code/cs217/hls/Top/GBPartition/GBModule/NMP/./Catapult/NMP.v1/scverify/concat_sim_NMP_v_vcs/sc_mainpwr -systemcrun -verilogrun -ucli -ucli2Proc -i ./Catapult/NMP.v1/scverify/concat_sim_NMP_v_vcs/scverify_vcs_wave.tcl -l ./Catapult/NMP.v1/scverify/concat_sim_NMP_v_vcs/sim.log
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version U-2023.03_Full64; Runtime version U-2023.03_Full64;  Mar 18 19:11 2026
+Connections Clock: tb.clk Period: 1 ns
+ucli% # Source static function file
+ucli% global env
+ucli% # Source the common TCL file (that also reads the wave database file)
+ucli% source $env(MGC_HOME)/pkgs/sif/userware/En_na/flows/vcs_funcs.tcl
+ucli% read_ccs_wave ./Catapult/NMP.v1/scverify/ccs_wave_signals.dat
+Reading SCVerify waveform database './Catapult/NMP.v1/scverify/ccs_wave_signals.dat'
+ucli% setup_vcd_file ./Catapult/NMP.v1/.dut_inst_info.tcl
+DUT Instance Path = sc_main.tb.dut.ccs_rtl.dut_inst
+Preparing to write FSDB file ./default.fsdb...
+ucli% populate_wave_window
+ucli% if { ("0" != {}) && [file exists "0"] } {
+   source "0"
+}
+ucli% # If not running in GUI mode, run the entire simulation
+ucli% if { ![gui_is_active] } {
+   do_simulation_run
+}
+Running up to VCD start time: '0 ns'
+run 0 ns
+sysc_skeleton.v, 438 : (*vcs_systemc_2,vcs_systemc_skel*) module sc_main;
+Turning FSDB on
+*Verdi* Loading libsscore_vcs202303.so
+*Verdi* : Loading SystemC dumping library libsscore_vcs202303_sc233_gcc920.so.
+*Verdi* : Env. FSDB_VCS_RD_SC_VALPTR_PROTECT=1(1) was set.
+FSDB Dumper for VCS, Release Verdi_V-2023.12-SP2-4, Linux x86_64/64bit, 11/18/2024
+(C) 1996 - 2024 by Synopsys, Inc.
+*Verdi* : Create FSDB file './default.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : End of traversing.
+fsdbDumpvars 0 sc_main.tb.dut.ccs_rtl.dut_inst
+*Verdi* : Begin traversing the scope (sc_main.tb.dut.ccs_rtl.dut_inst), layer (0).
+*Verdi* : End of traversing.
+*Verdi* : fsdbDumpon - All FSDB files at 0 ps.
+Continuing to VCD end time: 'end'
+run -all
+@2 ns Asserting reset
+@4 ns De-Asserting reset
+20 ns Dest rva data = 0x40002000300000001
+20 ns RVA config matched
+42 ns - large buffer request sent:  - is_write: 0x0 memory_index: 0x1 vector_index: 0x0 timestep_index: 0x0
+48 ns - large buffer request sent:  - is_write: 0x1 memory_index: 0x1 vector_index: 0x0 timestep_index: 0x0
+Match idx 0: expected=-0.0625 actual=-0.0625 abs_err=0 pct_err=0%
+Match idx 1: expected=1.0625 actual=1.0625 abs_err=0 pct_err=0%
+Match idx 2: expected=0.875 actual=0.875 abs_err=0 pct_err=0%
+Match idx 3: expected=0.25 actual=0.25 abs_err=0 pct_err=0%
+Match idx 4: expected=0.9375 actual=0.9375 abs_err=0 pct_err=0%
+Match idx 5: expected=-0.4375 actual=-0.4375 abs_err=0 pct_err=0%
+Match idx 6: expected=-1 actual=-1 abs_err=0 pct_err=0%
+Match idx 7: expected=1.375 actual=1.375 abs_err=0 pct_err=0%
+Match idx 8: expected=1.375 actual=1.375 abs_err=0 pct_err=0%
+Match idx 9: expected=0.8125 actual=0.8125 abs_err=0 pct_err=0%
+Match idx a: expected=0.5625 actual=0.5625 abs_err=0 pct_err=0%
+Match idx b: expected=1.1875 actual=1.1875 abs_err=0 pct_err=0%
+Match idx c: expected=1.25 actual=1.25 abs_err=0 pct_err=0%
+Match idx d: expected=-1.3125 actual=-1.3125 abs_err=0 pct_err=0%
+Match idx e: expected=0.6875 actual=0.6875 abs_err=0 pct_err=0%
+Match idx f: expected=1.1875 actual=1.1875 abs_err=0 pct_err=0%
+48 ns RMS write data matched
+50 ns Done signal issued !!!!
+97 ns - large buffer request sent:  - is_write: 0x0 memory_index: 0x2 vector_index: 0x0 timestep_index: 0x0
+104 ns - large buffer request sent:  - is_write: 0x1 memory_index: 0x2 vector_index: 0x0 timestep_index: 0x0
+Match idx 0: expected=0 actual=0 abs_err=0 pct_err=0%
+Match idx 1: expected=0 actual=0 abs_err=0 pct_err=0%
+Match idx 2: expected=0.4375 actual=0.4375 abs_err=0 pct_err=0%
+Match idx 3: expected=0 actual=0 abs_err=0 pct_err=0%
+Match idx 4: expected=0 actual=0 abs_err=0 pct_err=0%
+Match idx 5: expected=0 actual=0 abs_err=0 pct_err=0%
+Match idx 6: expected=0 actual=0 abs_err=0 pct_err=0%
+Match idx 7: expected=0 actual=0 abs_err=0 pct_err=0%
+Match idx 8: expected=0 actual=0 abs_err=0 pct_err=0%
+Match idx 9: expected=0.375 actual=0.375 abs_err=0 pct_err=0%
+Match idx a: expected=0 actual=0 abs_err=0 pct_err=0%
+Match idx b: expected=0 actual=0 abs_err=0 pct_err=0%
+Match idx c: expected=0 actual=0 abs_err=0 pct_err=0%
+Match idx d: expected=0 actual=0 abs_err=0 pct_err=0%
+Match idx e: expected=0 actual=0 abs_err=0 pct_err=0%
+Match idx f: expected=0 actual=0 abs_err=0 pct_err=0%
+104 ns Softmax write data matched
+106 ns Done signal issued !!!!
+@10004 ns sc_stop
+TESTBENCH PASS
+Simulation complete, time is 10004000 ps.
+sysc_skeleton.v, 438 : (*vcs_systemc_2,vcs_systemc_skel*) module sc_main;
+Turning FSDB off and flushing
+*Verdi* : Close all FSDB Files at 10,004,000 ps.
+Completed writing FSDB file ./default.fsdb...
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 10004000 ps
+CPU Time:      0.680 seconds;       Data structure size:   8.3Mb
+Wed Mar 18 19:11:22 2026

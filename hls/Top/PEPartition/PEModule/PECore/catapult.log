@@ -3181,3 +3181,777 @@ dofile ../../../../../scripts/hls/go_hls.tcl
 # Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 136.28 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
 # Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 162.90 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
 # Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 189.46 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 216.66 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 246.64 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 273.23 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 299.80 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 326.25 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 352.83 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 379.46 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 405.89 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 434.24 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 464.22 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 490.78 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(631): Prescheduled LOOP '/PECore/PECoreRun/while' (11 c-steps) (SCHD-7)
+# $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(626): Prescheduled LOOP '/PECore/PECoreRun/PECoreRun:rlp' (1 c-steps) (SCHD-7)
+# $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(626): Prescheduled SEQUENTIAL '/PECore/PECoreRun' (total length 12 c-steps) (SCHD-8)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 517.39 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 543.53 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 569.68 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(626): Initial schedule of SEQUENTIAL '/PECore/PECoreRun': Latency = 8, Area (Datapath, Register, Total) = 129392.33, 0.00, 129392.33 (CRAAS-11)
+# At least one feasible schedule exists. (CRAAS-9)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 595.93 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Optimized LOOP '/PECore/PECoreRun/while': Latency = 8, Area (Datapath, Register, Total) = 129375.33, 0.00, 129375.33 (CRAAS-18)
+# Input operation 'PECore::DecodeAxiRead:switch-lp:asn(PECore::DecodeAxiRead:case-3:ac_int:cctor(31:0))' moved from c-step 2 to c-step 3 to save registers (SCHD-49)
+# Input operation 'PECore::DecodeAxiRead:switch-lp:asn(PECore::DecodeAxiRead:case-3:ac_int:cctor(31:0))' moved from c-step 2 to c-step 4 to save registers (SCHD-49)
+# Input operation 'PECore::DecodeAxiRead:switch-lp:asn(PECore::DecodeAxiRead:case-3:ac_int:cctor(31:0))' moved from c-step 2 to c-step 5 to save registers (SCHD-49)
+# Input operation 'PECore::DecodeAxiRead:switch-lp:asn(PECore::DecodeAxiRead:case-3:ac_int:cctor(31:0))' moved from c-step 2 to c-step 6 to save registers (SCHD-49)
+# Input operation 'PECore::DecodeAxiRead:switch-lp:asn(PECore::DecodeAxiRead:case-3:ac_int:cctor(31:0))' moved from c-step 2 to c-step 7 to save registers (SCHD-49)
+# Input operation 'PECore::DecodeAxiRead:switch-lp:asn(PECore::DecodeAxiRead:case-3:ac_int:cctor(31:0))' moved from c-step 2 to c-step 8 to save registers (SCHD-49)
+# Input operation 'PECore::DecodeAxiRead:switch-lp:asn(PECore::DecodeAxiRead:case-3:ac_int:cctor(31:0))' moved from c-step 2 to c-step 9 to save registers (SCHD-49)
+# Input operation 'PECore::DecodeAxiRead:switch-lp:asn(PECore::DecodeAxiRead:case-3:ac_int:cctor(31:0))' moved from c-step 2 to c-step 10 to save registers (SCHD-49)
+# Info: $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(626): Final schedule of SEQUENTIAL '/PECore/PECoreRun': Latency = 8, Area (Datapath, Register, Total) = 129347.85, 0.00, 129347.85 (CRAAS-12)
+# Resource allocation and scheduling done. (CRAAS-2)
+# Info: Running transformation 'allocate' on solution 'PECore.v1': elapsed time 620.63 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Optimized LOOP 'while': Latency = 8, Area (Datapath, Register, Total) = 129347.85, 0.00, 129347.85 (CRAAS-18)
+# Netlist written to file 'schedule.gnt' (NET-4)
+# Info: Completed transformation 'allocate' on solution 'PECore.v1': elapsed time 626.20 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-9)
+# Info: Design complexity at end of 'allocate': Total ops = 23241, Real ops = 10472, Vars = 5235 (SOL-21)
+# Info: Starting transformation 'schedule' on solution 'PECore.v1' (SOL-8)
+# Performing concurrent resource allocation and scheduling on '/PECore/PECoreRun' (CRAAS-1)
+# Info: $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(635): Creating buffer for wait controller for component 'rva_in.PopNB():mio' (SCHD-46)
+# Info: $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(635): Creating buffer for wait controller for component 'rva_in.PopNB():mio' (SCHD-46)
+# Info: $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(635): Creating buffer for wait controller for component 'rva_in.PopNB():mio' (SCHD-46)
+# Info: $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(635): Creating buffer for wait controller for component 'rva_in.PopNB():mio' (SCHD-46)
+# Info: $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(386): Creating buffer for wait controller for component 'input_port.PopNB():mio' (SCHD-46)
+# Info: $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(386): Creating buffer for wait controller for component 'input_port.PopNB():mio' (SCHD-46)
+# Info: $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(386): Creating buffer for wait controller for component 'input_port.PopNB():mio' (SCHD-46)
+# Info: $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(557): Creating buffer for wait controller for component 'start.PopNB():mio' (SCHD-46)
+# Info: $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(557): Creating buffer for wait controller for component 'start.PopNB():mio' (SCHD-46)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a0.a1.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a0.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a0.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a0.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsc.clken' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsc.q' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsc.re' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsc.radr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsc.we' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsc.d' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsci' (LIB-3)
+# Global signal 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsc.wadr' added to design 'PECore' for component 'weight_mem.banks.bank.a1.a1.a1.a1.a:rsci' (LIB-3)
+# Info: $PROJECT_HOME/../../../../../src/Top/PEPartition/PEModule/PECore/PECore.h(631): Loop '/PECore/PECoreRun/while' is pipelined with initiation interval 1 and no flushing (SCHD-43)
+# Info: Running transformation 'schedule' on solution 'PECore.v1': elapsed time 29.99 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'schedule' on solution 'PECore.v1': elapsed time 56.45 seconds, memory usage 1983408kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'schedule' on solution 'PECore.v1': elapsed time 83.01 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'schedule' on solution 'PECore.v1': elapsed time 109.70 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'schedule' on solution 'PECore.v1': elapsed time 136.44 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'schedule' on solution 'PECore.v1': elapsed time 163.20 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'schedule' on solution 'PECore.v1': elapsed time 188.98 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Report written to file 'cycPECore.rpt'
+# Info: Completed transformation 'schedule' on solution 'PECore.v1': elapsed time 200.65 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-9)
+# Info: Design complexity at end of 'schedule': Total ops = 33697, Real ops = 9349, Vars = 7808 (SOL-21)
+# Info: Starting transformation 'dpfsm' on solution 'PECore.v1' (SOL-8)
+# Performing FSM extraction... (FSM-1)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 29.98 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 56.83 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 83.73 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 110.62 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 137.50 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 164.35 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 191.27 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 218.12 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 247.92 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 277.90 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 304.74 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 331.57 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 358.38 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 385.15 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 411.81 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 438.56 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 465.42 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 495.41 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 522.29 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 549.17 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 576.01 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 602.64 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 629.48 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 656.38 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 683.22 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 713.20 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 740.08 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 766.94 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 793.61 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 820.37 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 847.22 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 874.10 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 900.89 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 930.86 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 957.68 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 984.55 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1011.35 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1038.08 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1064.83 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1091.68 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1118.53 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1148.51 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1175.43 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1202.25 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1229.16 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1256.07 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1282.92 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1309.76 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1336.28 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1366.26 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1393.12 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1419.97 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1446.83 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1473.64 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1500.39 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1527.20 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1554.07 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1584.04 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1610.83 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1637.59 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1664.36 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1691.10 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1717.91 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1744.69 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1771.39 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1801.37 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1828.11 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1854.89 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1881.58 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1908.37 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1935.14 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1961.94 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 1988.70 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2018.67 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2045.51 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2072.29 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2099.10 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2125.91 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2152.68 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2179.50 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2206.21 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2236.19 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2262.95 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2289.74 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2316.48 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2343.33 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2369.99 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2396.76 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2423.67 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2453.66 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2480.37 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2507.19 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2533.85 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2560.41 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2587.07 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2613.79 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2641.23 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2671.20 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2697.82 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2724.53 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2751.19 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2777.98 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2804.68 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2831.40 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2858.88 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2888.85 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2915.49 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2942.16 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2969.05 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'dpfsm' on solution 'PECore.v1': elapsed time 2995.83 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Completed transformation 'dpfsm' on solution 'PECore.v1': elapsed time 3005.53 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-9)
+# Info: Design complexity at end of 'dpfsm': Total ops = 27849, Real ops = 12535, Vars = 6302 (SOL-21)
+# Info: Starting transformation 'instance' on solution 'PECore.v1' (SOL-8)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Warning: $MGC_HOME/shared/pkgs/matchlib/cmod/include/Arbiter.h(110): Writing to register bank '0#6' with 31 registers using a dynamic index can cause excessive runtime and undesired hardware.  Please inspect coding style. (MEM-74)
+# Info: Running transformation 'instance' on solution 'PECore.v1': elapsed time 29.97 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'instance' on solution 'PECore.v1': elapsed time 56.99 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Running transformation 'instance' on solution 'PECore.v1': elapsed time 83.68 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Netlist written to file 'schematic.nlv' (NET-4)
+# Info: Running transformation 'instance' on solution 'PECore.v1': elapsed time 107.25 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Info: Completed transformation 'instance' on solution 'PECore.v1': elapsed time 109.57 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-9)
+# Info: Design complexity at end of 'instance': Total ops = 29391, Real ops = 17912, Vars = 28435 (SOL-21)
+# Info: Starting transformation 'extract' on solution 'PECore.v1' (SOL-8)
+# Info: Running transformation 'extract' on solution 'PECore.v1': elapsed time 26.18 seconds, memory usage 1950636kB, peak memory usage 2016164kB (SOL-15)
+# Report written to file 'PECore.rpt'
+# Generating SCVerify ccs_wrapper_PECore.v
+# Netlist written to file 'PECore.v' (NET-4)
+# generate concat
+# order file name is: PECore.v_order.txt
+# Add dependent file: ./PECore_Connections_InBlockingless_RVSinkless_spec_Axi_rvaCfggreater_Writecomma_Connections_SYN_PORTgreater_PopNB_mgc_out_dreg_v2.v
+# Add dependent file: ./PECore_Connections_InBlockingless_RVSinkless_spec_Axi_rvaCfggreater_Writecomma_Connections_SYN_PORTgreater_PopNB_ccs_in_v1.v
+# Add dependent file: ./PECore_Connections_InBlockingless_RVSinkless_spec_Axi_rvaCfggreater_Writecomma_Connections_SYN_PORTgreater_PopNB.v
+# Add dependent file: ./PECore_Connections_InBlockingless_spec_StreamTypecomma_Connections_SYN_PORTgreater_PopNB_mgc_out_dreg_v2.v
+# Add dependent file: ./PECore_Connections_InBlockingless_spec_StreamTypecomma_Connections_SYN_PORTgreater_PopNB_ccs_in_v1.v
+# Add dependent file: ./PECore_Connections_InBlockingless_spec_StreamTypecomma_Connections_SYN_PORTgreater_PopNB.v
+# Add dependent file: ./PECore_Connections_OutBlockingless_spec_ActVectorTypecomma_Connections_SYN_PORTgreater_Push_ccs_in_v1.v
+# Add dependent file: ./PECore_Connections_OutBlockingless_spec_ActVectorTypecomma_Connections_SYN_PORTgreater_Push_ccs_sync_out_vld_v1.v
+# Add dependent file: ./PECore_Connections_OutBlockingless_spec_ActVectorTypecomma_Connections_SYN_PORTgreater_Push.v
+# Add dependent file: ./PECore_Connections_InBlockingless_boolcomma_Connections_SYN_PORTgreater_PopNB_mgc_out_dreg_v2.v
+# Add dependent file: ./PECore_Connections_InBlockingless_boolcomma_Connections_SYN_PORTgreater_PopNB_ccs_in_v1.v
+# Add dependent file: ./PECore_Connections_InBlockingless_boolcomma_Connections_SYN_PORTgreater_PopNB.v
+# Add dependent file: ./PECore_Connections_OutBlockingless_RVSinkless_spec_Axi_rvaCfggreater_Readcomma_Connections_SYN_PORTgreater_Push_ccs_in_v1.v
+# Add dependent file: ./PECore_Connections_OutBlockingless_RVSinkless_spec_Axi_rvaCfggreater_Readcomma_Connections_SYN_PORTgreater_Push_ccs_sync_out_vld_v1.v
+# Add dependent file: ./PECore_Connections_OutBlockingless_RVSinkless_spec_Axi_rvaCfggreater_Readcomma_Connections_SYN_PORTgreater_Push.v
+# Add dependent file: ./PECore_mgc_mul_pipe_beh.v
+# Add dependent file: ./PECore_mgc_muladd1_beh.v
+# Add dependent file: ./PECore_mgc_shift_l_beh_v5.v
+# Add dependent file: ./PECore_ACC_17i31_1o31_35d03a7c76a8394e7c510c9fae810dcdee.v
+# Add dependent file: /cad/mentor/2024.2_1/Mgc_home/pkgs/ccs_xilinx/hdl/BLOCK_1R1W_RBW.v
+# Add dependent file: ./PECore.v
+# Finished writing concatenated file: /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/concat_PECore.v
+# order file name is: PECore.v_order_sim.txt
+# Add dependent file: ./PECore_Connections_InBlockingless_RVSinkless_spec_Axi_rvaCfggreater_Writecomma_Connections_SYN_PORTgreater_PopNB_mgc_out_dreg_v2.v
+# Add dependent file: ./PECore_Connections_InBlockingless_RVSinkless_spec_Axi_rvaCfggreater_Writecomma_Connections_SYN_PORTgreater_PopNB_ccs_in_v1.v
+# Add dependent file: ./PECore_Connections_InBlockingless_RVSinkless_spec_Axi_rvaCfggreater_Writecomma_Connections_SYN_PORTgreater_PopNB.v
+# Add dependent file: ./PECore_Connections_InBlockingless_spec_StreamTypecomma_Connections_SYN_PORTgreater_PopNB_mgc_out_dreg_v2.v
+# Add dependent file: ./PECore_Connections_InBlockingless_spec_StreamTypecomma_Connections_SYN_PORTgreater_PopNB_ccs_in_v1.v
+# Add dependent file: ./PECore_Connections_InBlockingless_spec_StreamTypecomma_Connections_SYN_PORTgreater_PopNB.v
+# Add dependent file: ./PECore_Connections_OutBlockingless_spec_ActVectorTypecomma_Connections_SYN_PORTgreater_Push_ccs_in_v1.v
+# Add dependent file: ./PECore_Connections_OutBlockingless_spec_ActVectorTypecomma_Connections_SYN_PORTgreater_Push_ccs_sync_out_vld_v1.v
+# Add dependent file: ./PECore_Connections_OutBlockingless_spec_ActVectorTypecomma_Connections_SYN_PORTgreater_Push.v
+# Add dependent file: ./PECore_Connections_InBlockingless_boolcomma_Connections_SYN_PORTgreater_PopNB_mgc_out_dreg_v2.v
+# Add dependent file: ./PECore_Connections_InBlockingless_boolcomma_Connections_SYN_PORTgreater_PopNB_ccs_in_v1.v
+# Add dependent file: ./PECore_Connections_InBlockingless_boolcomma_Connections_SYN_PORTgreater_PopNB.v
+# Add dependent file: ./PECore_Connections_OutBlockingless_RVSinkless_spec_Axi_rvaCfggreater_Readcomma_Connections_SYN_PORTgreater_Push_ccs_in_v1.v
+# Add dependent file: ./PECore_Connections_OutBlockingless_RVSinkless_spec_Axi_rvaCfggreater_Readcomma_Connections_SYN_PORTgreater_Push_ccs_sync_out_vld_v1.v
+# Add dependent file: ./PECore_Connections_OutBlockingless_RVSinkless_spec_Axi_rvaCfggreater_Readcomma_Connections_SYN_PORTgreater_Push.v
+# Add dependent file: ./PECore_mgc_mul_pipe_beh.v
+# Add dependent file: ./PECore_mgc_muladd1_beh.v
+# Add dependent file: ./PECore_mgc_shift_l_beh_v5.v
+# Add dependent file: ./PECore_ACC_17i31_1o31_35d03a7c76a8394e7c510c9fae810dcdee.v
+# Add dependent file: /cad/mentor/2024.2_1/Mgc_home/pkgs/ccs_xilinx/hdl/BLOCK_1R1W_RBW.v
+# Add dependent file: ./PECore.v
+# Finished writing concatenated simulation file: /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/concat_sim_PECore.v
+# Generating SCVerify SystemC wrapper
+# Info: Wrote wave database file to /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/ccs_wave_signals.dat
+# Makefile for PECore Verilog written to file './scverify/Verify_PECore_v_vcs.mk'
+# Info: Running transformation 'extract' on solution 'PECore.v1': elapsed time 50.19 seconds, memory usage 2016172kB, peak memory usage 2016172kB (SOL-15)
+# Info: Xilinx Vivado synthesis script written to 'vivado_v/PECore.v.xv'
+# Info: Xilinx Vivado synthesis script written to 'vivado_concat_v/concat_PECore.v.xv'
+# Makefile for Concat concat_sim_PECore Verilog written to file './scverify/Verify_concat_sim_PECore_v_vcs.mk'
+# Info: Completed transformation 'extract' on solution 'PECore.v1': elapsed time 65.94 seconds, memory usage 2016172kB, peak memory usage 2016172kB (SOL-9)
+# Info: Design complexity at end of 'extract': Total ops = 29390, Real ops = 17915, Vars = 8949 (SOL-21)
+# Making './scverify/Verify_concat_sim_PECore_v_vcs.mk SIMTOOL=vcs sim INVOKE_ARGS= CCS_VCD_FILE=./default.fsdb CCS_VCD_TIMES=0,ns,end,ns USE_FSDB=true'
+# Make utility invoked from '/home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1'
+#     /cad/mentor/2024.2_1/Mgc_home/bin/make -f ./scverify/Verify_concat_sim_PECore_v_vcs.mk SIMTOOL=vcs INVOKE_ARGS= CCS_VCD_FILE=./default.fsdb CCS_VCD_TIMES=0,ns,end,ns USE_FSDB=true build < "/dev/null" (BASIC-15)
+# make[1]: Entering directory `/home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1'
+# /cad/mentor/2024.2_1/Mgc_home/shared/include/mkfiles/ccs_vcs.mk:277: Warning: Applying the gcc option for the C++11 language standard
+# ============================================
+# Creating directory 'scverify/concat_sim_PECore_v_vcs'
+# mkdir -p scverify/concat_sim_PECore_v_vcs
+# mkdir -p scverify/concat_sim_PECore_v_vcs/sysc
+# ============================================
+# Setting up synopsys_sim.setup file
+# echo "WORK > DEFAULT" >>scverify/concat_sim_PECore_v_vcs/synopsys_sim.setup
+# echo "DEFAULT : ./scverify/concat_sim_PECore_v_vcs/work" >>scverify/concat_sim_PECore_v_vcs/synopsys_sim.setup
+# ============================================
+# Creating physical library 'scverify/concat_sim_PECore_v_vcs/work'
+# mkdir -p scverify/concat_sim_PECore_v_vcs/work
+# ============================================
+# Mapping logical library 'work' to physical path './scverify/concat_sim_PECore_v_vcs/work'
+# echo "work : ./scverify/concat_sim_PECore_v_vcs/work" >>scverify/concat_sim_PECore_v_vcs/synopsys_sim.setup
+# ============================================
+# Creating VCS-MX wave TCL file 'scverify/concat_sim_PECore_v_vcs/scverify_vcs_wave.tcl'
+# /cad/mentor/2024.2_1/Mgc_home/bin/tclsh8.5 /cad/mentor/2024.2_1/Mgc_home/pkgs/sif/userware/En_na/flows/app_vcs.flo create_vcs_wave ./Catapult/PECore.v1/scverify/ccs_wave_signals.dat scverify/concat_sim_PECore_v_vcs/scverify_vcs_wave.tcl ./Catapult/PECore.v1/.dut_inst_info.tcl  0
+# app_vcs.flo - Executing command 'create_vcs_wave ./Catapult/PECore.v1/scverify/ccs_wave_signals.dat scverify/concat_sim_PECore_v_vcs/scverify_vcs_wave.tcl ./Catapult/PECore.v1/.dut_inst_info.tcl 0'...
+# Wrote VCS waveform creation script to 'scverify/concat_sim_PECore_v_vcs/scverify_vcs_wave.tcl'
+# ============================================
+# Compiling Verilog file: concat_sim_PECore.v
+# vlogan -kdb -full64  -psl -verbose  -Mdir=scverify/concat_sim_PECore_v_vcs  +v2k     concat_sim_PECore.v
+# 
+# Warning-[LNX_OS_VERUN] Unsupported Linux version
+#   Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+#   on 'x86_64' officially, assuming linux compatibility by default. Set 
+#   VCS_ARCH_OVERRIDE to linux or suse32 to override.
+#   Please refer to release notes for information on supported platforms.
+# 
+# 
+# Warning-[LINX_KRNL] Unsupported Linux kernel
+#   Linux kernel '6.14.0-37-generic' is not supported.
+#   Supported versions are 2.4* or 2.6*.
+# 
+# /cad/synopsys/vcs/U-2023.03/linux64/bin/vcs1 -Mdir=scverify/concat_sim_PECore_v_vcs -Mcc=gcc -Mcplusplus=g++ -Masflags= -Mcfl= -pipe -O -I/cad/synopsys/vcs/U-2023.03/include  -Mldflags= -Wl,-E,-rpath /cad/synopsys/vcs/U-2023.03/linux64/lib  -Mout=simv -Mamsrun="" -Mvcsaceobjs="" -Mobjects=" " -Msaverestoreobj= -Mcrt0= -Mcrtn="" -Mcsrc="" -Mdir=scverify/concat_sim_PECore_v_vcs -Msyslibs=-L/usr/X11R6/lib64 -lX11 -ldl -ldl  -Xvlogan=0x1 -kdb -full64 -psl +v2k concat_sim_PECore.v +mixedhdl2  
+# Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+# Please use '-no_save' simv switch to avoid this.
+#                          Chronologic VCS (TM)
+#          Version U-2023.03_Full64 -- Wed Mar 18 18:46:37 2026
+# 
+#                     Copyright (c) 1991 - 2023 Synopsys, Inc.
+#    This software and the associated documentation are proprietary to Synopsys,
+#  Inc. This software may only be used in accordance with the terms and conditions
+#  of a written license agreement with Synopsys, Inc. All other use, reproduction,
+#    or distribution of this software is strictly prohibited.  Licensed Products
+#      communicate with Synopsys servers for the purpose of providing software
+#     updates, detecting software piracy and verifying that customers are using
+#     Licensed Products in conformity with the applicable License Key for such
+#   Licensed Products. Synopsys will use information gathered in connection with
+#     this process to deliver software updates and pursue software pirates and
+#                                    infringers.
+# 
+#  Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+#             Inclusivity and Diversity" (Refer to article 000036315 at
+#                         https://solvnetplus.synopsys.com)
+# 
+# Parsing design file 'concat_sim_PECore.v'
+# CPU time: 1.227 seconds to compile
+# ============================================
+# Compiling Verilog file: scverify/ccs_wrapper_PECore.v
+# vlogan -kdb -full64  -psl -verbose  -Mdir=scverify/concat_sim_PECore_v_vcs -sysc=233 +v2k -sysc=233 -sc_model ccs_wrapper -sc_portmap ./scverify/dut_v_ports.map    scverify/ccs_wrapper_PECore.v
+# 
+# Warning-[LNX_OS_VERUN] Unsupported Linux version
+#   Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+#   on 'x86_64' officially, assuming linux compatibility by default. Set 
+#   VCS_ARCH_OVERRIDE to linux or suse32 to override.
+#   Please refer to release notes for information on supported platforms.
+# 
+# 
+# Warning-[LINX_KRNL] Unsupported Linux kernel
+#   Linux kernel '6.14.0-37-generic' is not supported.
+#   Supported versions are 2.4* or 2.6*.
+# 
+# vlogan  '-kdb' '-full64' '-psl' '-verbose' '-Mdir=scverify/concat_sim_PECore_v_vcs' '+v2k'  scverify/ccs_wrapper_PECore.v 
+# 
+# Warning-[LNX_OS_VERUN] Unsupported Linux version
+#   Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+#   on 'x86_64' officially, assuming linux compatibility by default. Set 
+#   VCS_ARCH_OVERRIDE to linux or suse32 to override.
+#   Please refer to release notes for information on supported platforms.
+# 
+# 
+# Warning-[LINX_KRNL] Unsupported Linux kernel
+#   Linux kernel '6.14.0-37-generic' is not supported.
+#   Supported versions are 2.4* or 2.6*.
+# 
+# /cad/synopsys/vcs/U-2023.03/linux64/bin/vcs1 -Mdir=scverify/concat_sim_PECore_v_vcs -Mcc=gcc -Mcplusplus=g++ -Masflags= -Mcfl= -pipe -O -I/cad/synopsys/vcs/U-2023.03/include  -Mldflags=  -Mout=simv -Mamsrun="" -Mvcsaceobjs="" -Mobjects=" " -Msaverestoreobj= -Mcrt0= -Mcrtn="" -Mcsrc="" -Mdir=scverify/concat_sim_PECore_v_vcs -Msyslibs=-ldl  -Xvlogan=0x1 -kdb -full64 -psl +v2k scverify/ccs_wrapper_PECore.v  
+# Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+# Please use '-no_save' simv switch to avoid this.
+#                          Chronologic VCS (TM)
+#          Version U-2023.03_Full64 -- Wed Mar 18 18:46:39 2026
+# 
+#                     Copyright (c) 1991 - 2023 Synopsys, Inc.
+#    This software and the associated documentation are proprietary to Synopsys,
+#  Inc. This software may only be used in accordance with the terms and conditions
+#  of a written license agreement with Synopsys, Inc. All other use, reproduction,
+#    or distribution of this software is strictly prohibited.  Licensed Products
+#      communicate with Synopsys servers for the purpose of providing software
+#     updates, detecting software piracy and verifying that customers are using
+#     Licensed Products in conformity with the applicable License Key for such
+#   Licensed Products. Synopsys will use information gathered in connection with
+#     this process to deliver software updates and pursue software pirates and
+#                                    infringers.
+# 
+#  Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+#             Inclusivity and Diversity" (Refer to article 000036315 at
+#                         https://solvnetplus.synopsys.com)
+# 
+# Parsing design file 'scverify/ccs_wrapper_PECore.v'
+# CPU time: .228 seconds to compile
+# syscan  -full64 -kdb -verilog_file -vlogan   -cpp g++ -sysc=233  -Mdir=scverify/concat_sim_PECore_v_vcs -cflags ""   scverify/ccs_wrapper_PECore.v:ccs_wrapper   -V -port ./scverify/dut_v_ports.map    -vcs_args '-kdb' '-full64' '-psl' '-verbose' '-Mdir=scverify/concat_sim_PECore_v_vcs' '+v2k' 
+# 
+# Note-[SC-SYSCAN-USE-CPP] Using C++-compiler
+#   Using 'g++' C++-compiler for C++ compilation.
+# 
+# /cad/synopsys/vcs/U-2023.03/linux64/bin/verilog2vdef /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/ccs_wrapper_PECore.v             -m ccs_wrapper             -o ccs_wrapper             -output_dir /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/ccs_wrapper             -f /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/dut_v_ports.map             -osci                                       -work DEFAULT -work_dir /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/work/AN.DB
+# /cad/synopsys/vcs/U-2023.03/linux64/bin/ifgen /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/ccs_wrapper/ccs_wrapper.vdef             -output ccs_wrapper             -hdl_output  /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/ccs_wrapper             -ccss_output /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/ccs_wrapper             -sysc 233                                       -direct -osci
+# ============================================
+# Compiling C++ file: ../../../../../../../src/Top/PEPartition/PEModule/PECore/testbench.cpp
+# syscan -kdb -full64 -sysc=233 -Mdir=scverify/concat_sim_PECore_v_vcs -debug_acc+all -cflags "-DCCS_DUT_RTL -DCCS_DUT_VERILOG -D_SYNTHESIS_ -DHLS_CATAPULT -DHLS_ALGORITHMICC -DCONNECTIONS_ACCURATE_SIM -DSC_INCLUDE_DYNAMIC_PROCESSES  -DSC_INCLUDE_DYNAMIC_PROCESSES -DCCS_SYSC -DSC_USE_STD_STRING -DTOP_HDL_ENTITY=PECore -DDEADLOCK_DETECTION -std=gnu++11 -g -Wall -Wno-unknown-pragmas -I. -I../.. -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib/cmod/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/xilinx/vitis/2020.1/Vitis/2020.1/cardano/tps/boost_1_64_0 -I/home/users/code/cs217/src/include -I/home/users/code/cs217/src/ -I./scverify -I. -I../.. -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/synopsys/vcs/U-2023.03/include/systemc233 -I. -I../.. -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib/cmod/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include -I/cad/mentor/2024.2_1/Mgc_home/shared/
+# include -I/cad/xilinx/vitis/2020.1/Vitis/2020.1/cardano/tps/boost_1_64_0 -I/home/users/code/cs217/src/include -I/home/users/code/cs217/src/ -I./scverify -I. -I../.. -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/mentor/2024.2_1/Mgc_home/pkgs/hls_pkgs/src -I/cad/mentor/2024.2_1/Mgc_home/pkgs/siflibs -I/cad/mentor/2024.2_1/Mgc_home/pkgs/hls_pkgs/mgc_comps_src -DSC_USE_STD_STRING " ../../../../../../../src/Top/PEPartition/PEModule/PECore/testbench.cpp
+# 
+# Warning-[SC-SYSCAN-IDIR] Ignoring nonexistent include dir
+#   Ignoring nonexistent include dir 
+#   '/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include'.
+#   Make sure the directory specified with the '-I <dir>' option is available 
+#   and readable.
+# 
+# 
+# Warning-[SC-SYSCAN-IDIR] Ignoring nonexistent include dir
+#   Ignoring nonexistent include dir 
+#   '/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include'.
+#   Make sure the directory specified with the '-I <dir>' option is available 
+#   and readable.
+# 
+# ============================================
+# Compiling C++ file: scverify/sysc_sim.cpp
+# syscan -kdb -full64 -sysc=233 -Mdir=scverify/concat_sim_PECore_v_vcs -debug_acc+all -cflags "-DCCS_DUT_RTL -DCCS_DUT_VERILOG -D_SYNTHESIS_ -DHLS_CATAPULT -DHLS_ALGORITHMICC -DCONNECTIONS_ACCURATE_SIM -DSC_INCLUDE_DYNAMIC_PROCESSES  -DSC_INCLUDE_DYNAMIC_PROCESSES -DCCS_SYSC -DSC_USE_STD_STRING -DTOP_HDL_ENTITY=PECore -DDEADLOCK_DETECTION -std=gnu++11 -g -Wall -Wno-unknown-pragmas -I. -I../.. -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib/cmod/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/xilinx/vitis/2020.1/Vitis/2020.1/cardano/tps/boost_1_64_0 -I/home/users/code/cs217/src/include -I/home/users/code/cs217/src/ -I./scverify -I. -I../.. -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/synopsys/vcs/U-2023.03/include/systemc233 -I. -I../.. -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib/cmod/include -I/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include -I/cad/mentor/2024.2_1/Mgc_home/shared/
+# include -I/cad/xilinx/vitis/2020.1/Vitis/2020.1/cardano/tps/boost_1_64_0 -I/home/users/code/cs217/src/include -I/home/users/code/cs217/src/ -I./scverify -I. -I../.. -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/mentor/2024.2_1/Mgc_home/shared/include -I/cad/mentor/2024.2_1/Mgc_home/pkgs/hls_pkgs/src -I/cad/mentor/2024.2_1/Mgc_home/pkgs/siflibs -I/cad/mentor/2024.2_1/Mgc_home/pkgs/hls_pkgs/mgc_comps_src -DSC_USE_STD_STRING " scverify/sysc_sim.cpp
+# 
+# Warning-[SC-SYSCAN-IDIR] Ignoring nonexistent include dir
+#   Ignoring nonexistent include dir 
+#   '/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include'.
+#   Make sure the directory specified with the '-I <dir>' option is available 
+#   and readable.
+# 
+# 
+# Warning-[SC-SYSCAN-IDIR] Ignoring nonexistent include dir
+#   Ignoring nonexistent include dir 
+#   '/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include'.
+#   Make sure the directory specified with the '-I <dir>' option is available 
+#   and readable.
+# 
+# ============================================
+# Elaborating design
+# SYNOPSYS_SIM_SETUP: scverify/concat_sim_PECore_v_vcs/synopsys_sim.setup
+# vcs -full64 +libverbose -lca -psl -cm assert -assert enable_diag  -Mdir=scverify/concat_sim_PECore_v_vcs -timescale=1ps/1ps -sysc=blocksync -debug_acc+all -debug_region+cell+encrypt -load libnovas.so:FSDBDumpCmd +vcsd +memcbk -sysc=show_sc_main -sysc=233 sc_main -kdb=sysc_elab -o scverify/concat_sim_PECore_v_vcs/sc_mainpwr -LDFLAGS "" -l scverify/concat_sim_PECore_v_vcs/elab.log
+# 
+# Warning-[LNX_OS_VERUN] Unsupported Linux version
+#   Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+#   on 'x86_64' officially, assuming linux compatibility by default. Set 
+#   VCS_ARCH_OVERRIDE to linux or suse32 to override.
+#   Please refer to release notes for information on supported platforms.
+# 
+# 
+# Warning-[LINX_KRNL] Unsupported Linux kernel
+#   Linux kernel '6.14.0-37-generic' is not supported.
+#   Supported versions are 2.4* or 2.6*.
+# 
+# Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+# Please use '-no_save' simv switch to avoid this.
+# Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+# Please use '-no_save' simv switch to avoid this.
+# 
+# Warning-[LNX_OS_VERUN] Unsupported Linux version
+#   Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+#   on 'x86_64' officially, assuming linux compatibility by default. Set 
+#   VCS_ARCH_OVERRIDE to linux or suse32 to override.
+#   Please refer to release notes for information on supported platforms.
+# 
+# 
+# Warning-[LINX_KRNL] Unsupported Linux kernel
+#   Linux kernel '6.14.0-37-generic' is not supported.
+#   Supported versions are 2.4* or 2.6*.
+# 
+# 
+# Warning-[LCA_FEATURES_ENABLED] Usage warning
+#   LCA features enabled by '-lca' argument on the command line.  For more 
+#   information regarding list of LCA features please refer to Chapter "LCA 
+#   features" in the VCS Release Notes
+# 
+# Doing common elaboration 
+# 
+# Warning-[LNX_OS_VERUN] Unsupported Linux version
+#   Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+#   on 'x86_64' officially, assuming linux compatibility by default. Set 
+#   VCS_ARCH_OVERRIDE to linux or suse32 to override.
+#   Please refer to release notes for information on supported platforms.
+# 
+# 
+# Warning-[LINX_KRNL] Unsupported Linux kernel
+#   Linux kernel '6.14.0-37-generic' is not supported.
+#   Supported versions are 2.4* or 2.6*.
+# 
+# *** Using c compiler gcc instead of cc ...
+# Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+# Please use '-no_save' simv switch to avoid this.
+#                          Chronologic VCS (TM)
+#          Version U-2023.03_Full64 -- Wed Mar 18 18:47:15 2026
+# 
+#                     Copyright (c) 1991 - 2023 Synopsys, Inc.
+#    This software and the associated documentation are proprietary to Synopsys,
+#  Inc. This software may only be used in accordance with the terms and conditions
+#  of a written license agreement with Synopsys, Inc. All other use, reproduction,
+#    or distribution of this software is strictly prohibited.  Licensed Products
+#      communicate with Synopsys servers for the purpose of providing software
+#     updates, detecting software piracy and verifying that customers are using
+#     Licensed Products in conformity with the applicable License Key for such
+#   Licensed Products. Synopsys will use information gathered in connection with
+#     this process to deliver software updates and pursue software pirates and
+#                                    infringers.
+# 
+#  Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+#             Inclusivity and Diversity" (Refer to article 000036315 at
+#                         https://solvnetplus.synopsys.com)
+# 
+# 
+# Warning-[VPI-CT-NS] VPI function is not supported
+#   The VPI function 'vpi_register_cb' is not supported in the compiler.
+#   Please fix the code being referred to by the '-load' compile option.
+# 
+# Top Level Modules:
+#        sc_main
+# TimeScale is 1 ps / 1 ps
+# Starting vcs inline pass...
+# 
+# 1 module and 0 UDP read.
+# recompiling module sc_main
+# make[2]: Entering directory `/home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs'
+# 
+# Warning-[SC-SYSCAN-IDIR] Ignoring nonexistent include dir
+#   Ignoring nonexistent include dir 
+#   '/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include'.
+#   Make sure the directory specified with the '-I <dir>' option is available 
+#   and readable.
+# 
+# 
+# Warning-[SC-SYSCAN-IDIR] Ignoring nonexistent include dir
+#   Ignoring nonexistent include dir 
+#   '/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include'.
+#   Make sure the directory specified with the '-I <dir>' option is available 
+#   and readable.
+# 
+# 
+# Warning-[SC-SYSCAN-IDIR] Ignoring nonexistent include dir
+#   Ignoring nonexistent include dir 
+#   '/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include'.
+#   Make sure the directory specified with the '-I <dir>' option is available 
+#   and readable.
+# 
+# 
+# Warning-[SC-SYSCAN-IDIR] Ignoring nonexistent include dir
+#   Ignoring nonexistent include dir 
+#   '/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include'.
+#   Make sure the directory specified with the '-I <dir>' option is available 
+#   and readable.
+# 
+# if [ -x /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sc_mainpwr_elab ]; then chmod a-x /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sc_mainpwr_elab; fi
+# g++  -o /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sc_mainpwr_elab    -Wl,--whole-archive  -Wl,--no-whole-archive -Wl,-rpath,/cad/synopsys/vcs_gnu_package/S-2021.09/gnu_9/linux/gcc-9.2.0_64-shared/lib64 -rdynamic -Wl,-rpath='$ORIGIN'/sc_mainpwr_elab.daidir -Wl,-rpath=./sc_mainpwr_elab.daidir -Wl,-rpath=/cad/synopsys/vcs/U-2023.03/linux64/lib -L/cad/synopsys/vcs/U-2023.03/linux64/lib -L/cad/synopsys/vcs/U-2023.03/linux64/lib/cosim/sysc233-gcc9 -L/cad/synopsys/vcs/U-2023.03/linux64/lib -rdynamic -Wl,-E   -Wl,-whole-archive     -lvcsucli     -Wl,-no-whole-archive  /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/sysc_globals.o /cad/synopsys/vcs/U-2023.03/linux64/lib/ucli_sysc.o   objs/GdI28_d.o objs/reYIK_d.o amcQwB.o objs/amcQw_d.o    SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o       /home/users/code/cs217/hls/Top/PEPartition/PEModule/
+# PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/ccs_wrapper/ccs_wrapper.o /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/testbench.o /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/sysc_sim.o  /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/libconcat_sim_PECore_v_vcs_sysc_stubs.a   -lerrorinf -lsnpsmalloc -lvfs -lsysctli -lbfSim -lbfCbug -lsystemc233-gcc9-64 -lvirsim     -lvcsnew -lvcsucli -lsimprofile -luclinative /cad/synopsys/vcs/U-2023.03/linux64/lib/vcs_tls.o          _vcs_pli_stub_.o   /cad/synopsys/vcs/U-2023.03/linux64/lib/vcs_save_restore_new.o /cad/synopsys/verdi/V-2023.12-SP2-4/share/PLI/VCS/LINUX64/pli.a -ldl -lm  -lc -lpthread -ldl 
+# /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sc_mainpwr_elab up to date
+# make[2]: Leaving directory `/home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs'
+# CPU time: .584 seconds to compile + .300 seconds to elab + 6.397 seconds to link
+# Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+# Please use '-no_save' simv switch to avoid this.
+# Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+# Please use '-no_save' simv switch to avoid this.
+# 
+# Warning-[LNX_OS_VERUN] Unsupported Linux version
+#   Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+#   on 'x86_64' officially, assuming linux compatibility by default. Set 
+#   VCS_ARCH_OVERRIDE to linux or suse32 to override.
+#   Please refer to release notes for information on supported platforms.
+# 
+# 
+# Warning-[LINX_KRNL] Unsupported Linux kernel
+#   Linux kernel '6.14.0-37-generic' is not supported.
+#   Supported versions are 2.4* or 2.6*.
+# 
+# 
+# Warning-[LCA_FEATURES_ENABLED] Usage warning
+#   LCA features enabled by '-lca' argument on the command line.  For more 
+#   information regarding list of LCA features please refer to Chapter "LCA 
+#   features" in the VCS Release Notes
+# 
+# Doing common elaboration 
+# 
+# Warning-[LNX_OS_VERUN] Unsupported Linux version
+#   Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+#   on 'x86_64' officially, assuming linux compatibility by default. Set 
+#   VCS_ARCH_OVERRIDE to linux or suse32 to override.
+#   Please refer to release notes for information on supported platforms.
+# 
+# 
+# Warning-[LINX_KRNL] Unsupported Linux kernel
+#   Linux kernel '6.14.0-37-generic' is not supported.
+#   Supported versions are 2.4* or 2.6*.
+# 
+# *** Using c compiler gcc instead of cc ...
+# Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+# Please use '-no_save' simv switch to avoid this.
+#                          Chronologic VCS (TM)
+#          Version U-2023.03_Full64 -- Wed Mar 18 18:47:31 2026
+# 
+#                     Copyright (c) 1991 - 2023 Synopsys, Inc.
+#    This software and the associated documentation are proprietary to Synopsys,
+#  Inc. This software may only be used in accordance with the terms and conditions
+#  of a written license agreement with Synopsys, Inc. All other use, reproduction,
+#    or distribution of this software is strictly prohibited.  Licensed Products
+#      communicate with Synopsys servers for the purpose of providing software
+#     updates, detecting software piracy and verifying that customers are using
+#     Licensed Products in conformity with the applicable License Key for such
+#   Licensed Products. Synopsys will use information gathered in connection with
+#     this process to deliver software updates and pursue software pirates and
+#                                    infringers.
+# 
+#  Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+#             Inclusivity and Diversity" (Refer to article 000036315 at
+#                         https://solvnetplus.synopsys.com)
+# 
+# 
+# Warning-[VPI-CT-NS] VPI function is not supported
+#   The VPI function 'vpi_register_cb' is not supported in the compiler.
+#   Please fix the code being referred to by the '-load' compile option.
+# 
+# Top Level Modules:
+#        sc_main
+# TimeScale is 1 ps / 1 ps
+# Starting vcs inline pass...
+# 
+# 16 modules and 0 UDP read.
+# recompiling module sc_main
+# recompiling module sysc$Testbench
+# recompiling module sysc$Connections::Combinational<bool,...>
+# recompiling module sysc$Connections::Combinational<bool,...>::DummyPortManager
+# recompiling module sysc$Connections::Combinational<nvhls::nv_scvector<ac_int<16,...>,...>,...>
+# recompiling module sysc$Connections::Combinational<nvhls::nv_scvector<ac_int<16,...>,...>,...>::DummyPortManager
+# recompiling module sysc$Connections::Combinational<RVSink<spec::Axi::rvaCfg>::Write,...>
+# recompiling module sysc$Connections::Combinational<RVSink<spec::Axi::rvaCfg>::Write,...>::DummyPortManager
+# recompiling module sysc$Connections::Combinational<RVSink<spec::Axi::rvaCfg>::Read,...>
+# recompiling module sysc$Connections::Combinational<RVSink<spec::Axi::rvaCfg>::Read,...>::DummyPortManager
+# recompiling module sysc$Connections::Combinational<spec::StreamType,...>
+# recompiling module sysc$Connections::Combinational<spec::StreamType,...>::DummyPortManager
+# recompiling module sysc$ActUnit
+# recompiling module sysc$PECore
+# recompiling module sysc$Source
+# recompiling module sysc$Sink
+# All of 16 modules done
+# make[2]: Entering directory `/home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs'
+# if [ -x /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sc_mainpwr ]; then chmod a-x /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sc_mainpwr; fi
+# g++  -o /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sc_mainpwr    -Wl,--whole-archive  -Wl,--no-whole-archive -Wl,-rpath,/cad/synopsys/vcs_gnu_package/S-2021.09/gnu_9/linux/gcc-9.2.0_64-shared/lib64 -rdynamic -Wl,-rpath='$ORIGIN'/sc_mainpwr.daidir -Wl,-rpath=./sc_mainpwr.daidir -Wl,-rpath=/cad/synopsys/vcs/U-2023.03/linux64/lib -L/cad/synopsys/vcs/U-2023.03/linux64/lib -L/cad/synopsys/vcs/U-2023.03/linux64/lib/cosim/sysc233-gcc9 -L/cad/synopsys/vcs/U-2023.03/linux64/lib -rdynamic -Wl,-E   -Wl,-whole-archive     -lvcsucli     -Wl,-no-whole-archive  /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/sysc_globals.o /cad/synopsys/vcs/U-2023.03/linux64/lib/ucli_sysc.o   objs/dUBgS_d.o objs/F4tBY_d.o objs/jmrsW_d.o objs/v71SV_d.o objs/CYMgp_d.o objs/GdI28_d.o objs/W7xp7_d.o objs/reYIK_d.o objs/dC57g_d.o objs/gjf0U_d.o objs/H9Z7T_d.o objs/G4Ndq_d.o objs/AkpJm_d.o amcQwB.o objs/amcQw_d.
+# o objs/R42QI_d.o objs/Ienc9_d.o objs/EhGrC_d.o objs/nKyj1_d.o    SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o       /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/ccs_wrapper/ccs_wrapper.o /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/testbench.o /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/sysc_sim.o  /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sysc/libconcat_sim_PECore_v_vcs_sysc_stubs.a   -lerrorinf -lsnpsmalloc -lvfs -lsysctli -lbfSim -lbfCbug -lsystemc233-gcc9-64 -lvirsim     -lvcsnew -lvcsucli -lsimprofile -lreader_common /cad/synopsys/vcs/U-2023.03/linux64/lib/libBA.a -luclinative /cad/synopsys/vcs/U-2023.03/linux64/lib/vcs_tls.o          _vcs_pli_stub_.o   /cad/synopsys/vcs/U-2023.03/lin
+# ux64/lib/vcs_save_restore_new.o /cad/synopsys/verdi/V-2023.12-SP2-4/share/PLI/VCS/LINUX64/pli.a -ldl -lm  -lc -lpthread -ldl 
+# /home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sc_mainpwr up to date
+# make[2]: Leaving directory `/home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs'
+# CPU time: .603 seconds to compile + .264 seconds to elab + 2.017 seconds to link
+# 
+# Note-[SC-UFE-1] Elaborating KDB
+#   The simulation contains SystemC. VCS will now try elaborating KDB, because 
+#   '-kdb=sysc_elab' is specified.
+#   To disable this step, please stop adding '-kdb=sysc_elab' switch.
+# 
+# Verdi KDB elaboration done and the database successfully generated: 0 error(s), 0 warning(s)
+# make[1]: Leaving directory `/home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1'
+#     /cad/mentor/2024.2_1/Mgc_home/bin/make -f ./scverify/Verify_concat_sim_PECore_v_vcs.mk SIMTOOL=vcs sim INVOKE_ARGS= CCS_VCD_FILE=./default.fsdb CCS_VCD_TIMES=0,ns,end,ns USE_FSDB=true (BASIC-14)
+# make[1]: Entering directory `/home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1'
+# Warning: /cad/mentor/2024.2_1/Mgc_home/shared/include/mkfiles/ccs_vcs.mk:277: Warning: Applying the gcc option for the C++11 language standard
+# ============================================
+# Simulating design entity: sc_main to produce Switching Activity File: ./default.fsdb
+# SYNOPSYS_SIM_SETUP: ./Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/synopsys_sim.setup
+# cd ../..; ./Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sc_mainpwr -systemcrun   -verilogrun -cm assert -ucli -ucli2Proc -i ./Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/scverify_vcs_wave.tcl -l ./Catapult/PECore.v1/scverify/concat_sim_PECore_v_vcs/sim.log 
+# Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+# Please use '-no_save' simv switch to avoid this.
+# Chronologic VCS simulator copyright 1991-2023
+# Contains Synopsys proprietary information.
+# Compiler version U-2023.03_Full64; Runtime version U-2023.03_Full64;  Mar 18 18:47 2026
+# Connections Clock: tb.clk Period: 1 ns
+# ucli% # Source static function file
+# ucli% global env
+# ucli% # Source the common TCL file (that also reads the wave database file)
+# ucli% source $env(MGC_HOME)/pkgs/sif/userware/En_na/flows/vcs_funcs.tcl
+# ucli% read_ccs_wave ./Catapult/PECore.v1/scverify/ccs_wave_signals.dat
+# Reading SCVerify waveform database './Catapult/PECore.v1/scverify/ccs_wave_signals.dat'
+# Error: SCVerify wrapper instance 'ccs_rtl' was not found in the simulation hierarchy. Check for the CCS_DESIGN macro in your testbench.
+#            V C S   S i m u l a t i o n   R e p o r t 
+# Time: 0 ps
+# CPU Time:      0.250 seconds;       Data structure size:   0.0Mb
+# Wed Mar 18 18:47:39 2026
+# make[1]: Leaving directory `/home/users/code/cs217/hls/Top/PEPartition/PEModule/PECore/Catapult/PECore.v1'
+// Finish time Wed Mar 18 18:47:46 2026, time elapsed 1:27:39, peak memory 1.92GB, exit status 0

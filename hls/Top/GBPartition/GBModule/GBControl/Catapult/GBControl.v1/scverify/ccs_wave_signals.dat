@@ -1,0 +1,6 @@
+RADIX hex
+CDEBUG 0
+DEBUGVARS {}
+WAVELIST {{Sync_Signals CTRL clk clk {}} {Sync_Signals CTRL rst rst {}} {DUT {} rva_in_vld rva_in_vld {}} {DUT {} rva_in_rdy rva_in_rdy {}} {DUT {} rva_in_dat rva_in_dat {}} {DUT {} rva_out_vld rva_out_vld {}} {DUT {} rva_out_rdy rva_out_rdy {}} {DUT {} rva_out_dat rva_out_dat {}} {DUT {} start_vld start_vld {}} {DUT {} start_rdy start_rdy {}} {DUT {} start_dat start_dat {}} {DUT {} done_vld done_vld {}} {DUT {} done_rdy done_rdy {}} {DUT {} done_dat done_dat {}} {DUT {} large_req_vld large_req_vld {}} {DUT {} large_req_rdy large_req_rdy {}} {DUT {} large_req_dat large_req_dat {}} {DUT {} large_rsp_vld large_rsp_vld {}} {DUT {} large_rsp_rdy large_rsp_rdy {}} {DUT {} large_rsp_dat large_rsp_dat {}} {DUT {} data_out_vld data_out_vld {}} {DUT {} data_out_rdy data_out_rdy {}} {DUT {} data_out_dat data_out_dat {}} {DUT {} data_in_vld data_in_vld {}} {DUT {} data_in_rdy data_in_rdy {}} {DUT {} data_in_dat data_in_dat {}} {DUT {} pe_start_vld pe_start_vld {}} {DUT {} pe_start_rdy pe_start_rdy {}} {DUT {} pe_start_dat pe_start_dat {}} {DUT {} pe_done_vld pe_done_vld {}} {DUT {} pe_done_rdy pe_done_rdy {}} {DUT {} pe_done_dat pe_done_dat {}} {Active_Processes GBControlRun.wen GBControl_GBControlRun_inst GBControl_GBControlRun_inst/GBControl_GBControlRun_staller_inst/GBControlRun_wen {}}}
+DUTINST GBControl
+STALL_CTRLS_ADDED 1

@@ -1,0 +1,72 @@
+Command: /home/users/code/cs217/hls/Top/GBPartition/GBModule/GBCore/./Catapult/GBCore.v1/scverify/concat_sim_GBCore_v_vcs/sc_mainpwr -systemcrun -verilogrun -cm assert -ucli -ucli2Proc -i ./Catapult/GBCore.v1/scverify/concat_sim_GBCore_v_vcs/scverify_vcs_wave.tcl -l ./Catapult/GBCore.v1/scverify/concat_sim_GBCore_v_vcs/sim.log
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version U-2023.03_Full64; Runtime version U-2023.03_Full64;  Mar 18 19:15 2026
+Connections Clock: tb.clk Period: 1 ns
+ucli% # Source static function file
+ucli% global env
+ucli% # Source the common TCL file (that also reads the wave database file)
+ucli% source $env(MGC_HOME)/pkgs/sif/userware/En_na/flows/vcs_funcs.tcl
+ucli% read_ccs_wave ./Catapult/GBCore.v1/scverify/ccs_wave_signals.dat
+Reading SCVerify waveform database './Catapult/GBCore.v1/scverify/ccs_wave_signals.dat'
+ucli% setup_vcd_file ./Catapult/GBCore.v1/.dut_inst_info.tcl
+DUT Instance Path = sc_main.tb.dut.ccs_rtl.dut_inst
+Preparing to write FSDB file ./default.fsdb...
+ucli% populate_wave_window
+ucli% if { ("0" != {}) && [file exists "0"] } {
+   source "0"
+}
+ucli% # If not running in GUI mode, run the entire simulation
+ucli% if { ![gui_is_active] } {
+   do_simulation_run
+}
+Running up to VCD start time: '0 ns'
+run 0 ns
+sysc_skeleton.v, 420 : (*vcs_systemc_2,vcs_systemc_skel*) module sc_main;
+Turning FSDB on
+*Verdi* Loading libsscore_vcs202303.so
+*Verdi* : Loading SystemC dumping library libsscore_vcs202303_sc233_gcc920.so.
+*Verdi* : Env. FSDB_VCS_RD_SC_VALPTR_PROTECT=1(1) was set.
+FSDB Dumper for VCS, Release Verdi_V-2023.12-SP2-4, Linux x86_64/64bit, 11/18/2024
+(C) 1996 - 2024 by Synopsys, Inc.
+*Verdi* : Create FSDB file './default.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : End of traversing.
+fsdbDumpvars 0 sc_main.tb.dut.ccs_rtl.dut_inst
+*Verdi* : Begin traversing the scope (sc_main.tb.dut.ccs_rtl.dut_inst), layer (0).
+*Verdi* : End of traversing.
+*Verdi* : fsdbDumpon - All FSDB files at 0 ps.
+Continuing to VCD end time: 'end'
+run -all
+@2 ns Asserting reset
+@4 ns De-Asserting reset
+14 ns RVA read data = 0x1
+14 ns RVA config matched
+49 ns Large buffer bank 0 read matched
+51 ns Large buffer bank 1 read matched
+53 ns Large buffer bank 2 read matched
+55 ns Large buffer bank 3 read matched
+57 ns Large buffer bank 4 read matched
+59 ns Large buffer bank 5 read matched
+61 ns Large buffer bank 6 read matched
+63 ns Large buffer bank 7 read matched
+65 ns Large buffer bank 8 read matched
+67 ns Large buffer bank 9 read matched
+69 ns Large buffer bank a read matched
+71 ns Large buffer bank b read matched
+73 ns Large buffer bank c read matched
+75 ns Large buffer bank d read matched
+77 ns Large buffer bank e read matched
+79 ns Large buffer bank f read matched
+@504 ns All 10 bank reads completed
+@504 ns sc_stop
+TESTBENCH PASS
+Simulation complete, time is 504000 ps.
+sysc_skeleton.v, 420 : (*vcs_systemc_2,vcs_systemc_skel*) module sc_main;
+Turning FSDB off and flushing
+*Verdi* : Close all FSDB Files at 504,000 ps.
+Completed writing FSDB file ./default.fsdb...
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 504000 ps
+CPU Time:      0.430 seconds;       Data structure size:  10.2Mb
+Wed Mar 18 19:15:12 2026

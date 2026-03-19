@@ -98,4 +98,4 @@ solution library add Xilinx_ROMS
 solution library add Xilinx_FIFO
 solution library add ccs_fpga_hic
 go libraries
-go allocate
+go extract

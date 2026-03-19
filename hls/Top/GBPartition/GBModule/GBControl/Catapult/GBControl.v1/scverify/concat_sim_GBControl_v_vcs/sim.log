@@ -1,0 +1,77 @@
+Command: /home/users/code/cs217/hls/Top/GBPartition/GBModule/GBControl/./Catapult/GBControl.v1/scverify/concat_sim_GBControl_v_vcs/sc_mainpwr -systemcrun -verilogrun -ucli -ucli2Proc -i ./Catapult/GBControl.v1/scverify/concat_sim_GBControl_v_vcs/scverify_vcs_wave.tcl -l ./Catapult/GBControl.v1/scverify/concat_sim_GBControl_v_vcs/sim.log
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version U-2023.03_Full64; Runtime version U-2023.03_Full64;  Mar 18 19:17 2026
+Connections Clock: tb.clk Period: 1 ns
+ucli% # Source static function file
+ucli% global env
+ucli% # Source the common TCL file (that also reads the wave database file)
+ucli% source $env(MGC_HOME)/pkgs/sif/userware/En_na/flows/vcs_funcs.tcl
+ucli% read_ccs_wave ./Catapult/GBControl.v1/scverify/ccs_wave_signals.dat
+Reading SCVerify waveform database './Catapult/GBControl.v1/scverify/ccs_wave_signals.dat'
+ucli% setup_vcd_file ./Catapult/GBControl.v1/.dut_inst_info.tcl
+DUT Instance Path = sc_main.tb.dut.ccs_rtl.dut_inst
+Preparing to write FSDB file ./default.fsdb...
+ucli% populate_wave_window
+ucli% if { ("0" != {}) && [file exists "0"] } {
+   source "0"
+}
+ucli% # If not running in GUI mode, run the entire simulation
+ucli% if { ![gui_is_active] } {
+   do_simulation_run
+}
+Running up to VCD start time: '0 ns'
+run 0 ns
+sysc_skeleton.v, 645 : (*vcs_systemc_2,vcs_systemc_skel*) module sc_main;
+Turning FSDB on
+*Verdi* Loading libsscore_vcs202303.so
+*Verdi* : Loading SystemC dumping library libsscore_vcs202303_sc233_gcc920.so.
+*Verdi* : Env. FSDB_VCS_RD_SC_VALPTR_PROTECT=1(1) was set.
+FSDB Dumper for VCS, Release Verdi_V-2023.12-SP2-4, Linux x86_64/64bit, 11/18/2024
+(C) 1996 - 2024 by Synopsys, Inc.
+*Verdi* : Create FSDB file './default.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : End of traversing.
+fsdbDumpvars 0 sc_main.tb.dut.ccs_rtl.dut_inst
+*Verdi* : Begin traversing the scope (sc_main.tb.dut.ccs_rtl.dut_inst), layer (0).
+*Verdi* : End of traversing.
+*Verdi* : fsdbDumpon - All FSDB files at 0 ps.
+Continuing to VCD end time: 'end'
+run -all
+@2 ns Asserting reset
+@4 ns De-Asserting reset
+10 ns large buffer request sent:  -large buffer request wr: 0 - mem index: 0 - vector index: 0 - timestep index: 0
+13 ns Design data_out result 0x1 0x0 0x0 0x0 0x1 0x0 0x10 0x0 0xB0 0x0 0x0 0x0 0x2 0x0 0x0 0x0 
+16 ns large buffer request sent:  -large buffer request wr: 0x0 - mem index: 0x0 - vector index: 0x1 - timestep index: 0x0
+19 ns Design data_out result 0x3 0x0 0x0 0x0 0xC1 0x0 0x11 0x0 0xB0 0x0 0x0 0x0 0x2 0x0 0x0 0x0 
+21 ns PE_start signal issued!!!
+25 ns large buffer request sent:  -large buffer request wr: 0x1 - mem index: 0x0 - vector index: 0x0 - timestep index: 0x0
+28 ns large buffer request sent:  -large buffer request wr: 0x1 - mem index: 0x0 - vector index: 0x0 - timestep index: 0x0
+31 ns large buffer request sent:  -large buffer request wr: 0x0 - mem index: 0x0 - vector index: 0x0 - timestep index: 0x0
+128 nscheck for 2nd timestep
+130 ns Design data_out result 0x1 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x1 0x0 0x0 0x0 0x0 0x0 0x0 0x0 
+133 ns large buffer request sent:  -large buffer request wr: 0x0 - mem index: 0x0 - vector index: 0x1 - timestep index: 0x0
+136 ns Design data_out result 0x3 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x1 0x0 0x0 0x0 0x0 0x0 0x0 0x0 
+142 ns large buffer request sent:  -large buffer request wr: 0x0 - mem index: 0x0 - vector index: 0x0 - timestep index: 0x1
+145 ns Design data_out result 0x3 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x1 0x0 0x0 0x0 0x0 0x0 0x0 0x0 
+148 ns large buffer request sent:  -large buffer request wr: 0x0 - mem index: 0x0 - vector index: 0x1 - timestep index: 0x1
+151 ns Design data_out result 0x3 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x1 0x0 0x0 0x0 0x0 0x0 0x0 0x0 
+153 ns PE_start signal issued!!!
+157 ns large buffer request sent:  -large buffer request wr: 0x1 - mem index: 0x0 - vector index: 0x0 - timestep index: 0x1
+160 ns large buffer request sent:  -large buffer request wr: 0x1 - mem index: 0x0 - vector index: 0x0 - timestep index: 0x1
+163 ns large buffer request sent:  -large buffer request wr: 0x0 - mem index: 0x0 - vector index: 0x0 - timestep index: 0x1
+262 ns Design data_out result 0x1 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x1 0x0 0x0 0x0 0x0 0x0 0x0 0x0 
+265 ns large buffer request sent:  -large buffer request wr: 0x0 - mem index: 0x0 - vector index: 0x1 - timestep index: 0x1
+268 ns Design data_out result 0x3 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x1 0x0 0x0 0x0 0x0 0x0 0x0 0x0 
+272 ns GBControl TB done !!!
+@1004 ns sc_stop
+TESTBENCH PASS
+Simulation complete, time is 1004000 ps.
+sysc_skeleton.v, 645 : (*vcs_systemc_2,vcs_systemc_skel*) module sc_main;
+Turning FSDB off and flushing
+*Verdi* : Close all FSDB Files at 1,004,000 ps.
+Completed writing FSDB file ./default.fsdb...
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1004000 ps
+CPU Time:      0.460 seconds;       Data structure size:   8.1Mb
+Wed Mar 18 19:17:22 2026

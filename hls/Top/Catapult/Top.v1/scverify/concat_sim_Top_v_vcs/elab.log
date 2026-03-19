@@ -1,0 +1,361 @@
+Command: vcs -full64 +libverbose -lca -psl -cm assert -assert enable_diag -Mdir=scverify/concat_sim_Top_v_vcs -timescale=1ps/1ps -sysc=blocksync -debug_acc+all -debug_region+cell+encrypt -load libnovas.so:FSDBDumpCmd +vcsd +memcbk -sysc=show_sc_main -sysc=233 sc_main -kdb=sysc_elab -o scverify/concat_sim_Top_v_vcs/sc_mainpwr -LDFLAGS  -l scverify/concat_sim_Top_v_vcs/elab.log
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+
+Warning-[LNX_OS_VERUN] Unsupported Linux version
+  Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+  on 'x86_64' officially, assuming linux compatibility by default. Set 
+  VCS_ARCH_OVERRIDE to linux or suse32 to override.
+  Please refer to release notes for information on supported platforms.
+
+
+Warning-[LINX_KRNL] Unsupported Linux kernel
+  Linux kernel '6.14.0-37-generic' is not supported.
+  Supported versions are 2.4* or 2.6*.
+
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS Release Notes
+
+Doing common elaboration 
+
+Warning-[LNX_OS_VERUN] Unsupported Linux version
+  Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+  on 'x86_64' officially, assuming linux compatibility by default. Set 
+  VCS_ARCH_OVERRIDE to linux or suse32 to override.
+  Please refer to release notes for information on supported platforms.
+
+
+Warning-[LINX_KRNL] Unsupported Linux kernel
+  Linux kernel '6.14.0-37-generic' is not supported.
+  Supported versions are 2.4* or 2.6*.
+
+*** Using c compiler gcc instead of cc ...
+                         Chronologic VCS (TM)
+         Version U-2023.03_Full64 -- Wed Mar 18 19:40:21 2026
+
+                    Copyright (c) 1991 - 2023 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+Warning-[VPI-CT-NS] VPI function is not supported
+  The VPI function 'vpi_register_cb' is not supported in the compiler.
+  Please fix the code being referred to by the '-load' compile option.
+
+Top Level Modules:
+       sc_main
+TimeScale is 1 ps / 1 ps
+Starting vcs inline pass...
+
+1 module and 0 UDP read.
+recompiling module sc_main
+make[2]: Entering directory `/home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs' \
+
+
+Warning-[SC-SYSCAN-IDIR] Ignoring nonexistent include dir
+  Ignoring nonexistent include dir 
+  '/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include'.
+  Make sure the directory specified with the '-I <dir>' option is available 
+  and readable.
+
+
+Warning-[SC-SYSCAN-IDIR] Ignoring nonexistent include dir
+  Ignoring nonexistent include dir 
+  '/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include'.
+  Make sure the directory specified with the '-I <dir>' option is available 
+  and readable.
+
+
+Warning-[SC-SYSCAN-IDIR] Ignoring nonexistent include dir
+  Ignoring nonexistent include dir 
+  '/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include'.
+  Make sure the directory specified with the '-I <dir>' option is available 
+  and readable.
+
+
+Warning-[SC-SYSCAN-IDIR] Ignoring nonexistent include dir
+  Ignoring nonexistent include dir 
+  '/cad/mentor/2024.2_1/Mgc_home/shared/pkgs/matchlib_connections/include'.
+  Make sure the directory specified with the '-I <dir>' option is available 
+  and readable.
+
+if [ -x /home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sc_mainpwr_elab \
+]; then chmod a-x /home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sc_mainpwr_elab; \
+fi
+g++  -o /home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sc_mainpwr_elab \
+-Wl,--whole-archive  -Wl,--no-whole-archive -Wl,-rpath,/cad/synopsys/vcs_gnu_package/S-2021.09/gnu_9/linux/gcc-9.2.0_64-shared/lib64 \
+-rdynamic -Wl,-rpath='$ORIGIN'/sc_mainpwr_elab.daidir -Wl,-rpath=./sc_mainpwr_elab.daidir \
+-Wl,-rpath=/cad/synopsys/vcs/U-2023.03/linux64/lib -L/cad/synopsys/vcs/U-2023.03/linux64/lib \
+-L/cad/synopsys/vcs/U-2023.03/linux64/lib/cosim/sysc233-gcc9 -L/cad/synopsys/vcs/U-2023.03/linux64/lib \
+-rdynamic -Wl,-E   -Wl,-whole-archive     -lvcsucli     -Wl,-no-whole-archive  /home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sysc/sysc_globals.o \
+/cad/synopsys/vcs/U-2023.03/linux64/lib/ucli_sysc.o   objs/GdI28_d.o objs/reYIK_d.o \
+amcQwB.o objs/amcQw_d.o    SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o \
+rmar_llvm_0_1.o rmar_llvm_0_0.o       /home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sysc/ccs_wrapper/ccs_wrapper.o \
+/home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sysc/testbench.o \
+/home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sysc/sysc_sim.o \
+/home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sysc/libconcat_sim_Top_v_vcs_sysc_stubs.a \
+-lerrorinf -lsnpsmalloc -lvfs -lsysctli -lbfSim -lbfCbug -lsystemc233-gcc9-64 -lvirsim \
+-lvcsnew -lvcsucli -lsimprofile -luclinative /cad/synopsys/vcs/U-2023.03/linux64/lib/vcs_tls.o \
+_vcs_pli_stub_.o   /cad/synopsys/vcs/U-2023.03/linux64/lib/vcs_save_restore_new.o \
+/cad/synopsys/verdi/V-2023.12-SP2-4/share/PLI/VCS/LINUX64/pli.a -ldl -lm  -lc -lpthread \
+-ldl 
+/home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sc_mainpwr_elab \
+up to date
+make[2]: Leaving directory `/home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs' \
+
+CPU time: .539 seconds to compile + .256 seconds to elab + 5.929 seconds to link
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+================================
+SETTING RANDOM SEED = 19650218
+================================
+1.75
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+
+Warning-[LNX_OS_VERUN] Unsupported Linux version
+  Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+  on 'x86_64' officially, assuming linux compatibility by default. Set 
+  VCS_ARCH_OVERRIDE to linux or suse32 to override.
+  Please refer to release notes for information on supported platforms.
+
+
+Warning-[LINX_KRNL] Unsupported Linux kernel
+  Linux kernel '6.14.0-37-generic' is not supported.
+  Supported versions are 2.4* or 2.6*.
+
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS Release Notes
+
+Doing common elaboration 
+
+Warning-[LNX_OS_VERUN] Unsupported Linux version
+  Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+  on 'x86_64' officially, assuming linux compatibility by default. Set 
+  VCS_ARCH_OVERRIDE to linux or suse32 to override.
+  Please refer to release notes for information on supported platforms.
+
+
+Warning-[LINX_KRNL] Unsupported Linux kernel
+  Linux kernel '6.14.0-37-generic' is not supported.
+  Supported versions are 2.4* or 2.6*.
+
+*** Using c compiler gcc instead of cc ...
+                         Chronologic VCS (TM)
+         Version U-2023.03_Full64 -- Wed Mar 18 19:40:36 2026
+
+                    Copyright (c) 1991 - 2023 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+
+Warning-[VPI-CT-NS] VPI function is not supported
+  The VPI function 'vpi_register_cb' is not supported in the compiler.
+  Please fix the code being referred to by the '-load' compile option.
+
+Top Level Modules:
+       sc_main
+TimeScale is 1 ps / 1 ps
+Starting vcs inline pass...
+
+112 modules and 0 UDP read.
+recompiling module sc_main
+recompiling module sysc$testbench
+recompiling module sysc$ManagerFromFile<spec::Axi::axiCfg,...>
+recompiling module sysc$CCS_RTL::sysc_sim_wrapper
+recompiling module Top_GBPartition
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_65_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_66_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_67_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_68_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_69_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_70_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_71_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_72_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_73_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_74_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_75_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_76_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_77_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_78_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_79_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_80_12_128_4096_1_4096_128_1_gen
+recompiling module Top_GBPartition_GBModule_GBCore_mgc_shift_l_v5
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_GBCoreRun_rva_in_large_PopNB_mioi
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_GBCoreRun_nmp_large_req_PopNB_mioi
+recompiling module Top_GBPartition_GBModule_GBCore_Connections_InBlocking_spec_GB_Large_DataReq_Connections_SYN_PORT_PopNB
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_GBCoreRun_gbcontrol_large_req_PopNB_mioi
+recompiling module Top_GBPartition_GBModule_GBCore_GBCore_GBCoreRun_wait_dp
+recompiling module Top_GBPartition_GBModule_NMP
+recompiling module Top_GBPartition_GBModule_NMP_mgc_mul2add1_pipe
+recompiling module Top_GBPartition_GBModule_NMP_mgc_mul_pipe
+recompiling module Top_GBPartition_GBModule_NMP_mgc_shift_br_v5
+recompiling module Top_GBPartition_GBModule_NMP_leading_sign_40_0
+recompiling module Top_GBPartition_GBModule_NMP_mgc_shift_bl_v5
+recompiling module Top_GBPartition_GBModule_NMP_mgc_shift_l_v5
+recompiling module Top_GBPartition_GBModule_NMP_NMP_NMPRun_rva_in_PopNB_mioi
+recompiling module Top_GBPartition_GBModule_NMP_NMP_NMPRun_large_req_Push_mioi
+recompiling module Top_GBPartition_GBModule_NMP_NMP_NMPRun_rva_out_Push_mioi
+recompiling module Top_GBPartition_GBModule_NMP_NMP_NMPRun_wait_dp
+recompiling module Top_GBPartition_GBModule_GBControl
+recompiling module Top_GBPartition_GBModule_GBControl_GBControl_GBControlRun_large_req_Push_mioi
+recompiling module Top_GBPartition_GBModule_GBControl_GBControl_GBControlRun_data_in_PopNB_mioi
+recompiling module Top_GBPartition_GBModule_GBControl_GBControl_GBControlRun_rva_in_PopNB_mioi
+recompiling module Top_GBPartition_GBModule_GBControl_GBControl_GBControlRun_rva_out_Push_mioi
+recompiling module Top_GBPartition_GBModule_GBModule_RVAInRun
+recompiling module Top_GBPartition_GBModule_GBModule_RVAOutRun
+recompiling module Top_GBPartition_GBModule_GBModule_GBDoneRun
+recompiling module Top_GBPartition_AxiSubordinateToReadyValid_spec_Axi_axiCfg_spec_Axi_rvaCfg
+recompiling module Top_GBPartition_AxiSubordinateToReadyValid_spec_Axi_axiCfg_spec_Axi_rvaCfg_run_if_axi_rd_ar_PopNB_mioi
+recompiling module Top_GBPartition_AxiSubordinateToReadyValid_spec_Axi_axiCfg_spec_Axi_rvaCfg_run_if_axi_wr_aw_PopNB_mioi
+recompiling module Top_GBPartition_AxiSubordinateToReadyValid_spec_Axi_axiCfg_spec_Axi_rvaCfg_run_if_rv_wr_Push_mioi
+50 of 112 modules done
+recompiling module Top_GBPartition_AxiSubordinateToReadyValid_spec_Axi_axiCfg_spec_Axi_rvaCfg_run_if_axi_wr_w_PopNB_mioi
+recompiling module Top_AxiSplitter_spec_Axi_axiCfg_2_32_false_false_run_r_axi_rd_m_ar_PopNB_mioi
+recompiling module Top_AxiSplitter_spec_Axi_axiCfg_2_32_false_false_run_r_a0_a_PopNB_mioi
+recompiling module Top_Connections_InBlocking_axi_axi4_spec_Axi_axiCfg_ReadPayload_Connections_SYN_PORT_PopNB
+recompiling module Top_AxiSplitter_spec_Axi_axiCfg_2_32_false_false_run_r_a1_a_PopNB_mioi
+recompiling module Top_AxiSplitter_spec_Axi_axiCfg_2_32_false_false_run_r_axi_rd_m_r_Push_mioi
+recompiling module Top_AxiSplitter_spec_Axi_axiCfg_2_32_false_false_run_w
+recompiling module Top_AxiSplitter_spec_Axi_axiCfg_2_32_false_false_run_w_axi_wr_m_aw_PopNB_mioi
+recompiling module Top_AxiSplitter_spec_Axi_axiCfg_2_32_false_false_run_w_axi_wr_m_w_PopNB_mioi
+recompiling module Top_AxiSplitter_spec_Axi_axiCfg_2_32_false_false_run_w_a0_a_PopNB_mio_1i
+recompiling module Top_AxiSplitter_spec_Axi_axiCfg_2_32_false_false_run_w_a1_a_PopNB_mio_1i
+recompiling module Top_PEStart
+recompiling module Top_PEDone
+recompiling module Top_GBSend
+recompiling module Top_GBRecv
+recompiling module Top_GBRecv_Run_data_in_PopNB_mioi
+recompiling module Top_Interrupt
+recompiling module Top_PEPartition
+recompiling module Top_PEPartition_PEModule_PECore
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_137_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_138_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_139_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_140_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_141_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_142_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_143_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_144_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_145_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_146_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_147_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_148_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_149_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_150_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_151_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_PECore_Xilinx_RAMS_BLOCK_1R1W_RBW_rwport_en_152_13_128_8192_1_8192_128_1_gen
+recompiling module Top_PEPartition_PEModule_PECore_mgc_shift_l_v5
+recompiling module Top_PEPartition_PEModule_PECore_ACC_17i31_1o31_35d03a7c76a8394e7c510c9fae810dcdee
+recompiling module Top_PEPartition_PEModule_PECore_PECore_PECoreRun_rva_in_PopNB_mioi
+recompiling module Top_PEPartition_PEModule_PECore_PECore_PECoreRun_input_port_PopNB_mioi
+recompiling module Top_PEPartition_PEModule_PECore_PECore_PECoreRun_wait_dp
+recompiling module Top_PEPartition_PEModule_ActUnit
+recompiling module Top_PEPartition_PEModule_ActUnit_ActUnit_ActUnitRun_rva_in_PopNB_mioi
+recompiling module Top_PEPartition_PEModule_ActUnit_ActUnit_ActUnitRun_ActUnitRun_fsm
+recompiling module Top_PEPartition_AxiSubordinateToReadyValid_spec_Axi_axiCfg_spec_Axi_rvaCfg
+recompiling module Top_PEPartition_AxiSubordinateToReadyValid_spec_Axi_axiCfg_spec_Axi_rvaCfg_run_if_axi_rd_ar_PopNB_mioi
+recompiling module Top_PEPartition_AxiSubordinateToReadyValid_spec_Axi_axiCfg_spec_Axi_rvaCfg_run_if_axi_wr_aw_PopNB_mioi
+recompiling module Top_PEPartition_AxiSubordinateToReadyValid_spec_Axi_axiCfg_spec_Axi_rvaCfg_run_if_rv_wr_Push_mioi
+recompiling module Top_PEPartition_AxiSubordinateToReadyValid_spec_Axi_axiCfg_spec_Axi_rvaCfg_run_if_axi_wr_w_PopNB_mioi
+recompiling module sysc$Source
+recompiling module sysc$Dest
+100 of 112 modules done
+recompiling module sysc$Connections::Combinational<axi::axi4<spec::Axi::axiCfg>::AddrPayload,...>
+recompiling module sysc$Connections::Combinational<axi::axi4<spec::Axi::axiCfg>::AddrPayload,...>::DummyPortManager
+recompiling module sysc$Connections::Combinational<axi::axi4<spec::Axi::axiCfg>::ReadPayload,...>
+recompiling module sysc$Connections::Combinational<axi::axi4<spec::Axi::axiCfg>::ReadPayload,...>::DummyPortManager
+recompiling module sysc$Connections::Combinational<axi::axi4<spec::Axi::axiCfg>::WritePayload,...>
+recompiling module sysc$Connections::Combinational<axi::axi4<spec::Axi::axiCfg>::WritePayload,...>::DummyPortManager
+recompiling module sysc$Connections::Combinational<axi::axi4<spec::Axi::axiCfg>::WRespPayload,...>
+recompiling module sysc$Connections::Combinational<axi::axi4<spec::Axi::axiCfg>::WRespPayload,...>::DummyPortManager
+recompiling module sysc$Connections::DirectToMarshalledInPort<axi::axi4<spec::Axi::axiCfg>::AddrPayload>
+recompiling module sysc$Connections::DirectToMarshalledInPort<axi::axi4<spec::Axi::axiCfg>::WritePayload>
+recompiling module sysc$Connections::MarshalledToDirectOutPort<axi::axi4<spec::Axi::axiCfg>::WRespPayload>
+recompiling module sysc$Connections::MarshalledToDirectOutPort<axi::axi4<spec::Axi::axiCfg>::ReadPayload>
+All of 112 modules done
+make[2]: Entering directory `/home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs' \
+
+if [ -x /home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sc_mainpwr \
+]; then chmod a-x /home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sc_mainpwr; \
+fi
+g++  -o /home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sc_mainpwr \
+-Wl,--whole-archive  -Wl,--no-whole-archive -Wl,-rpath,/cad/synopsys/vcs_gnu_package/S-2021.09/gnu_9/linux/gcc-9.2.0_64-shared/lib64 \
+-rdynamic -Wl,-rpath='$ORIGIN'/sc_mainpwr.daidir -Wl,-rpath=./sc_mainpwr.daidir -Wl,-rpath=/cad/synopsys/vcs/U-2023.03/linux64/lib \
+-L/cad/synopsys/vcs/U-2023.03/linux64/lib -L/cad/synopsys/vcs/U-2023.03/linux64/lib/cosim/sysc233-gcc9 \
+-L/cad/synopsys/vcs/U-2023.03/linux64/lib -rdynamic -Wl,-E   -Wl,-whole-archive  \
+-lvcsucli     -Wl,-no-whole-archive  /home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sysc/sysc_globals.o \
+/cad/synopsys/vcs/U-2023.03/linux64/lib/ucli_sysc.o   objs/iZcvQ_d.o objs/v1ggZ_d.o \
+objs/Yi25g_d.o objs/gHCvb_d.o objs/w1QIf_d.o objs/qa2ez_d.o objs/VZiRc_d.o objs/QJkKz_d.o \
+objs/gsTwP_d.o objs/TRkDj_d.o objs/Ybibi_d.o objs/MESY0_d.o objs/af94q_d.o objs/YhEea_d.o \
+objs/UQbV7_d.o objs/s8AZm_d.o objs/uvv8Z_d.o objs/CLdBB_d.o objs/sJrKt_d.o objs/UnY09_d.o \
+objs/MQB9A_d.o objs/DfCCR_d.o objs/hrQY9_d.o objs/zcL7R_d.o objs/JhQ2f_d.o objs/HjUfn_d.o \
+objs/pgxNr_d.o objs/eqMAr_d.o objs/pBadY_d.o objs/Sxi3L_d.o objs/d0Ijs_d.o objs/CZdtt_d.o \
+objs/vw7Rd_d.o objs/DR8w0_d.o objs/Ejrtu_d.o objs/tggtK_d.o objs/wzZVY_d.o objs/GdI28_d.o \
+objs/BY7aC_d.o objs/gAckT_d.o objs/RTfaJ_d.o objs/jEvIh_d.o objs/HbYba_d.o objs/K1yb7_d.o \
+objs/SC0U2_d.o objs/B8Nt2_d.o objs/JdB5Z_d.o objs/reYIK_d.o objs/xQh9B_d.o objs/uaEDC_d.o \
+objs/f3n4s_d.o objs/KZtJQ_d.o objs/SF64x_d.o objs/ntvWN_d.o objs/iBY1c_d.o objs/evEUg_d.o \
+objs/rBscB_d.o objs/s2hvQ_d.o objs/Zcaiu_d.o objs/nufJf_d.o objs/zCiHG_d.o objs/wTe6s_d.o \
+objs/yZqFM_d.o objs/BBzn4_d.o objs/AJe7u_d.o objs/D6TMz_d.o objs/C7WJw_d.o objs/eds89_d.o \
+objs/mk1h3_d.o objs/dBAzL_d.o objs/u9Rig_d.o objs/FnRQb_d.o objs/Ttctp_d.o objs/rGPcU_d.o \
+objs/i6F4A_d.o objs/nzhqN_d.o objs/MsKwC_d.o objs/SGzzD_d.o objs/LLaKH_d.o objs/CJemH_d.o \
+objs/jg5F8_d.o objs/nNiUn_d.o objs/A1esa_d.o objs/DqKak_d.o objs/Hw53B_d.o objs/w5k5I_d.o \
+objs/QgafW_d.o amcQwB.o objs/amcQw_d.o objs/Rbjxy_d.o objs/NnArZ_d.o objs/QmkiC_d.o \
+objs/Htks9_d.o objs/PfyGY_d.o objs/fF20a_d.o objs/QBEdj_d.o objs/Ffa7p_d.o objs/T5M6k_d.o \
+objs/Q8uSS_d.o objs/TzzbZ_d.o objs/wUVF4_d.o objs/izbTM_d.o objs/I4U43_d.o objs/TkN5Z_d.o \
+objs/HCJhK_d.o objs/EhGrC_d.o objs/rFSKF_d.o objs/m6nmW_d.o objs/gaQar_d.o objs/bPz5d_d.o \
+objs/Sm9wp_d.o objs/dera7_d.o objs/uzphm_d.o objs/gM5g6_d.o objs/xu0x0_d.o objs/cQJQU_d.o \
+objs/ZAhsp_d.o objs/hCWtU_d.o    SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o \
+rmar_llvm_0_1.o rmar_llvm_0_0.o       /home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sysc/ccs_wrapper/ccs_wrapper.o \
+/home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sysc/testbench.o \
+/home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sysc/sysc_sim.o \
+/home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sysc/libconcat_sim_Top_v_vcs_sysc_stubs.a \
+-lerrorinf -lsnpsmalloc -lvfs -lsysctli -lbfSim -lbfCbug -lsystemc233-gcc9-64 -lvirsim \
+-lvcsnew -lvcsucli -lsimprofile -lreader_common /cad/synopsys/vcs/U-2023.03/linux64/lib/libBA.a \
+-luclinative /cad/synopsys/vcs/U-2023.03/linux64/lib/vcs_tls.o          _vcs_pli_stub_.o \
+/cad/synopsys/vcs/U-2023.03/linux64/lib/vcs_save_restore_new.o /cad/synopsys/verdi/V-2023.12-SP2-4/share/PLI/VCS/LINUX64/pli.a \
+-ldl -lm  -lc -lpthread -ldl 
+/home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs/sc_mainpwr \
+up to date
+make[2]: Leaving directory `/home/users/code/cs217/hls/Top/Catapult/Top.v1/scverify/concat_sim_Top_v_vcs' \
+
+CPU time: 22.452 seconds to compile + .648 seconds to elab + 2.005 seconds to link
+
+Note-[SC-UFE-1] Elaborating KDB
+  The simulation contains SystemC. VCS will now try elaborating KDB, because 
+  '-kdb=sysc_elab' is specified.
+  To disable this step, please stop adding '-kdb=sysc_elab' switch.
+
+Verdi KDB elaboration done and the database successfully generated: 0 error(s), 0 warning(s)
