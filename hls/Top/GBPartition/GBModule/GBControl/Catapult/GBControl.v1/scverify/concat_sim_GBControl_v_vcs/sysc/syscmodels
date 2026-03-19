@@ -1,4 +1,0 @@
-MODELS_concat_sim_GBControl_v_vcs = \
-	ccs_wrapper/ccs_wrapper \
-	testbench \
-	sysc_sim \

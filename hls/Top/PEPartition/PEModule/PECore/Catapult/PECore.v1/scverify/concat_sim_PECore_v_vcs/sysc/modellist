@@ -1,4 +1,0 @@
-MODELS = \
-	ccs_wrapper/ccs_wrapper \
-	testbench \
-	sysc_sim \
