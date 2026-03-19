@@ -1,0 +1,27 @@
+List of CLB Tiles
+CLEM_X49Y457
+CLEL_R_X49Y457
+CLEM_X64Y427
+CLEM_X57Y157
+CLEL_R_X57Y157
+CLEL_R_X56Y468
+CLEL_R_X56Y470
+CLEM_X55Y196
+CLEL_R_X55Y196
+CLEL_L_X50Y191
+CLEL_R_X50Y191
+CLEL_L_X50Y192
+CLEL_R_X50Y192
+CLEL_L_X44Y136
+CLEL_R_X44Y136
+CLEM_X40Y175
+CLEL_R_X40Y175
+
+List of Congested Nets
+WRAPPER/CL/u_top/gb_inst/gbmodule_inst/nmp_inst/NMP_NMPRun_inst/while_Connections_InBlocking_RVSink_spec_Axi_rvaCfg_Write_Connections_SYN_PORT_PopNB_return_sva_st_7_reg_0
+WRAPPER/CL/u_top/gb_inst/gbmodule_inst/nmp_inst/NMP_NMPRun_inst/exp_values_5_sva_reg[31]_1[1]
+WRAPPER/CL/u_top/gb_inst/gbmodule_inst/nmp_inst/NMP_NMPRun_inst/sum_exp_39_4_sva_st_1_reg[23]_i_25_n_8
+WRAPPER/CL/u_top/gb_inst/gbmodule_inst/nmp_inst/NMP_NMPRun_inst/NMP_ComputeSoftmaxSum_for_acc_9_itm_1[15]
+WRAPPER/CL/u_top/PEPartition_1/pemodule_inst/pecore_inst/weight_mem_banks_bank_a1_a1_a0_a1_a_rsc_comp/weight_mem_banks_bank_a1_a1_a0_a1_a_rsci_q_d[97]
+WRAPPER/CL/u_top/PEPartition_1/pemodule_inst/pecore_inst/weight_mem_banks_bank_a1_a1_a1_a1_a_rsc_comp/weight_mem_banks_bank_a1_a1_a1_a1_a_rsci_q_d[97]
+

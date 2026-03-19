@@ -1,0 +1,146 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Thu Mar 19 06:07:07 2026
+# Process ID: 338320
+# Current directory: /home/ubuntu/cs217/design_top/build/scripts
+# Command line: vivado -mode batch -source build_all.tcl -log 2026_03_19-060706.vivado.log -tclargs SSI_SpreadLogic_high AggressiveExplore AggressiveExplore A1 B2 C0 H2
+# Log file: /home/ubuntu/cs217/design_top/build/scripts/2026_03_19-060706.vivado.log
+# Journal file: /home/ubuntu/cs217/design_top/build/scripts/vivado.jou
+# Running On        :ip-172-31-91-250
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 20.04.6 LTS
+# Processor Detail  :AMD EPYC 7R13 Processor
+# CPU Frequency     :2650.000 MHz
+# CPU Physical cores:12
+# CPU Logical cores :24
+# Host memory       :268108 MB
+# Swap memory       :10737 MB
+# Total Virtual     :278846 MB
+# Available Virtual :276925 MB
+#-----------------------------------------------------------
+source build_all.tcl
+# proc print {message} {
+#     set prefix "\nAWS FPGA: ([clock format [clock seconds] -format %T]): "
+#     append output $prefix $message "\n"
+#     puts $output
+# }
+# proc check_timing_path { {verbose 1} } {
+# 
+#   set setupPaths [get_timing_paths -max_paths 1 -slack_lesser_than 0 -setup]
+#   set holdPaths  [get_timing_paths -max_paths 1 -slack_lesser_than 0 -hold]
+# 
+#   if {$verbose>0} {
+#     print "Checking the negative slack path of the existing design"
+#   }
+# 
+#   if {[llength $setupPaths] == 0 && [llength $holdPaths] == 0} {
+#     if {$verbose>0} {
+#       print "SUCCESS: Design has no negative slack path"
+#     }
+#     return 0
+#   } else {
+#     if {$verbose>0} {
+#       print "CRITICAL WARNING: Found $setupPaths negative setup slack paths and $holdPaths negative hold slack hold paths"
+#     }
+#     return 1
+#   }
+# }
+# proc create_dir {name path {verbose 0}} {
+# 
+#     # Better to use absolute path
+#     set cur [pwd]
+#     # Check if the $path exists
+#     if {![file isdirectory $path]} {
+#         error "$path doesn't exist"
+#     }
+#     cd $path
+#     set path_abs [pwd]
+# 
+#     cd $cur
+#     # Check and create the directory if not exists
+#     if {![file isdirectory $path_abs/$name]} {
+#         file mkdir $path_abs/$name
+#         if {$verbose>0} {
+#             print "Creating new folder $path_abs/$name"
+#         }
+#     } elseif {$verbose>0} {
+#         print "Found existing folder $path_abs/$name. Folder creation skipped"
+#     }
+#     return $path_abs/$name
+# }
+# proc display_proj {} {
+#     global VIVADO_TOOL_VERSION
+#     global CL
+#     global SHELL_MODE
+#     global BUILD_FLOW
+#     global PLACE_DIRECT
+#     global PHY_OPT_DIRECT
+#     global ROUTE_DIRECT
+#     global TAG
+#     global clock_recipe_a
+#     global clock_recipe_b
+#     global clock_recipe_c
+#     global clock_recipe_hbm
+# 
+# 
+#     set rpt "
+#     ==================================================
+#     Running CL builds w/ updated build tag
+#     ==================================================
+#     vivado_tool      : $VIVADO_TOOL_VERSION
+#     cl               : $CL
+#     mode             : $SHELL_MODE
+#     clock_recipe_a   : $clock_recipe_a
+#     clock_recipe_b   : $clock_recipe_b
+#     clock_recipe_c   : $clock_recipe_c
+#     clock_recipe_hbm : $clock_recipe_hbm
+#     flow             : $BUILD_FLOW
+#     place_direct     : $PLACE_DIRECT
+#     phy_opt_direct   : $PHY_OPT_DIRECT
+#     route_direct     : $ROUTE_DIRECT
+#     build_tag        : $TAG
+#     ==================================================
+#     "
+#     puts "$rpt"
+# }
+# set PLACE_DIRECT     [lindex $argv 0]
+# set PHY_OPT_DIRECT   [lindex $argv 1]
+# set ROUTE_DIRECT     [lindex $argv 2]
+# set clock_recipe_a   [lindex $argv 3]
+# set clock_recipe_b   [lindex $argv 4]
+# set clock_recipe_c   [lindex $argv 5]
+# set clock_recipe_hbm [lindex $argv 6]
+# set DEVICE_TYPE "xcvu47p-fsvh2892-2-e"
+# if { [info exists ::env(BUILD_FLOW)] } {
+#   set BUILD_FLOW $::env(BUILD_FLOW)
+# } else {
+#   set BUILD_FLOW "BuildAll"
+# }
+# if { [info exists ::env(CL)] } {
+#   set CL $::env(CL)
+# } else {
+#   set CL "cl_dram_hbm_dma"
+# }
+# if { [info exists ::env(SHELL_MODE)] } {
+#   set SHELL_MODE $::env(SHELL_MODE)
+# } else {
+#   set SHELL_MODE "xdma_shell"
+# }
+# if { [info exists ::env(BUILD_TAG)] } {
+#   set TAG $::env(BUILD_TAG)
+# } else {
+#   set TAG "00_00_0000-999999"
+# }
+# if { [info exists ::env(HDK_SHELL_DIR)] } {
+#     set HDK_SHELL_DIR $::env(HDK_SHELL_DIR)
+# } else {
+#     print "ERROR: HDK_SHELL_DIR not set. Please run hdk_setup.sh to set required env variables."
+#     exit
+# }
+
+AWS FPGA: (06:07:09): ERROR: HDK_SHELL_DIR not set. Please run hdk_setup.sh to set required env variables.
+
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 19 06:07:09 2026...

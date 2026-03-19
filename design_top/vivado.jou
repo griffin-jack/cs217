@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Thu Mar 19 02:48:15 2026
-# Process ID: 118082
+# Start of session at: Thu Mar 19 18:47:14 2026
+# Process ID: 4306
 # Current directory: /home/ubuntu/cs217/design_top
 # Command line: vivado -mode tcl
 # Log file: /home/ubuntu/cs217/design_top/vivado.log
@@ -13,14 +13,14 @@
 # Platform          :Ubuntu
 # Operating System  :Ubuntu 20.04.6 LTS
 # Processor Detail  :AMD EPYC 7R13 Processor
-# CPU Frequency     :2650.000 MHz
+# CPU Frequency     :2649.998 MHz
 # CPU Physical cores:12
 # CPU Logical cores :24
 # Host memory       :268108 MB
 # Swap memory       :10737 MB
 # Total Virtual     :278846 MB
-# Available Virtual :276817 MB
+# Available Virtual :276796 MB
 #-----------------------------------------------------------
-open_checkpoint build/checkpoints/design_top.2026_03_19-004829.post_route.dcp
-report_utilization -hierarchical -file /home/ubuntu/cs217/design_top/build/reports/design_top.2026_03_19-004829.post_route_utilization.rpt
-report_power -file /home/ubuntu/cs217/design_top/build/reports/design_top.2026_03_19-004829.post_route_power_vectorless.rpt
+open_checkpoint build/checkpoints/design_top.2026_03_19-060928.post_route.dcp
+report_utilization -hierarchical -file build/reports/design_top.2026_03_19-060928.post_route_utilization.rpt
+report_power -file build/reports/design_top.2026_03_19-060928.post_route_power_vectorless.rpt
