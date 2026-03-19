@@ -1,0 +1,6 @@
+RADIX hex
+CDEBUG 0
+DEBUGVARS {}
+WAVELIST {{Sync_Signals CTRL clk clk {}} {Sync_Signals CTRL rst rst {}} {DUT {} start_vld start_vld {}} {DUT {} start_rdy start_rdy {}} {DUT {} start_dat start_dat {}} {DUT {} act_port_vld act_port_vld {}} {DUT {} act_port_rdy act_port_rdy {}} {DUT {} act_port_dat act_port_dat {}} {DUT {} rva_in_vld rva_in_vld {}} {DUT {} rva_in_rdy rva_in_rdy {}} {DUT {} rva_in_dat rva_in_dat {}} {DUT {} rva_out_vld rva_out_vld {}} {DUT {} rva_out_rdy rva_out_rdy {}} {DUT {} rva_out_dat rva_out_dat {}} {DUT {} output_port_vld output_port_vld {}} {DUT {} output_port_rdy output_port_rdy {}} {DUT {} output_port_dat output_port_dat {}} {DUT {} done_vld done_vld {}} {DUT {} done_rdy done_rdy {}} {DUT {} done_dat done_dat {}} {Active_Processes ActUnitRun.wen ActUnit_ActUnitRun_inst ActUnit_ActUnitRun_inst/ActUnit_ActUnitRun_staller_inst/ActUnitRun_wen {}}}
+DUTINST ActUnit
+STALL_CTRLS_ADDED 1

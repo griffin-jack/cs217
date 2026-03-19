@@ -153,7 +153,7 @@ SC_MODULE(Orchestrator) {
         }
 
         std::cout << "\n=== HARDWARE INIT (PART 2: SWAPPING WEIGHTS) ===" << std::endl;
-        load_w(fc2_w, VECS_1536, VECS_384, 0); // OVERWRITE FC1 at Address 0!
+        load_w(fc2_w, VECS_1536, VECS_384, 0);
 
         int errors = 0;
         std::cout << "\n=== PHASE 5-6: Final Processing & Verification ===" << std::endl;
@@ -171,7 +171,7 @@ SC_MODULE(Orchestrator) {
                 act_port.Push(get_vec(ls2, v)); act_port.Push(x_tok_promoted_buf[t*VECS_384 + v]);
                 spec::StreamType hw_final = act_out.Pop();
                 
-                // Live Verification
+                // Verification
                 for (int i = 0; i < 16; i++) {
                     int h_val = (int8_t)hw_final.data[i].to_int(); 
                     int g_val = gold[t*VECS_384*16 + v*16 + i];
@@ -188,7 +188,6 @@ SC_MODULE(Orchestrator) {
     }
 };
 
-// Safe AXI Response Garbage Collector
 SC_MODULE(Sink) {
     sc_in<bool> clk, rst;
     Connections::In<spec::Axi::SubordinateToRVA::Read> pe_rva_out, act_rva_out;
